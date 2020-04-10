@@ -10,11 +10,12 @@
     <Window.Resources>
         <Style TargetType="{x:Type ComboBox}">
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Year supply of fairy cakes"/>
+            <Setter Property="FontFamily" Value="Toledo"/>
             <Setter Property="Foreground" Value="RoyalBlue"/>
             <Setter Property="FontStretch" Value="Condensed"/>
             <Setter Property="BorderBrush" Value="Red"/>
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
 
     </Window.Resources>
@@ -134,8 +135,15 @@
         </WrapPanel>
         <ScrollViewer>
             <ListBox DockPanel.Dock="Left" Background="#FF237CC7">
-                <Image Source="img/Minecraft.jpg" MaxHeight="200" MaxWidth="110"></Image>
-                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"></Image>
+                <StackPanel>
+                    <Image Source="img/Minecraft.jpg" MaxHeight="200" MaxWidth="110"></Image>
+                    <TextBlock Text="Minecraft" FontFamily="AcmeFont" FontSize="24" />
+                </StackPanel>
+                <StackPanel>
+                    <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"></Image>
+                    <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+                </StackPanel>
+               
             </ListBox>
         </ScrollViewer>
 
