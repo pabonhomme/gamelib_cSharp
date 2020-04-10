@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PageAccueil
+namespace GameLib_Projet
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
