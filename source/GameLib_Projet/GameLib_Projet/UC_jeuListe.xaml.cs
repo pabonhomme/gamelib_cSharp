@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace GameLib_Projet
 {
     /// <summary>
-    /// Logique d'interaction pour UserControl1.xaml
+    /// Logique d'interaction pour UC_jeuListe.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class UC_jeuListe : UserControl
     {
-        public UserControl1()
+        public UC_jeuListe()
         {
             InitializeComponent();
         }
