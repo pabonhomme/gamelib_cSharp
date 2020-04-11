@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="600">
     <StackPanel>
-        
-        <Image Source="img/Minecraft.jpg" MaxHeight="200" MaxWidth="110"></Image>
+        <Image Source="img/Minecraft.jpg" MaxHeight="200" MaxWidth="110"/>
         <TextBlock Text="Minecraft" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center" />
     </StackPanel>
     
+
 </UserControl>
