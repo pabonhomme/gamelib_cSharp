@@ -139,13 +139,11 @@
             <ListBox DockPanel.Dock="Left" Background="#FF237CC7">
 
                 <local:UC_jeuListe/>
+                
                 <StackPanel>
                     <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
                     <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
                 </StackPanel>
-
-                
-
             </ListBox>
         </ScrollViewer>
 
