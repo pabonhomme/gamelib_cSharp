@@ -10,7 +10,7 @@
         Title="MainWindow" Height="600" Width="1024">
 
     <Window.Resources>
-        <Style TargetType="{x:Type ComboBox}">
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="Toledo"/>
             <Setter Property="Foreground" Value="RoyalBlue"/>
@@ -28,7 +28,7 @@
                 <Image Source="img/logo.png" Width="100" Height="80"/>
             </Button>
             <StackPanel Orientation="Horizontal" Margin="100, 0, 0, 0">
-                <ComboBox Margin="10" SelectedIndex="0" >
+                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Genre">
                     <ComboBox.Background>
                         <LinearGradientBrush EndPoint="0,1">
                             <GradientStop Color="#FFF0F0F0"/>
@@ -44,6 +44,12 @@
                 </ComboBox>
 
                 <ComboBox Margin="10" Width="auto" SelectedIndex="0">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
                     <ComboBoxItem Content="Limite d'âge"/>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
@@ -78,6 +84,12 @@
 
                 </ComboBox>
                 <ComboBox Margin="10" Width="100" SelectedIndex="0">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
                     <ComboBoxItem Content="Note"/>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
@@ -121,7 +133,13 @@
                     </ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10" Width="200"  >
+                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10" Width="auto" >
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
 
                     <ComboBoxItem Content="PC"/>
                     <ComboBoxItem Content="PS4"/>
@@ -129,6 +147,12 @@
                 </ComboBox>
 
                 <ComboBox Margin="10" Width="auto" SelectedIndex="0">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
                     <ComboBoxItem Content="Favoris"/>
                     <ComboBoxItem Content="Favoris"/>
                     <ComboBoxItem Content="Oui"/>
