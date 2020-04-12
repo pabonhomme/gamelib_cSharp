@@ -13,9 +13,9 @@
         <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="Toledo"/>
-            <Setter Property="Foreground" Value="RoyalBlue"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontStretch" Value="Condensed"/>
-            <Setter Property="BorderBrush" Value="Red"/>
+            <Setter Property="BorderBrush" Value="#3A5199"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="FontSize" Value="20"/>
         </Style>
@@ -23,19 +23,13 @@
     </Window.Resources>
 
     <DockPanel>
-        <WrapPanel DockPanel.Dock="Top" Background="#FF237CC7">
-            <Button Background="#FF237CC7" Height="100" Opacity="0.995">
+        <WrapPanel DockPanel.Dock="Top" Background="#2F2E33">
+            <Button Background="#2F2E33" Height="100">
                 <Image Source="img/logo.png" Width="100" Height="80"/>
             </Button>
-            <StackPanel Orientation="Horizontal" Margin="100, 0, 0, 0">
+            <StackPanel Orientation="Horizontal" Margin="50, 0, 0, 0">
                 <ComboBox Margin="10" materialDesign:HintAssist.Hint="Genre">
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                    <ComboBoxItem Content="Genre"/>
+                    
                     <ComboBoxItem Content="Aventure"/>
                     <ComboBoxItem Content="Action"/>
                     <ComboBoxItem Content="Combat"/>
@@ -43,14 +37,7 @@
                     <ComboBoxItem Content="RPG"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" Width="auto" SelectedIndex="0">
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                    <ComboBoxItem Content="Limite d'âge"/>
+                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Limite d'âge">
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi3.jpg" Height="20"/>
@@ -83,14 +70,8 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                <ComboBox Margin="10" Width="100" SelectedIndex="0">
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                    <ComboBoxItem Content="Note"/>
+                <ComboBox Margin="10" Width="auto" materialDesign:HintAssist.Hint="Note">
+                    
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/etoile.png" Height="20"/>
@@ -134,43 +115,44 @@
                 </ComboBox>
 
                 <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10" Width="auto" >
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
+                    
 
                     <ComboBoxItem Content="PC"/>
                     <ComboBoxItem Content="PS4"/>
                     <ComboBoxItem Content="Xbox One"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" Width="auto" SelectedIndex="0">
-                    <ComboBox.Background>
-                        <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FFE5E5E5" Offset="1"/>
-                        </LinearGradientBrush>
-                    </ComboBox.Background>
-                    <ComboBoxItem Content="Favoris"/>
-                    <ComboBoxItem Content="Favoris"/>
+                <ComboBox Margin="10" Width="auto" materialDesign:HintAssist.Hint="Favoris">
+                    
                     <ComboBoxItem Content="Oui"/>
                     <ComboBoxItem Content="Non"/>
                 </ComboBox>
 
             </StackPanel>
+            <TextBox x:Name="boxRecherche" Margin="20" MaxHeight="20" Width="100" Background="White"></TextBox>
         </WrapPanel>
-        
-        <WrapPanel DockPanel.Dock="Bottom" Background="#FF237CC7" Height="50">
+
+        <WrapPanel DockPanel.Dock="Bottom" Background="#2F2E33" Height="50">
             
         </WrapPanel>
 
-            <ListBox DockPanel.Dock="Left" Background="#FF237CC7" HorizontalContentAlignment="Stretch">
+        <ListBox DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" BorderThickness="1" BorderBrush="Black">
 
                 <local:UC_jeuListe/>
+            <StackPanel>
+                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
+                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
                 <local:UC_jeuListe/>
+            <StackPanel>
+                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
+                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
                 <local:UC_jeuListe/>
+            <StackPanel>
+                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
+                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+            </StackPanel>
                 <local:UC_jeuListe/>
             <StackPanel>
                 <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
@@ -179,7 +161,7 @@
         </ListBox>
         
         
-        <Grid Background="#FF237CC7">
+        <Grid Background="#FF504E51">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="75"/>
