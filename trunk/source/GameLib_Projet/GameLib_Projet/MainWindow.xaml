@@ -42,6 +42,7 @@
                     <ComboBoxItem Content="FPS"/>
                     <ComboBoxItem Content="RPG"/>
                 </ComboBox>
+
                 <ComboBox Margin="10" Width="auto" SelectedIndex="0">
                     <ComboBoxItem Content="Limite d'âge"/>
                     <ComboBoxItem>
@@ -76,7 +77,7 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                <ComboBox Margin="10" Width="100" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBox Margin="10" Width="100" SelectedIndex="0">
                     <ComboBoxItem Content="Note"/>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
@@ -119,21 +120,22 @@
                         </StackPanel>
                     </ComboBoxItem>
                 </ComboBox>
-                <ComboBox Margin="10" Width="auto" SelectedIndex="0">
-                    <ComboBoxItem Content="Plate-forme"/>
-                    <ComboBoxItem Content="Plate-forme"/>
+
+                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10" Width="200"  >
+
                     <ComboBoxItem Content="PC"/>
                     <ComboBoxItem Content="PS4"/>
                     <ComboBoxItem Content="Xbox One"/>
                 </ComboBox>
+
                 <ComboBox Margin="10" Width="auto" SelectedIndex="0">
                     <ComboBoxItem Content="Favoris"/>
                     <ComboBoxItem Content="Favoris"/>
                     <ComboBoxItem Content="Oui"/>
                     <ComboBoxItem Content="Non"/>
                 </ComboBox>
+
             </StackPanel>
-            <Ellipse Width="76" Height="70"/>
         </WrapPanel>
         
         <WrapPanel DockPanel.Dock="Bottom" Background="#FF237CC7" Height="50">
