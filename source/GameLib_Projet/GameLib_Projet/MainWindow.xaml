@@ -129,7 +129,7 @@
                 </ComboBox>
 
             </StackPanel>
-            <TextBox x:Name="boxRecherche" Margin="20" MaxHeight="20" Width="100" Background="White"></TextBox>
+            <TextBox x:Name="boxRecherche" Margin="20" MaxHeight="30" Width="100" TextOptions.TextFormattingMode="Ideal" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="White" FontFamily="Toledo" FontSize="20"></TextBox>
         </WrapPanel>
 
         <WrapPanel DockPanel.Dock="Bottom" Background="#2F2E33" Height="50">
