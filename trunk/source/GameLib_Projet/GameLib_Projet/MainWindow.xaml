@@ -179,24 +179,24 @@
             <WrapPanel Grid.Column="3" VerticalAlignment="Center">
                 
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
                     <materialDesign:PackIcon Kind="Youtube" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
                     <materialDesign:PackIcon Kind="Twitch" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
                     <materialDesign:PackIcon Kind="Instagram" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
                         <materialDesign:PackIcon Kind="Facebook" Height="40" Width="40"/>
                 </Button>
 
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                       
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
                         <materialDesign:PackIcon Kind="Twitter" Height="40" Width="40" />
                 </Button>
             </WrapPanel>
