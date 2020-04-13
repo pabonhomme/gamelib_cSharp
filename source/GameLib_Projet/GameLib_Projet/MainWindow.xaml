@@ -7,7 +7,14 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:GameLib_Projet="clr-namespace:GameLib_Projet" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1024">
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="GameLib" Height="725" Width="1350">
 
     <Window.Resources>
         <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
@@ -18,16 +25,24 @@
             <Setter Property="BorderBrush" Value="#3A5199"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
         </Style>
 
     </Window.Resources>
 
     <DockPanel>
-        <WrapPanel DockPanel.Dock="Top" Background="#2F2E33">
-            <Button Background="#2F2E33" Height="100">
-                <Image Source="img/logo.png" Width="100" Height="80"/>
+        <Grid DockPanel.Dock="Top" Background="#2F2E33">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="147"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Background="#2F2E33" Height="80" Width="147" ToolTip="Accueil">
+                <Button.Content>
+                    <Image Source="img/logo.png" Width="100" Height="80"/>
+                </Button.Content>
             </Button>
-            <StackPanel Orientation="Horizontal" Margin="50, 0, 0, 0">
+            <WrapPanel VerticalAlignment="Center" Grid.Column="1" Margin="50,0,0,0">
                 <ComboBox Margin="10" materialDesign:HintAssist.Hint="Genre">
                     
                     <ComboBoxItem Content="Aventure"/>
@@ -37,40 +52,40 @@
                     <ComboBoxItem Content="RPG"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Limite d'âge">
+                <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge" >
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi3.jpg" Height="20"/>
-                            <TextBlock Foreground="LightGreen"><Run Text="Pegi 3"/></TextBlock>
+                            <TextBlock Foreground="LightGreen"><Run Text=" Pegi 3"/></TextBlock>
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi7.jpg" Height="20"/>
-                            <TextBlock Foreground="Green"><Run Text="Pegi 7"/></TextBlock>
+                            <TextBlock Foreground="Green"><Run Text=" Pegi 7"/></TextBlock>
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi12.jpg" Height="20"/>
-                            <TextBlock Foreground="Orange"><Run Text="Pegi 12"/></TextBlock>
+                            <TextBlock Foreground="Orange"><Run Text=" Pegi 12"/></TextBlock>
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi16.jpg" Height="20"/>
-                            <TextBlock Foreground="OrangeRed"><Run Text="Pegi 16"/></TextBlock>
+                            <TextBlock Foreground="OrangeRed"><Run Text=" Pegi 16"/></TextBlock>
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi18.png" Height="20"/>
-                            <TextBlock Foreground="DarkRed" FontWeight="Bold"><Run Text="Pegi 18"/></TextBlock>
+                            <TextBlock Foreground="DarkRed" FontWeight="Bold"><Run Text=" Pegi 18"/></TextBlock>
                         </StackPanel>
                     </ComboBoxItem>
 
                 </ComboBox>
-                <ComboBox Margin="10" Width="auto" materialDesign:HintAssist.Hint="Note">
+                <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Note">
                     
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
@@ -114,7 +129,7 @@
                     </ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10" Width="auto" >
+                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10">
                     
 
                     <ComboBoxItem Content="PC"/>
@@ -122,19 +137,70 @@
                     <ComboBoxItem Content="Xbox One"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" Width="auto" materialDesign:HintAssist.Hint="Favoris">
+                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Favoris">
                     
                     <ComboBoxItem Content="Oui"/>
                     <ComboBoxItem Content="Non"/>
                 </ComboBox>
 
-            </StackPanel>
-            <TextBox x:Name="boxRecherche" Margin="20" MaxHeight="30" Width="100" TextOptions.TextFormattingMode="Ideal" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="White" FontFamily="Toledo" FontSize="20"></TextBox>
-        </WrapPanel>
+            </WrapPanel>
+            <WrapPanel VerticalAlignment="Center" Grid.Column="2">
+                <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"  Width="33" Height="33" />
+                <TextBox x:Name="boxRecherche" materialDesign:HintAssist.Hint="Recherche" 
+                         materialDesign:HintAssist.HelperText="Tapez le nom d'un jeu..."
+                         Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
+                         Margin="0" Padding="4,0,0,0" FontSize="20" Width="200" VerticalAlignment="Center"
+                         >
+                </TextBox>
 
-        <WrapPanel DockPanel.Dock="Bottom" Background="#2F2E33" Height="50">
-            
-        </WrapPanel>
+                <Button
+                    Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"
+                    ToolTip="Connectez-vous" Height="40" Width="40" Margin="100,0,20,0">
+                    <materialDesign:PackIcon
+                        Kind="User"
+                        Height="40"
+                        Width="40" />
+                </Button>
+            </WrapPanel>
+
+        </Grid>
+
+        <Grid DockPanel.Dock="Bottom" Background="#2F2E33" Height="50">
+            <Grid.ColumnDefinitions>
+                
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  VerticalAlignment="Center"  Margin="2" HorizontalAlignment="center" 
+                        FontSize="16" Foreground="White" TextWrapping="Wrap">                       
+                       Une gigantesque tonne d'informations est disponible sur tous vos jeux preférés.
+                       Faites vous plaisir!
+            </TextBlock>
+            <WrapPanel Grid.Column="3" VerticalAlignment="Center">
+                
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                    <materialDesign:PackIcon Kind="Youtube" Height="40" Width="40"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                    <materialDesign:PackIcon Kind="Twitch" Height="40" Width="40"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                    <materialDesign:PackIcon Kind="Instagram" Height="40" Width="40"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        <materialDesign:PackIcon Kind="Facebook" Height="40" Width="40"/>
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                       
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="20,0">
+                        <materialDesign:PackIcon Kind="Twitter" Height="40" Width="40" />
+                </Button>
+            </WrapPanel>
+        </Grid>
 
         <ListBox DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" BorderThickness="1" BorderBrush="Black">
 
@@ -166,11 +232,10 @@
                 <RowDefinition/>
                 <RowDefinition Height="75"/>
             </Grid.RowDefinitions>
-            <Image Source="img/baniere.jpg" Margin="10" Width="auto" Grid.Row="0" Height="auto"/>
-            <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic">
-                <TextBlock.TextDecorations>
-                    <TextDecoration/>
-                </TextBlock.TextDecorations><Run Text="Bienvenue sur GameLib"/></TextBlock>
+            <Image Source="img/baniere.jpg" Margin="10" Width="auto" Height="auto"/>
+            <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" 
+                       FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic">
+                        Bienvenue sur GameLib</TextBlock>
         </Grid>
         
     </DockPanel>
