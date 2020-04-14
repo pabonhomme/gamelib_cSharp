@@ -208,16 +208,7 @@
         </ListBox>
 
 
-        <Grid Background="#FF504E51">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="75"/>
-            </Grid.RowDefinitions>
-            <Image Source="img/baniere.jpg" Margin="10" Width="auto" Height="auto"/>
-            <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" 
-                       FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic">
-                        Bienvenue sur GameLib</TextBlock>
-        </Grid>
+        <local:UC_CreationCompte/>
 
     </DockPanel>
 </Window>
