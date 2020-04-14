@@ -17,6 +17,7 @@
 
         </Style>
     </UserControl.Resources>
+    
     <ScrollViewer>
         <Grid Background="#FF504E51">
             <Grid.RowDefinitions>
@@ -77,11 +78,12 @@
                     </WrapPanel>
                     
                 </materialDesign:Card>
-                <WrapPanel  HorizontalAlignment="Right" Margin="15,0" Grid.Column="2" Grid.Row="2">
-                    <TextBlock Text="Trailer" Padding="5,20"/>
-                    <Button Background="#2F2E33" Width="80" Height="50">
-                        <materialDesign:PackIcon Kind="PlayBox" Foreground="Red" Width="60" Height="50"/>
-                    </Button>
+                <WrapPanel  HorizontalAlignment="Right" Margin="15,10" Grid.Column="2" Grid.Row="2">
+                    <TextBlock Text="Trailer" Padding="3,10"/>
+                    <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
+                    <materialDesign:PackIcon Kind="Youtube" Foreground="Red" Height="40" Width="40"/>
+                </Button>
                 </WrapPanel>
                
 
