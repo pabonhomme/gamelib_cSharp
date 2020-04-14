@@ -86,46 +86,20 @@
 
                 </ComboBox>
                 <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Note">
-                    
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <TextBlock Foreground="Orange"><Run Text="1"/></TextBlock>
-                        </StackPanel>
+                        <TextBlock Foreground="Orange"><Run Text="1"/></TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <TextBlock Foreground="Orange"><Run Text="2"/></TextBlock>
-                        </StackPanel>
+                        <TextBlock Foreground="Orange"><Run Text="2"/></TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <TextBlock Foreground="Orange"><Run Text="3"/></TextBlock>
-                        </StackPanel>
+                        <TextBlock Foreground="Orange"><Run Text="3"/></TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <TextBlock Foreground="Orange"><Run Text="4"/></TextBlock>
-                        </StackPanel>
+                        <TextBlock Foreground="Orange"><Run Text="4"/></TextBlock>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <Image Source="img/etoile.png" Height="20"/>
-                            <TextBlock Foreground="Orange"><Run Text="5"/></TextBlock>
-                        </StackPanel>
+                        <TextBlock Foreground="Orange"><Run Text="5"/></TextBlock>
                     </ComboBoxItem>
                 </ComboBox>
 
@@ -180,24 +154,31 @@
                 
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
                         ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                    <materialDesign:PackIcon Kind="Youtube" Height="40" Width="40"/>
+                    <materialDesign:PackIcon Kind="Youtube" Foreground="Red" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
                         ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                    <materialDesign:PackIcon Kind="Twitch" Height="40" Width="40"/>
+                    <materialDesign:PackIcon Kind="Twitch" Foreground="#FF51107E" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
                         ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                    <materialDesign:PackIcon Kind="Instagram" Height="40" Width="40"/>
+                    <materialDesign:PackIcon Kind="Instagram" Height="40" Width="40">
+                        <materialDesign:PackIcon.Foreground>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FFE64040" Offset="1"/>
+                            </LinearGradientBrush>
+                        </materialDesign:PackIcon.Foreground>
+                    </materialDesign:PackIcon>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
                         ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                        <materialDesign:PackIcon Kind="Facebook" Height="40" Width="40"/>
+                        <materialDesign:PackIcon Kind="Facebook" Foreground="#FF3B5998" Height="40" Width="40"/>
                 </Button>
 
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                       
                         ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                        <materialDesign:PackIcon Kind="Twitter" Height="40" Width="40" />
+                        <materialDesign:PackIcon Kind="Twitter" Height="40" Width="40" Foreground="#FF00ACEE" />
                 </Button>
             </WrapPanel>
         </Grid>
@@ -225,8 +206,8 @@
                 <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
             </StackPanel>
         </ListBox>
-        
-        
+
+
         <Grid Background="#FF504E51">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -237,6 +218,6 @@
                        FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic">
                         Bienvenue sur GameLib</TextBlock>
         </Grid>
-        
+
     </DockPanel>
 </Window>
