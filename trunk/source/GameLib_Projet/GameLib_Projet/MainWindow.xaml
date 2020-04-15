@@ -28,6 +28,15 @@
             <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
         </Style>
 
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Padding" Value="0,4" />
+            <Setter Property="FontWeight" Value="Regular" />
+            <Setter Property="FontFamily" Value="AcmeFont"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+
+        </Style>
+
     </Window.Resources>
 
     <DockPanel>
@@ -85,23 +94,14 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Note">
-                    <ComboBoxItem>
-                        <TextBlock Foreground="Orange"><Run Text="1"/></TextBlock>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Foreground="Orange"><Run Text="2"/></TextBlock>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Foreground="Orange"><Run Text="3"/></TextBlock>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Foreground="Orange"><Run Text="4"/></TextBlock>
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        <TextBlock Foreground="Orange"><Run Text="5"/></TextBlock>
-                    </ComboBoxItem>
-                </ComboBox>
+                <StackPanel Margin="20" Width="200">
+                    <TextBlock Text="Note" Foreground="#FFC1C1C1" FontFamily="Toledo" FontWeight="Bold"/>
+                    <materialDesign:RatingBar
+                        Value="0"
+                        x:Name="BasicRatingBar"
+                        ValueChanged="BasicRatingBar_ValueChanged" Width="150"  />
+                </StackPanel>
+                
 
                 <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10">
                     
@@ -188,27 +188,39 @@
                 <local:UC_jeuListe/>
             <StackPanel>
                 <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
             </StackPanel>
                 <local:UC_jeuListe/>
             <StackPanel>
                 <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
             </StackPanel>
                 <local:UC_jeuListe/>
             <StackPanel>
                 <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
             </StackPanel>
                 <local:UC_jeuListe/>
             <StackPanel>
                 <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" FontFamily="AcmeFont" FontSize="24" HorizontalAlignment="Center"/>
+                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
             </StackPanel>
         </ListBox>
-
-
-        <local:UC_CreationCompte/>
+       
+        <Grid>
+            <Grid.RowDefinitions>
+            <RowDefinition/>
+        <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+        <Image Source="img/baniere.jpg" Margin="10" Width="auto" Grid.Row="0" Height="auto"/>
+        <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic">
+            <TextBlock.TextDecorations>
+                <TextDecoration/>
+            </TextBlock.TextDecorations><Run Text="Bienvenue sur GameLib"/></TextBlock>
+        <Image Source="img/baniere.jpg" Margin="10" Width="auto" Height="auto"/>
+            <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" 
+                       FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic"><Run Text="Bienvenue sur GameLib"/></TextBlock>
+        </Grid>
 
     </DockPanel>
 </Window>
