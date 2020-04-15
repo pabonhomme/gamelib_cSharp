@@ -19,7 +19,7 @@
     </UserControl.Resources>
     
     <ScrollViewer>
-        <Grid Background="#FF504E51">
+        <Grid Background="#FF504E51" Width="auto" Height="auto">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -48,7 +48,18 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                
                 <Image Source="img/Minecraft.jpg" Height="400" Margin="50"/>
+                <ToggleButton
+                    Style="{StaticResource MaterialDesignActionAccentToggleButton}"
+                    ToolTip="MaterialDesignFlatAccentToggle"
+                    IsChecked="False" Grid.Column="1" VerticalAlignment="Top" Width="60" Height="60" 
+                    HorizontalAlignment="Right" Margin="10">
+                    <materialDesign:PackIcon
+                        Kind="Star"
+                        Height="60"
+                        Width="60" Foreground="White"/>
+                </ToggleButton>
                 <TextBlock Text="Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). 
                 Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). " TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Center" FontFamily="Arial"/>
             </Grid>
