@@ -23,7 +23,7 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontStretch" Value="Condensed"/>
             <Setter Property="BorderBrush" Value="#3A5199"/>
-            <Setter Property="Height" Value="40"/>
+            <Setter Property="Height" Value="45"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
         </Style>
@@ -61,7 +61,7 @@
                     <ComboBoxItem Content="RPG"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge" >
+                <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge">
                     <ComboBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="img/Pegi3.jpg" Height="20"/>
@@ -94,14 +94,14 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                <StackPanel Margin="20" Width="200">
-                    <TextBlock Text="Note" Foreground="#FFC1C1C1" FontFamily="Toledo" FontWeight="Bold"/>
-                    <materialDesign:RatingBar
-                        Value="0"
-                        x:Name="BasicRatingBar"
-                        ValueChanged="BasicRatingBar_ValueChanged" Width="150"  />
-                </StackPanel>
-                
+                <ComboBox materialDesign:HintAssist.Hint="Note" Margin="10">
+
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                </ComboBox>
 
                 <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10">
                     
@@ -183,7 +183,8 @@
             </WrapPanel>
         </Grid>
 
-        <ListBox DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" BorderThickness="1" BorderBrush="Black">
+        <ListBox DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
+                 BorderThickness="1" BorderBrush="Black">
 
                 <local:UC_jeuListe/>
             <StackPanel>
@@ -209,17 +210,12 @@
        
         <Grid>
             <Grid.RowDefinitions>
-            <RowDefinition/>
-        <RowDefinition Height="75"/>
-        </Grid.RowDefinitions>
-        <Image Source="img/baniere.jpg" Margin="10" Width="auto" Grid.Row="0" Height="auto"/>
-        <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic">
-            <TextBlock.TextDecorations>
-                <TextDecoration/>
-            </TextBlock.TextDecorations><Run Text="Bienvenue sur GameLib"/></TextBlock>
-        <Image Source="img/baniere.jpg" Margin="10" Width="auto" Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <Image Source="img/baniere.jpg" Margin="10" Width="auto" Height="auto"/>
             <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" 
-                       FontWeight="Bold" FontSize="30" FontFamily="Toledo" Foreground="White" FontStyle="Italic"><Run Text="Bienvenue sur GameLib"/></TextBlock>
+                       FontSize="30" FontFamily="Toledo" Foreground="White" > Bienvenue sur GameLib</TextBlock>
         </Grid>
 
     </DockPanel>
