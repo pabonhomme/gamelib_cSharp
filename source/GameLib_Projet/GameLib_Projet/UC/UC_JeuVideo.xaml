@@ -33,7 +33,7 @@
                     <TextBlock Text="Aventure "/>
                 </materialDesign:Card>
                 <materialDesign:Card  Margin="10">
-                    <Image Source="img/Pegi3.jpg" Width="40" Height="auto"/>
+                    <Image Source="../img/Pegi3.jpg" Width="40" Height="auto"/>
                 </materialDesign:Card>
                 <materialDesign:RatingBar Value="4" IsReadOnly="True" x:Name="ReadOnlyRatingBar" VerticalAlignment="Center" 
                                           Margin="20" Foreground="Gold"/>
@@ -49,7 +49,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 
-                <Image Source="img/Minecraft.jpg" Height="400" Margin="50"/>
+                <Image Source="../img/Minecraft.jpg" Height="400" Margin="50"/>
                 <ToggleButton
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                     ToolTip="MaterialDesignFlatAccentToggle"
@@ -77,7 +77,7 @@
                 <materialDesign:Card Width="90" Height="40" Margin="10"  HorizontalAlignment="Left">
                     <TextBlock Text="MOJANG" FontFamily="Arial"/>
                 </materialDesign:Card>
-                <Image Source="img/Pegi3.jpg" Width="60" Height="auto" Grid.Row="1" HorizontalAlignment="Left" Margin="10"/>
+                <Image Source="../img/Pegi3.jpg" Width="60" Height="auto" Grid.Row="1" HorizontalAlignment="Left" Margin="10"/>
                 <materialDesign:Card Width="80" Grid.Column="2" Height="60" HorizontalAlignment="Right" Margin="25,0">
                     <TextBlock Text="29€" FontSize="40"/>
                 </materialDesign:Card>
