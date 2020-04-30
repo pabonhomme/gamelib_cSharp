@@ -11,19 +11,19 @@
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Padding" Value="0,4" />
-            <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
-
         </Style>
+        
     </UserControl.Resources>
 
     <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth5"
     Padding="32" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="500">
         <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="Connexion" FontWeight="Bold" TextAlignment="Center" FontSize="30" Margin="0,15"/>
+            <TextBlock Text="Connexion" FontWeight="Bold" TextAlignment="Center" 
+                       FontSize="30" Margin="0,15"/>
             <Grid HorizontalAlignment="Center" Width="300">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
