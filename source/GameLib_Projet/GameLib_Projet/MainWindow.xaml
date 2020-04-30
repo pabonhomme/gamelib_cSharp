@@ -30,11 +30,7 @@
 
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Padding" Value="0,4" />
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="FontFamily" Value="AcmeFont"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="24"/>
-
         </Style>
 
     </Window.Resources>
@@ -145,14 +141,15 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock  VerticalAlignment="Center"  Margin="2" HorizontalAlignment="center" 
-                        FontSize="16" Foreground="White" TextWrapping="Wrap">                       
-                       Une gigantesque tonne d'informations est disponible sur tous vos jeux preférés.
-                       Faites vous plaisir!
-            </TextBlock>
+            <TextBlock Text="Une gigantesque tonne d'informations est disponible sur tous vos jeux preférés. Faites vous plaisir!"
+                       VerticalAlignment="Center" HorizontalAlignment="center" 
+                       Margin="2" 
+                       FontSize="16" Foreground="White" FontFamily="Acmefont"/>
+            
             <WrapPanel Grid.Column="3" VerticalAlignment="Center">
                 
-                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" 
+                        Background="#2F2E33"                      
                         ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
                     <materialDesign:PackIcon Kind="Youtube" Foreground="Red" Height="40" Width="40"/>
                 </Button>
@@ -189,7 +186,8 @@
                 <local:UC_jeuListe/>
             <StackPanel>
                 <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
+                <TextBlock Text="GTA V" HorizontalAlignment="Center" 
+                           FontFamily="Acmefont" FontSize="24"/>
             </StackPanel>
                 <local:UC_jeuListe/>
             <StackPanel>

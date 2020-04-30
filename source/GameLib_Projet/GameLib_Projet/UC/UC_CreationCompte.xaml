@@ -45,16 +45,22 @@
 
 
                 <Button Grid.Row="6" Margin="10" Background="#2F2E33" HorizontalAlignment="Left" 
-                        Width="auto" Style="{DynamicResource MaterialDesignRaisedDarkButton}" BorderBrush="#419CE8">
+                        Width="auto" 
+                        Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
+                        BorderBrush="#419CE8">
                     Création
                 </Button>
                 <Button Grid.Row="6" Margin="10" Background="#2F2E33" HorizontalAlignment="Right" 
-                        Width="auto" Style="{DynamicResource MaterialDesignRaisedDarkButton}" BorderBrush="#419CE8">
+                        Width="auto" 
+                        Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
+                        BorderBrush="#419CE8">
                     Annuler
                 </Button>
 
-                <Button Grid.Row="7" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="LightGray">
-                    Compte déja existant ?
+                <Button Grid.Row="7" HorizontalAlignment="Center" 
+                        Style="{DynamicResource MaterialDesignFlatButton}" 
+                        Foreground="LightGray">
+                 Compte déja existant ?
                 </Button>
 
             </Grid>
