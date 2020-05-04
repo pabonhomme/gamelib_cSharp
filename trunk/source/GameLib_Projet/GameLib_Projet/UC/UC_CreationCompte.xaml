@@ -6,25 +6,25 @@
              xmlns:local="clr-namespace:GameLib_Projet"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Padding" Value="0,4" />
             <Setter Property="FontWeight" Value="Regular" />
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="0,5"/>
+            <Setter Property="Margin" Value="5"/>
 
         </Style>
     </UserControl.Resources>
 
     <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth5"
-    Padding="32" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="500">
+    Padding="32" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="500">
         <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Création de votre compte" FontWeight="Bold" TextAlignment="Center" FontSize="25" Margin="0,15"/>
-            <Grid HorizontalAlignment="Center" Width="300">
+
+            <Grid HorizontalAlignment="Center" Width="500">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -34,36 +34,52 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-
+                    <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Adresse mail" Grid.Row="0"  TextAlignment="Left"/>
-                <TextBox x:Name="TextBoxPseudo" Grid.Row="1" Margin="5"/>
-                <TextBlock Text="Mot de passe" Grid.Row="2" TextAlignment="Left"/>
-                <PasswordBox x:Name="maPassoireBox" Grid.Row="3" Margin="5"/>
-                <TextBlock Text="Confirmer votre mot de passe" Grid.Row="4" TextAlignment="Left"/>
-                <PasswordBox x:Name="maPassoireBox1" Grid.Row="5" Margin="5"/>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto" MinWidth="273.44"/>
+                </Grid.ColumnDefinitions>
 
 
-                <Button Grid.Row="6" Margin="10" Background="#2F2E33" HorizontalAlignment="Left" 
-                        Width="auto" 
+                <TextBlock Text="Prénom" TextAlignment="Left" Margin="5,5,5,5"/>
+                <TextBox x:Name="TextBoxPrenom" Margin="5,5" Grid.Row="1"/>
+                <TextBlock Text="Nom" Grid.Row="2" TextAlignment="Left" Margin="5,5,5,5"/>
+                <TextBox x:Name="TextBoxNom" Grid.Row="3" Margin="5,5,5,5" />
+                <TextBlock Text="Age" Grid.Row="4" Margin="5,5,5,5"/>
+                <TextBox x:Name="TextBoxAge" Grid.Row="5" Margin="5,5,5,5" />
+
+
+                <TextBlock Text="Adresse mail" Grid.Column="1"  TextAlignment="Left" Margin="5,5,5,5"/>
+                <TextBox x:Name="TextBoxPseudo" Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"/>
+
+                <TextBlock Text="Mot de passe" Grid.Column="1" Grid.Row="2" TextAlignment="Left" Margin="5,5,5,5"/>
+                <PasswordBox x:Name="maPassoireBox" Grid.Column="1" Grid.Row="3" Margin="5,5,5,5"/>
+                <TextBlock Text="Confirmer votre mot de passe" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5,5,5,5"/>
+                <PasswordBox x:Name="maPassoireBox1" Grid.Column="1" Grid.Row="5" Margin="6,6,6,6"/>
+
+                <Button Grid.Row="8" Margin="0,5,0,5" Background="#2F2E33" HorizontalAlignment="Center" 
+                        Width="86" 
                         Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
                         BorderBrush="#419CE8">
                     Création
                 </Button>
-                <Button Grid.Row="6" Margin="10" Background="#2F2E33" HorizontalAlignment="Right" 
-                        Width="auto" 
+                <Button  Grid.Row="8" Grid.Column="1" Margin="186,5,0,5" Background="#2F2E33" HorizontalAlignment="Left" 
+                        Width="82" 
                         Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
                         BorderBrush="#419CE8">
                     Annuler
                 </Button>
 
-                <Button Grid.Row="7" HorizontalAlignment="Center" 
+            </Grid>
+
+            <Button Grid.Row="8" HorizontalAlignment="Center" 
                         Style="{DynamicResource MaterialDesignFlatButton}" 
                         Foreground="LightGray">
-                 Compte déja existant ?
-                </Button>
-
-            </Grid>
+                Compte déja existant ?
+            </Button>
 
         </WrapPanel>
     </materialDesign:Card>
