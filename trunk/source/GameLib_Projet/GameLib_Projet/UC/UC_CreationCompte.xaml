@@ -46,10 +46,10 @@
 
                 <TextBlock Text="Prénom" TextAlignment="Left" Margin="5"/>
                 <TextBox x:Name="TextBoxPrenom" Margin="5,5" Grid.Row="1"/>
-                
+
                 <TextBlock Text="Nom" Grid.Row="2" TextAlignment="Left" Margin="5"/>
                 <TextBox x:Name="TextBoxNom" Grid.Row="3" Margin="5" />
-                
+
                 <TextBlock Text="Age" Grid.Row="4" Margin="5"/>
                 <TextBox x:Name="TextBoxAge" Grid.Row="5" Margin="5" />
 
@@ -58,7 +58,7 @@
 
                 <TextBlock Text="Mot de passe" Grid.Column="1" Grid.Row="2" TextAlignment="Left" Margin="5"/>
                 <PasswordBox x:Name="maPassoireBox" Grid.Column="1" Grid.Row="3" Margin="5"/>
-                
+
                 <TextBlock Text="Confirmer votre mot de passe" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5"/>
                 <PasswordBox x:Name="maPassoireBox1" Grid.Column="1" Grid.Row="5" Margin="6"/>
 
@@ -68,8 +68,8 @@
                         BorderBrush="#419CE8">
                     Création
                 </Button>
-                
-                <Button  Grid.Row="8" Grid.Column="1" Margin="186,5,0,5" Background="#2F2E33" HorizontalAlignment="Left" 
+
+                <Button  Grid.Row="8" Grid.Column="1" Margin="0,5,70,5" Background="#2F2E33" HorizontalAlignment="Right" 
                         Width="82" 
                         Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
                         BorderBrush="#419CE8">
