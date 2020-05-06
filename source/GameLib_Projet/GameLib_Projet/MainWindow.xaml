@@ -205,16 +205,8 @@
                 <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
             </StackPanel>
         </ListBox>
-       
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="75"/>
-            </Grid.RowDefinitions>
-            <Image Source="img/baniere.jpg" Margin="10" Width="auto" Height="auto"/>
-            <TextBlock Grid.Row="1" Margin="2" VerticalAlignment="Center" HorizontalAlignment="center" 
-                       FontSize="30" FontFamily="Toledo" Foreground="White" > Bienvenue sur GameLib</TextBlock>
-        </Grid>
+
+        <local:MainWindowAdmin/>
 
     </DockPanel>
 </Window>
