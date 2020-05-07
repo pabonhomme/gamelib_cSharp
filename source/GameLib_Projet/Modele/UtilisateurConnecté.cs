@@ -61,17 +61,30 @@ namespace Modele
             ListeFavoris.Remove(jeu);
         }
 
-        /// <summary>
-        /// Méthode pour modifier le surnom du jeu
+        /*/// <summary>
+        /// Nom de l'utilisateur
         /// </summary>
-        /// <param name="jeu">Jeu à modifier</param>
-        /// <param name="surnom">Surnom à insérer</param>
-        /// <returns></returns>
-        public string ModifSurnomJeu(JeuVidéo jeu, String surnom)
+        public string Nom { get; private set; }
+        /// <summary>
+        /// Prénom de l'utilisateur
+        /// </summary>
+        public string Prénom { get; private set; }
+        /// <summary>
+        /// Age de l'utilisateur
+        /// </summary>
+        public int Age { get; private set; }
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="nom">Nom de l'utilisateur</param>
+        /// <param name="prénom">Prénom de l'utilisateur</param>
+        /// <param name="age">Age de l'utilisateur</param>
+        public Utilisateur(string nom, string prénom, int age)
         {
-            return jeu.Surnom = surnom;
-        }
-
+            Nom = nom;
+            Prénom = prénom;
+            Age = age;
+            */
 
 
 

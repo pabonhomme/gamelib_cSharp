@@ -206,7 +206,7 @@
             </StackPanel>
         </ListBox>
 
-        <local:MainWindowAdmin/>
+        <local:UC_JeuVideo/>
 
     </DockPanel>
 </Window>
