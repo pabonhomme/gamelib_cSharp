@@ -9,7 +9,9 @@ namespace Test_JeuVidéo
         {
             Console.WriteLine("Test de la classe JeuVidéo");
 
-            JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.9f, "Je suis une patate verte comme Minecraft", "oui.youtube.com", "img.bin", "Achat définitif", "Marloc", Genre.Aventure , Pegi.trois, PlateForme.Pc  );
+            JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.9f, "Je suis Minecraft", "Minecraft.youtube.com", "imgMinecraft.bin", "Achat définitif", "Mojeig", Genre.Aventure , Pegi.trois, PlateForme.Pc  );
+            JeuVidéo jeuvidéo2 = new JeuVidéo("GTAV", 5, 10f, "Je suis GTAV", "Minecraft.youtube.com", "imgGTA5.bin", "Achat définitif", "Rockstar", Genre.Action, Pegi.dixHuits, PlateForme.Ps4);
+
 
             Console.WriteLine(jeuvidéo1);
         }
