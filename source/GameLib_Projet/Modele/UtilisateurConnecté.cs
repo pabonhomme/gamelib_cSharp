@@ -4,20 +4,29 @@ using System.Text;
 
 namespace Modele
 {
-    class UtilisateurConnecté
+    public class UtilisateurConnecté
     {
-        /// <summary>
-        /// Contructeur
+
+        /// Nom de l'utilisateur
         /// </summary>
-        /// <param name="pseudo">Pseudo de l'utilisateur connecté</param>
-        /// <param name="motDePasse">Mot de passe de l'utilisateur connecté</param>
-        /// <param name="mail">Mail de l'utilisateur connecté</param>
-        public UtilisateurConnecté(string pseudo, string motDePasse, string mail)
-        {
-            Pseudo = pseudo;
-            MotDePasse = motDePasse;
-            Mail = mail;
-        }
+        public string Nom { get; private set; }
+
+        /// <summary>
+        /// Prénom de l'utilisateur
+        /// </summary>
+        public string Prénom { get; private set; }
+
+        /// <summary>
+        /// Age de l'utilisateur
+        /// </summary>
+        /// 
+        public int Age { get; private set; }
+
+        /// <summary>
+        /// Date de naissance de l'utilisateur
+        /// </summary>
+        /// 
+        public DateTime DateNaissance { get; private set; }
 
         /// <summary>
         /// Pseudo de l'utilisateur connecté
@@ -37,59 +46,82 @@ namespace Modele
         /// <summary>
         /// Nombre de favoris de l'utilisateur connecté
         /// </summary>
-        public int NombreFavoris => ListeFavoris.Count;
+        public int NombreFavoris { get; private set; } 
 
         /// <summary>
         /// Liste des favoris de l'utilisateur connecté
         /// </summary>
-        private List<JeuVidéo> ListeFavoris = new List<JeuVidéo>();
+        public List<JeuVidéo> ListeFavoris { get; private set; } = new List<JeuVidéo>();
+
+        /// <summary>
+        /// Constructeur d'un utilisateur connecté
+        /// </summary>
+        /// <param name="nom">Nom de l'utilisateur</param>
+        /// <param name="prénom">Prénom de l'utilisateur</param>
+        /// <param name="dateNaissance">Age de l'utilisateur</param>
+        /// <param name="pseudo">Pseudo de l'utilisateur</param>
+        /// <param name="motDePasse">Mot de passe de l"utilisateur</param>
+        /// <param name="mail">Mail de l'utilisateur</param>
+        /// <param name="nombreFavoris">Nombre de favroi de l'utilisateur</param>
+        public UtilisateurConnecté(string nom, string prénom, DateTime dateNaissance, string pseudo, string motDePasse, string mail)
+        {
+            Nom = nom;
+            Prénom = prénom;
+            DateNaissance = dateNaissance;
+            Pseudo = pseudo;
+            MotDePasse = motDePasse;
+            Mail = mail;
+            NombreFavoris = ListeFavoris.Count;
+            Age = CalculAge(DateNaissance);
+        }
+
+        /// <summary>
+        /// Méthode qui calcul l'âge de l'utilisateur à partir de sa date de naissance
+        /// </summary>
+        /// <param name="dateNaissance">Date de naissance de l'utilisateur</param>
+        /// <returns></returns>
+        private int CalculAge(DateTime dateNaissance)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - dateNaissance.Year;
+            if (dateNaissance > now.AddYears(-age))
+                age--;
+            return age;
+        }
 
         /// <summary>
         /// Méthode pour ajouter un favori à sa liste de favoris
         /// </summary>
         /// <param name="jeu">Jeu vidéo à ajouter en favori</param>
-        public void AjouterFav(JeuVidéo jeu)
+        public void AjouterFav(JeuVidéo jeuFav)
         {
-            ListeFavoris.Add(jeu);
+            ListeFavoris.Add(jeuFav);
+            NombreFavoris = ListeFavoris.Count;
         }
         /// <summary>
         /// Méthode pour supprimer un favori de sa liste de favoris
         /// </summary>
         /// <param name="jeu">Jeu vidéo à supprimer</param>
-        public void SupprimerFav(JeuVidéo jeu)
+        public void SupprimerFav(JeuVidéo jeuFav)
         {
-            ListeFavoris.Remove(jeu);
+            ListeFavoris.Remove(jeuFav);
+            NombreFavoris = ListeFavoris.Count;
         }
 
-        /*/// <summary>
-        /// Nom de l'utilisateur
-        /// </summary>
-        public string Nom { get; private set; }
-        /// <summary>
-        /// Prénom de l'utilisateur
-        /// </summary>
-        public string Prénom { get; private set; }
-        /// <summary>
-        /// Age de l'utilisateur
-        /// </summary>
-        public int Age { get; private set; }
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        /// <param name="nom">Nom de l'utilisateur</param>
-        /// <param name="prénom">Prénom de l'utilisateur</param>
-        /// <param name="age">Age de l'utilisateur</param>
-        public Utilisateur(string nom, string prénom, int age)
+
+        public override string ToString()
         {
-            Nom = nom;
-            Prénom = prénom;
-            Age = age;
-            */
+            string user;
+            user = Nom + " " + Prénom + " " + Age + " " + Pseudo + " " + MotDePasse + " " + Mail + " " + NombreFavoris + "\n";
+            
+            user += "Liste des jeux : \n";
 
-
-
-
-
+            foreach (JeuVidéo jeu in ListeFavoris)
+            {
+                user += jeu + "\n";
+            }
+            return user;
+        }
 
     }
 }

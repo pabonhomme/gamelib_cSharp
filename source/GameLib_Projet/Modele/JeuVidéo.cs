@@ -6,35 +6,7 @@ namespace Modele
 {
     public class JeuVidéo
     {
-        /// <summary>
-        /// Constructeur
-        /// </summary>
-        /// <param name="nom">Nom du jeu</param>
-        /// <param name="note">Note du jeu</param>
-        /// <param name="prix">Prix du jeu</param>
-        /// <param name="description">Description du jeu</param>
-        /// <param name="lienTrailer">Lien du trailer du jeu</param>
-        /// <param name="lienImage">Lien de l'image du jeu</param>
-        /// <param name="modeleEco">Modèle économique du jeu</param>
-        /// <param name="studioDev">Nom du studio de développement</param> 
-        /// <param name="genre">Genre du jeu</param>
-        /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
-        /// <param name="plateForme">Plate-forme où le jeu est disponible</param>
-        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, Genre genre, Pegi pegi, PlateForme plateForme)
-        {
-            Nom = nom;
-            Note = note;
-            Prix = prix;
-            Description = description;
-            LienTrailer = lienTrailer;
-            LienImage = lienImage;
-            ModeleEco = modeleEco;
-            StudioDev = studioDev;
-            Genre = genre;
-            Pegi = pegi;
-            PlateForme = plateForme;
-        }
-
+       
         /// <summary>
         /// Nom du jeu
         /// </summary>
@@ -95,7 +67,40 @@ namespace Modele
         /// </summary>
         public bool EstFavori { get; set; } = false;
 
+        /// <summary>
+        /// Constructeur
+        /// </summary>
+        /// <param name="nom">Nom du jeu</param>
+        /// <param name="note">Note du jeu</param>
+        /// <param name="prix">Prix du jeu</param>
+        /// <param name="description">Description du jeu</param>
+        /// <param name="lienTrailer">Lien du trailer du jeu</param>
+        /// <param name="lienImage">Lien de l'image du jeu</param>
+        /// <param name="modeleEco">Modèle économique du jeu</param>
+        /// <param name="studioDev">Nom du studio de développement</param> 
+        /// <param name="genre">Genre du jeu</param>
+        /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
+        /// <param name="plateForme">Plate-forme où le jeu est disponible</param>
+        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, Genre genre, Pegi pegi, PlateForme plateForme)
+        {
+            Nom = nom;
+            Note = note;
+            Prix = prix;
+            Description = description;
+            LienTrailer = lienTrailer;
+            LienImage = lienImage;
+            ModeleEco = modeleEco;
+            StudioDev = studioDev;
+            Genre = genre;
+            Pegi = pegi;
+            PlateForme = plateForme;
+        }
 
+
+        public override string ToString()
+        {
+            return Nom + " " + Note + " " + Prix + " " + Description + " " + LienTrailer + " " + LienImage + " " + Genre + " " + PlateForme;
+        }
 
 
 
