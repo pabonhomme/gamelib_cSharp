@@ -46,7 +46,7 @@ namespace Modele
         /// <summary>
         /// Nombre de favoris de l'utilisateur connecté
         /// </summary>
-        public int NombreFavoris { get; private set; } 
+        public int NombreFavoris => ListeFavoris.Count;
 
         /// <summary>
         /// Liste des favoris de l'utilisateur connecté
@@ -71,7 +71,6 @@ namespace Modele
             Pseudo = pseudo;
             MotDePasse = motDePasse;
             Mail = mail;
-            NombreFavoris = ListeFavoris.Count;
             Age = CalculAge(DateNaissance);
         }
 
