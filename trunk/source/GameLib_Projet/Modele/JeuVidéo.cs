@@ -62,6 +62,10 @@ namespace Modele
         /// </summary>
         public PlateForme PlateForme { get; private set; }
 
+        //public List<PlateForme> PlateForme { get; private set; } = new List<PlateForme>();
+
+        // Ici je ne sais pas comment passer plusieurs plateforme en paramètres à l'instanciation du jeu. Un jeu étant disponible sur plusieurs plate-forme je en sais pas comment faire. 
+
         /// <summary>
         ///Informe si le jeu est favori ou non
         /// </summary>

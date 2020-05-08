@@ -95,6 +95,7 @@ namespace Modele
         /// <param name="jeu">Jeu vidéo à ajouter en favori</param>
         public void AjouterFav(JeuVidéo jeuFav)
         {
+            jeuFav.EstFavori = true;
             ListeFavoris.Add(jeuFav);
             NombreFavoris = ListeFavoris.Count;
         }
@@ -104,6 +105,7 @@ namespace Modele
         /// <param name="jeu">Jeu vidéo à supprimer</param>
         public void SupprimerFav(JeuVidéo jeuFav)
         {
+            jeuFav.EstFavori = false;
             ListeFavoris.Remove(jeuFav);
             NombreFavoris = ListeFavoris.Count;
         }
