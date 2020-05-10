@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Modele;
 
 namespace Test_JeuVidéo
@@ -9,8 +10,11 @@ namespace Test_JeuVidéo
         {
             Console.WriteLine("Test de la classe JeuVidéo");
 
-            JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.9f, "Je suis Minecraft", "Minecraft.youtube.com", "imgMinecraft.bin", "Achat définitif", "Mojeig", Genre.Aventure , Pegi.trois, PlateForme.Pc  );
-            JeuVidéo jeuvidéo2 = new JeuVidéo("GTAV", 5, 10f, "Je suis GTAV", "Minecraft.youtube.com", "imgGTA5.bin", "Achat définitif", "Rockstar", Genre.Action, Pegi.dixHuits, PlateForme.Ps4);
+            JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.9f, "Je suis Minecraft", "Minecraft.youtube.com", "imgMinecraft.bin", "Achat définitif", "Mojeig", Genre.Aventure , Pegi.Trois, new List<PlateForme>(){
+            PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne}  );
+
+            JeuVidéo jeuvidéo2 = new JeuVidéo("GTAV", 5, 10f, "Je suis GTAV", "GTAV.youtube.com", "imgGTA5.bin", "Achat définitif", "Rockstar", Genre.Action, Pegi.DixHuits, new List<PlateForme>(){
+            PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne, PlateForme.Ps3 } );
 
 
             Console.WriteLine(jeuvidéo1);
