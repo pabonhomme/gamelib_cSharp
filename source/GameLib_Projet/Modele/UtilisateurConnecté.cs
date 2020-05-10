@@ -78,7 +78,7 @@ namespace Modele
         /// Méthode qui calcul l'âge de l'utilisateur à partir de sa date de naissance
         /// </summary>
         /// <param name="dateNaissance">Date de naissance de l'utilisateur</param>
-        /// <returns></returns>
+        /// <returns>Age de l'utilisateur</returns>
         private int CalculAge(DateTime dateNaissance)
         {
             DateTime now = DateTime.Today;
@@ -94,9 +94,8 @@ namespace Modele
         /// <param name="jeu">Jeu vidéo à ajouter en favori</param>
         public void AjouterFav(JeuVidéo jeuFav)
         {
-            jeuFav.EstFavori = true;
             ListeFavoris.Add(jeuFav);
-            NombreFavoris = ListeFavoris.Count;
+           
         }
         /// <summary>
         /// Méthode pour supprimer un favori de sa liste de favoris
@@ -104,22 +103,27 @@ namespace Modele
         /// <param name="jeu">Jeu vidéo à supprimer</param>
         public void SupprimerFav(JeuVidéo jeuFav)
         {
-            jeuFav.EstFavori = false;
             ListeFavoris.Remove(jeuFav);
-            NombreFavoris = ListeFavoris.Count;
+           
         }
 
 
         public override string ToString()
         {
             string user;
-            user = Nom + " " + Prénom + " " + Age + " " + Pseudo + " " + MotDePasse + " " + Mail + " " + NombreFavoris + "\n";
+          
+            user = $"Nom : {Nom} Prénom : {Prénom} Age : {Age} Pseudo : {Pseudo} Mot de passe : {MotDePasse} Mail : {Mail} Nombre de favoris : {NombreFavoris} ";
             
-            user += "Liste des jeux : \n";
+            user += "\nListe des jeux favoris : \n";
 
             foreach (JeuVidéo jeu in ListeFavoris)
             {
-                user += jeu + "\n";
+                if (NombreFavoris == 0)
+                {
+                    user += "Aucun favoris pour le moment";
+                }
+                else { user += $"{jeu}\n"; }
+               
             }
             return user;
         }

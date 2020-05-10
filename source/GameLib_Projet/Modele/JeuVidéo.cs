@@ -58,18 +58,10 @@ namespace Modele
         public Pegi Pegi { get; private set; }
 
         /// <summary>
-        /// Plate-forme où le jeu est disponible
+        /// Plate-formes où le jeu est disponible
         /// </summary>
-        public PlateForme PlateForme { get; private set; }
+        public List<PlateForme> ListePlateFormes { get; private set; } = new List<PlateForme>();
 
-        //public List<PlateForme> PlateForme { get; private set; } = new List<PlateForme>();
-
-        // Ici je ne sais pas comment passer plusieurs plateforme en paramètres à l'instanciation du jeu. Un jeu étant disponible sur plusieurs plate-forme je en sais pas comment faire. 
-
-        /// <summary>
-        ///Informe si le jeu est favori ou non
-        /// </summary>
-        public bool EstFavori { get; set; } = false;
 
         /// <summary>
         /// Constructeur
@@ -84,8 +76,8 @@ namespace Modele
         /// <param name="studioDev">Nom du studio de développement</param> 
         /// <param name="genre">Genre du jeu</param>
         /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
-        /// <param name="plateForme">Plate-forme où le jeu est disponible</param>
-        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, Genre genre, Pegi pegi, PlateForme plateForme)
+        /// <param name="plateFormes">Plate-formes où le jeu est disponible</param>
+        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
         {
             Nom = nom;
             Note = note;
@@ -97,13 +89,22 @@ namespace Modele
             StudioDev = studioDev;
             Genre = genre;
             Pegi = pegi;
-            PlateForme = plateForme;
+            ListePlateFormes = plateFormes;
         }
 
 
         public override string ToString()
         {
-            return Nom + " " + Note + " " + Prix + " " + Description + " " + LienTrailer + " " + LienImage + " " + Genre + " " + PlateForme;
+            string jeu;
+            jeu = $"Nom : {Nom} Note : {Note} Prix : {Prix} Description : {Description} Lien du trailer : {LienTrailer} Lien de l'image : {LienImage} Genre du jeu : {Genre} ";
+
+            jeu += "\nListe des Plates formes où le jeu est disponible : \n";
+
+            foreach (PlateForme plateForme in ListePlateFormes )
+            {
+                jeu += $"{plateForme}\n";
+            }
+            return jeu;
         }
 
 

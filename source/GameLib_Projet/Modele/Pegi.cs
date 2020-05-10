@@ -6,11 +6,11 @@ namespace Modele
 {
     public enum Pegi
     {
-        zero,
-        trois = 3,
-        sept = 7,
-        douze = 12,
-        seize = 16,
-        dixHuits = 18,
+        Zero,
+        Trois = 3,
+        Sept = 7,
+        Douze = 12,
+        Seize = 16,
+        DixHuits = 18,
     }
 }
