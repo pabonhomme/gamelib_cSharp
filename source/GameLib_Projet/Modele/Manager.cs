@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modele
 {
-    public class Application
+    public class Manager
     {
         /// <summary>
         /// Nombre de jeux total dans l'application
