@@ -20,7 +20,7 @@
 
     <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth5"
-    Padding="32" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="500">
+        Width="600" Height="500">
         <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Création de votre compte" FontWeight="Bold" TextAlignment="Center" FontSize="25" Margin="0,15"/>
 
@@ -44,22 +44,29 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock Text="Prénom" TextAlignment="Left" Margin="5"/>
+                <TextBlock Text="Prénom :" TextAlignment="Left" Margin="5"/>
                 <TextBox x:Name="TextBoxPrenom" Margin="5,5" Grid.Row="1"/>
 
-                <TextBlock Text="Nom" Grid.Row="2" TextAlignment="Left" Margin="5"/>
+                <TextBlock Text="Nom :" Grid.Row="2" TextAlignment="Left" Margin="5"/>
                 <TextBox x:Name="TextBoxNom" Grid.Row="3" Margin="5" />
 
-                <TextBlock Text="Age" Grid.Row="4" Margin="5"/>
-                <TextBox x:Name="TextBoxAge" Grid.Row="5" Margin="5" />
+                <TextBlock Text="Date de naissance :" Grid.Row="4" Margin="5"/>
+                <DatePicker
+                    Grid.Row="5"
+                    Width="150"
+                    Height="100" 
+                    HorizontalAlignment="Left"
+                    Margin="20,0,0,0"
+                    materialDesign:HintAssist.Hint="Pick Date"
+                    Style="{StaticResource MaterialDesignFilledDatePicker}" />
 
-                <TextBlock Text="Adresse mail" Grid.Column="1"  TextAlignment="Left" Margin="5"/>
+                <TextBlock Text="Adresse mail :" Grid.Column="1"  TextAlignment="Left" Margin="5"/>
                 <TextBox x:Name="TextBoxPseudo" Grid.Column="1" Grid.Row="1" Margin="5"/>
 
-                <TextBlock Text="Mot de passe" Grid.Column="1" Grid.Row="2" TextAlignment="Left" Margin="5"/>
+                <TextBlock Text="Mot de passe :" Grid.Column="1" Grid.Row="2" TextAlignment="Left" Margin="5"/>
                 <PasswordBox x:Name="maPassoireBox" Grid.Column="1" Grid.Row="3" Margin="5"/>
 
-                <TextBlock Text="Confirmer votre mot de passe" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5"/>
+                <TextBlock Text="Confirmer votre mot de passe :" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5"/>
                 <PasswordBox x:Name="maPassoireBox1" Grid.Column="1" Grid.Row="5" Margin="6"/>
 
                 <Button Grid.Row="8" Margin="0,5" Background="#2F2E33" HorizontalAlignment="Center" 

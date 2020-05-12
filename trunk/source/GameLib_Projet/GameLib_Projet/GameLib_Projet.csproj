@@ -14,6 +14,7 @@
     <None Remove="img\gtaV.jpg" />
     <None Remove="img\logo.png" />
     <None Remove="img\Minecraft.jpg" />
+    <None Remove="img\mojang.png" />
     <None Remove="img\pc.jpg" />
     <None Remove="img\Pegi12.jpg" />
     <None Remove="img\Pegi16.jpg" />
@@ -28,6 +29,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Content Include="img\etoile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="img\mojang.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="img\gtaV.jpg">

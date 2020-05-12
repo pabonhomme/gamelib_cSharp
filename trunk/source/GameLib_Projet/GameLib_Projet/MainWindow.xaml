@@ -17,20 +17,16 @@
         Title="GameLib" Height="725" Width="1350">
 
     <Window.Resources>
-        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}" x:Key="Combobox">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontFamily" Value="Toledo"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontStretch" Value="Condensed"/>
             <Setter Property="BorderBrush" Value="#3A5199"/>
-            <Setter Property="Height" Value="45"/>
+            <Setter Property="Height" Value="55"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
-        </Style>
-
-        <Style TargetType="{x:Type TextBlock}">
-            <Setter Property="Padding" Value="0,4" />
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="10"/>
         </Style>
 
     </Window.Resources>
@@ -48,7 +44,7 @@
                 </Button.Content>
             </Button>
             <WrapPanel VerticalAlignment="Center" Grid.Column="1" Margin="50,0,0,0">
-                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Genre">
+                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Genre" Style="{StaticResource Combobox}">
                     
                     <ComboBoxItem Content="Aventure"/>
                     <ComboBoxItem Content="Action"/>
@@ -57,40 +53,40 @@
                     <ComboBoxItem Content="RPG"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge">
+                <ComboBox MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge" Style="{StaticResource Combobox}">
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
+                        <WrapPanel>
                             <Image Source="img/Pegi3.jpg" Height="20"/>
-                            <TextBlock Foreground="LightGreen"><Run Text=" Pegi 3"/></TextBlock>
-                        </StackPanel>
+                            <TextBlock Text="Pegi 3" Foreground="LightGreen"/>
+                        </WrapPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
+                        <WrapPanel>
                             <Image Source="img/Pegi7.jpg" Height="20"/>
                             <TextBlock Foreground="Green"><Run Text=" Pegi 7"/></TextBlock>
-                        </StackPanel>
+                        </WrapPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
+                        <WrapPanel>
                             <Image Source="img/Pegi12.jpg" Height="20"/>
                             <TextBlock Foreground="Orange"><Run Text=" Pegi 12"/></TextBlock>
-                        </StackPanel>
+                        </WrapPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
+                        <WrapPanel>
                             <Image Source="img/Pegi16.jpg" Height="20"/>
                             <TextBlock Foreground="OrangeRed"><Run Text=" Pegi 16"/></TextBlock>
-                        </StackPanel>
+                        </WrapPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
-                        <StackPanel Orientation="Horizontal">
+                        <WrapPanel>
                             <Image Source="img/Pegi18.png" Height="20"/>
                             <TextBlock Foreground="DarkRed" FontWeight="Bold"><Run Text=" Pegi 18"/></TextBlock>
-                        </StackPanel>
+                        </WrapPanel>
                     </ComboBoxItem>
 
                 </ComboBox>
-                <ComboBox materialDesign:HintAssist.Hint="Note" Margin="10">
+                <ComboBox materialDesign:HintAssist.Hint="Note" Style="{StaticResource Combobox}">
 
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
@@ -99,7 +95,7 @@
                     <ComboBoxItem Content="5"/>
                 </ComboBox>
 
-                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Margin="10">
+                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Style="{StaticResource Combobox}">
                     
 
                     <ComboBoxItem Content="PC"/>
@@ -107,7 +103,7 @@
                     <ComboBoxItem Content="Xbox One"/>
                 </ComboBox>
 
-                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Favoris">
+                <ComboBox materialDesign:HintAssist.Hint="Favoris" Style="{StaticResource Combobox}">
                     
                     <ComboBoxItem Content="Oui"/>
                     <ComboBoxItem Content="Non"/>
@@ -206,7 +202,13 @@
             </StackPanel>
         </ListBox>
 
-        <local:UC_JeuVideo/>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+            <local:UC_JeuVideo/>
+        </ScrollViewer>
+   
+
+        
 
     </DockPanel>
 </Window>
