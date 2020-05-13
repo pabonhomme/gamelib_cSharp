@@ -176,30 +176,19 @@
             </WrapPanel>
         </Grid>
 
-        <ListBox DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
-                 BorderThickness="1" BorderBrush="Black">
-
-                <local:UC_jeuListe/>
-            <StackPanel>
-                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" HorizontalAlignment="Center" 
-                           FontFamily="Acmefont" FontSize="24"/>
-            </StackPanel>
-                <local:UC_jeuListe/>
-            <StackPanel>
-                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
-            </StackPanel>
-                <local:UC_jeuListe/>
-            <StackPanel>
-                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
-            </StackPanel>
-                <local:UC_jeuListe/>
-            <StackPanel>
-                <Image Source="img/gtaV.jpg" MaxHeight="200" MaxWidth="110"/>
-                <TextBlock Text="GTA V" HorizontalAlignment="Center"/>
-            </StackPanel>
+        <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding manager.ListeJeux }" DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
+                 BorderThickness="1" BorderBrush="Black" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Image Source="{Binding LienImage}" MaxHeight="200" MaxWidth="110"/>
+                        <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontFamily="Acmefont" FontSize="24"/>
+                           
+                    </StackPanel>
+                </DataTemplate>
+                
+            </ListBox.ItemTemplate>
+      
         </ListBox>
 
 

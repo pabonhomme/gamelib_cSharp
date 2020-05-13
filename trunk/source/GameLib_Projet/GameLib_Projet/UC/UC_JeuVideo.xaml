@@ -46,7 +46,7 @@
 
             </materialDesign:Card>
             <materialDesign:Card Margin="10" Width="100">
-                <Image  Source="../img/Pegi3.jpg" Width="40" Height="auto" HorizontalAlignment="Left" Margin="30,0,0,0"/>
+                <Image  Source="/img/Pegi3.jpg" Width="40" Height="auto" HorizontalAlignment="Left" Margin="30,0,0,0"/>
             </materialDesign:Card>
 
             <materialDesign:Card Margin="10">
@@ -66,7 +66,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="../img/Minecraft.jpg" Height="600" Margin="5"/>
+            <Image Source="/img/Minecraft.jpg" Height="600" Margin="5"/>
             <ToggleButton
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                     ToolTip="MaterialDesignFlatAccentToggle"
@@ -100,8 +100,8 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
            
-            <Image Source="../img/mojang.png" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
-            <Image Source="../img/Pegi3.jpg" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+            <Image Source="/img/mojang.png" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+            <Image Source="/img/Pegi3.jpg" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
            
 
             <Button Content="Acheter dès 29€" FontSize="30" Width="400" Height="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" 

@@ -108,6 +108,39 @@ namespace Modele
         }
 
 
+        /// <summary>
+        /// Vérifie si l'objet obj est égal à ce jeu-vidéo ou non
+        /// </summary>
+        /// <param name="obj">L'objet à comparer avec ce jeu-vidéo</param>
+        /// <returns>vrai si c'est égal et non si ce n'est pas le cas</returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is JeuVidéo))
+            {
+                return false;
+            }
+            return Equals((JeuVidéo)obj);
+        }
+
+        /// <summary>
+        /// Vérifie si le jeu vidéo est égal à ce jeu-vidéo
+        /// </summary>
+        /// <param name="autre">L'autre jeu-vidéo à comparer</param>
+        /// <returns>vrai si c'est égal</returns>
+        public bool Equals(JeuVidéo autre)
+        {
+            return (this.Nom == autre.Nom);
+        }
+
+        public static bool operator ==(JeuVidéo jeuVidéo1, JeuVidéo jeuVideo2)
+        {
+            return jeuVidéo1.Equals(jeuVideo2);
+        }
+
+        public static bool operator !=(JeuVidéo jeuVidéo1, JeuVidéo jeuVidéo2)
+        {
+            return !jeuVidéo1.Equals(jeuVidéo2);
+        }
 
 
 

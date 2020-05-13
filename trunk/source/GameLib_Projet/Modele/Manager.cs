@@ -1,11 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Modele
 {
     public class Manager
     {
+        public Manager()
+        {
+            ListeJeux = new ObservableCollection<JeuVidéo>()
+            {
+                new JeuVidéo("Minecraft", 4, 29.9f, "Je suis Minecraft", "Minecraft.youtube.com", "/img/Minecraft.jpg", "Achat définitif", "Mojeig", Genre.Aventure, Pegi.Trois, new List<PlateForme>(){
+            PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne}),
+
+                 new JeuVidéo("GTAV", 5, 10f, "Je suis GTAV", "GTAV.youtube.com", "/img/gtaV.jpg", "Achat définitif", "Rockstar", Genre.Action, Pegi.DixHuits, new List<PlateForme>(){
+            PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne, PlateForme.Ps3 })
+
+        };
+        }
+
         /// <summary>
         /// Nombre de jeux total dans l'application
         /// </summary>
@@ -19,7 +33,7 @@ namespace Modele
         /// <summary>
         /// Liste de tous les jeux vidéos contenus dans l'application
         /// </summary>
-        public List<JeuVidéo> ListeJeux { get; private set; } = new List<JeuVidéo>();
+        public ObservableCollection<JeuVidéo> ListeJeux { get; private set; } 
 
         /// <summary>
         /// Liste de tous les utilisateurs contenus dans l'application
