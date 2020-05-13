@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modele;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace PageAccueil
     /// </summary>
     public partial class App : Application
     {
+        public Manager manager { get; set; } = new Manager();
     }
 }

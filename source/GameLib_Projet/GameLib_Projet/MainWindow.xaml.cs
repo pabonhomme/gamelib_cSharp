@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modele;
+using PageAccueil;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,11 @@ namespace GameLib_Projet
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Manager manager => (Application.Current as App).manager;
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
     }

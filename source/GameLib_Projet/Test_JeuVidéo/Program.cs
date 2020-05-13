@@ -16,6 +16,14 @@ namespace Test_JeuVidéo
             JeuVidéo jeuvidéo2 = new JeuVidéo("GTAV", 5, 10f, "Je suis GTAV", "GTAV.youtube.com", "imgGTA5.bin", "Achat définitif", "Rockstar", Genre.Action, Pegi.DixHuits, new List<PlateForme>(){
             PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne, PlateForme.Ps3 } );
 
+            if( jeuvidéo1 == jeuvidéo2)
+            {
+                Console.WriteLine("Message s'ils sont égaux avec test ==");
+            }
+            if (jeuvidéo1.Equals(jeuvidéo2))
+            {
+                Console.WriteLine("Message s'ils sont égaux avec test equals");
+            }
 
             Console.WriteLine(jeuvidéo1);
         }
