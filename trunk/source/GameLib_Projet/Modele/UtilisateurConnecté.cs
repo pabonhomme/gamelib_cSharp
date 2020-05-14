@@ -107,7 +107,10 @@ namespace Modele
            
         }
 
-
+        /// <summary>
+        /// Réécriture de la méthode toString
+        /// </summary>
+        /// <returns>Description de l'utilisateur connecté</returns>
         public override string ToString()
         {
             string user;

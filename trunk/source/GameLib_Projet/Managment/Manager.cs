@@ -1,17 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using Modele;
+using Persistance;
 
 namespace Managment
 {
     public class Manager
     {
-        public Manager()
+        /// <summary>
+        /// Constructeur de Manager
+        /// </summary>
+        /// <param name="jeuVidéoDataManager">Objet contenant une collection de jeux-vidéos</param>
+        /// <param name="utilisateurConnectéDataManager">Objet contenent une collection d'utilisateurs connectés</param>
+        public Manager(IDataManager<JeuVidéo> jeuVidéoDataManager, IDataManager<UtilisateurConnecté> utilisateurConnectéDataManager)
         {
-            ListeJeux = new ObservableCollection<JeuVidéo>();
+            JeuVidéoDataManager = jeuVidéoDataManager;
+            UtilisateurConnectéDataManager = utilisateurConnectéDataManager;
+            ListeJeux = new ObservableCollection<JeuVidéo>(JeuVidéoDataManager.GetAll());
+            ListeUtilisateur = UtilisateurConnectéDataManager.GetAll().ToList();
         }
+
+        /// <summary>
+        /// Collection de jeux-vidéos
+        /// </summary>
+        private IDataManager<JeuVidéo> JeuVidéoDataManager { get; set; }
+
+        /// <summary>
+        /// Collection d'utilisateurs
+        /// </summary>
+        private IDataManager<UtilisateurConnecté> UtilisateurConnectéDataManager { get; set; }
 
         /// <summary>
         /// Nombre de jeux total dans l'application
@@ -31,7 +51,7 @@ namespace Managment
         /// <summary>
         /// Liste de tous les utilisateurs contenus dans l'application
         /// </summary>
-        public List<UtilisateurConnecté> ListeUtilisateur { get; private set; } = new List<UtilisateurConnecté>();
+        public List<UtilisateurConnecté> ListeUtilisateur { get; private set; }
 
         /// <summary>
         /// Utilisateur courant de l'application
@@ -145,6 +165,10 @@ namespace Managment
             return null;
         }
 
+        /// <summary>
+        /// Réécriture de la méthode toString
+        /// </summary>
+        /// <returns>Description du manager</returns>
         public override string ToString()
         {
             string appli;

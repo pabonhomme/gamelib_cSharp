@@ -5,8 +5,11 @@ using System.Text;
 
 namespace Persistance
 {
-    class StubUtilisateurConnectéDataManager : StubDataManager<UtilisateurConnecté>
+    public class StubUtilisateurConnectéDataManager : StubDataManager<UtilisateurConnecté>
     {
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public StubUtilisateurConnectéDataManager()
         {
             MyCollection = new List<UtilisateurConnecté>()
@@ -18,6 +21,12 @@ namespace Persistance
 
             };
         }
+
+        /// <summary>
+        /// Méthode qui récupère l'utilisateur dont le pseudo est rentré en paramètre
+        /// </summary>
+        /// <param name="pseudo">Pseudo de l'utilisateur voulu</param>
+        /// <returns>Un utilisateur connecté</returns>
         public override UtilisateurConnecté GetByName(string pseudo)
         {
             return MyCollection.Find(user => user.Pseudo.Equals(pseudo));

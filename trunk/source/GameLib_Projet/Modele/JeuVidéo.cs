@@ -92,7 +92,10 @@ namespace Modele
             ListePlateFormes = plateFormes;
         }
 
-
+        /// <summary>
+        /// Réécriture de la méthode toString
+        /// </summary>
+        /// <returns>Description du Jeu-vidéo</returns>
         public override string ToString()
         {
             string jeu;
