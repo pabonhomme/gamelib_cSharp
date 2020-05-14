@@ -7,6 +7,9 @@ namespace Persistance
 {
     public class StubJeuVidéoDataManager : StubDataManager<JeuVidéo>
     {
+        /// <summary>
+        /// Constructeur
+        /// </summary>
         public StubJeuVidéoDataManager()
         {
             MyCollection = new List<JeuVidéo>()
@@ -21,6 +24,11 @@ namespace Persistance
             };
         }
 
+        /// <summary>
+        /// Méthode qui récupère le jeu-vidéo dont le nom est rentré en paramètre
+        /// </summary>
+        /// <param name="nom">Nom du jeu-vidéo voulu</param>
+        /// <returns>Un jeu-vidéo</returns>
         public override JeuVidéo GetByName(string nom)
         {
             return MyCollection.Find(jeu => jeu.Nom.Equals(nom));

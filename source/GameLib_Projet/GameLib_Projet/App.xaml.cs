@@ -1,4 +1,5 @@
 ﻿using Modele;
+using Managment;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Persistance;
 
 namespace PageAccueil
 {
@@ -14,6 +16,6 @@ namespace PageAccueil
     /// </summary>
     public partial class App : Application
     {
-        public Manager manager { get; set; } = new Manager();
+        public Manager manager { get; set; } = new Manager(new StubJeuVidéoDataManager(), new StubUtilisateurConnectéDataManager());
     }
 }

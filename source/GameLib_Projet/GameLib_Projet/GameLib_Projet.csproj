@@ -65,6 +65,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Managment\Managment.csproj" />
     <ProjectReference Include="..\Modele\Modele.csproj" />
   </ItemGroup>
 
