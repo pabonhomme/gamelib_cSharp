@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modele
 {
-    public class UtilisateurConnecté
+    public class UtilisateurConnecté : IEquatable<UtilisateurConnecté>, IComparable<UtilisateurConnecté>, IComparable
     {
 
         /// Nom de l'utilisateur
@@ -128,5 +128,85 @@ namespace Modele
             return user;
         }
 
+        /// <summary>
+        /// Vérifie si l'objet obj est égal à cet utilisateur ou non
+        /// </summary>
+        /// <param name="obj">L'objet à comparer avec l'utilisateur</param>
+        /// <returns>vrai si c'est égal et non si ce n'est pas le cas</returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is UtilisateurConnecté))
+            {
+                return false;
+            }
+            return Equals((UtilisateurConnecté)obj);
+        }
+
+        /// <summary>
+        /// Vérifie si l'utilisateur est égal à cet utilisateur
+        /// </summary>
+        /// <param name="autre">L'autre jeu-vidéo à comparer</param>
+        /// <returns>vrai si c'est égal</returns>
+        public bool Equals(UtilisateurConnecté autre)
+        {
+            return (this.Pseudo == autre.Pseudo);
+        }
+
+        /// <summary>
+        /// Méthode qui réécrit l'opérateur ==
+        /// </summary>
+        /// <param name="user1">Utilisateur à comparer</param>
+        /// <param name="user2">Utilisateur à comparer</param>
+        /// <returns>true si égal et false sinon</returns>
+        public static bool operator ==(UtilisateurConnecté user1, UtilisateurConnecté user2)
+        {
+            return user1.Equals(user2);
+        }
+
+        /// <summary>
+        /// Méthode qui réécrit l'opérateur !=
+        /// </summary>
+        /// <param name="user1">Utilisateur à comparer</param>
+        /// <param name="user2">Utilisateur à comparer</param>
+        /// <returns>true si différent et false sinon</returns>
+        public static bool operator !=(UtilisateurConnecté user1, UtilisateurConnecté user2)
+        {
+            return !user1.Equals(user2);
+        }
+
+        /// <summary>
+        /// Réécriture getHashCode
+        /// </summary>
+        /// <returns>hashCode de pseudo</returns>
+        public override int GetHashCode()
+        {
+            return Pseudo.GetHashCode();
+
+        }
+
+        /// <summary>
+        /// Compare l'instance actuelle avec un autre objet du même type
+        /// </summary>
+        /// <param name="other">Utilisateur à comparer</param>
+        /// <returns>int superieur à 0 si cette instance suit other dans l'ordre de tri, inf à 0 sinon précède et 0 si même position</returns>
+        public int CompareTo(UtilisateurConnecté other)
+        {
+            return Pseudo.CompareTo(other.Pseudo);
+        }
+
+        /// <summary>
+        /// Compare l'instance actuelle avec un autre objet du même type
+        /// </summary>
+        /// <param name="obj">Objet à comparer</param>
+        /// <returns>int superieur à 0 si cette instance suit other dans l'ordre de tri, inf à 0 sinon précède et 0 si même position</returns>
+        int IComparable.CompareTo(object obj)
+        {
+            if(!(obj is UtilisateurConnecté))
+            {
+                throw new ArgumentException ("L'argument n'est pas un utilisateur connecté", "obj" );
+            }
+            UtilisateurConnecté autreUser = obj as UtilisateurConnecté;
+            return this.CompareTo(autreUser);
+        }
     }
 }
