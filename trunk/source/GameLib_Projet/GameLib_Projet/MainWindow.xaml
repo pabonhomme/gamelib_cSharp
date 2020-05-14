@@ -183,7 +183,6 @@
                     <StackPanel>
                         <Image Source="{Binding LienImage}" MaxHeight="200" MaxWidth="110"/>
                         <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontFamily="Acmefont" FontSize="24"/>
-                           
                     </StackPanel>
                 </DataTemplate>
                 

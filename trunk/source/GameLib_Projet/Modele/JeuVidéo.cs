@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Modele
 {
-    public class JeuVidéo
+    public class JeuVidéo : IEquatable<JeuVidéo>, IComparable<JeuVidéo>, IComparable
     {
        
         /// <summary>
@@ -132,17 +132,62 @@ namespace Modele
             return (this.Nom == autre.Nom);
         }
 
+        /// <summary>
+        /// Méthode qui réécrit l'opérateur ==
+        /// </summary>
+        /// <param name="jeuVidéo1">Jeu à comparer</param>
+        /// <param name="jeuVideo2">Jeu à comparer</param>
+        /// <returns>true si égal et false sinon</returns>
         public static bool operator ==(JeuVidéo jeuVidéo1, JeuVidéo jeuVideo2)
         {
             return jeuVidéo1.Equals(jeuVideo2);
         }
 
+        /// <summary>
+        /// Méthode qui réécrit l'opérateur !=
+        /// </summary>
+        /// <param name="jeuVidéo1">Jeu à comparer</param>
+        /// <param name="jeuVidéo2">Jeu à comparer</param>
+        /// <returns>true si différent et false sinon</returns>
         public static bool operator !=(JeuVidéo jeuVidéo1, JeuVidéo jeuVidéo2)
         {
             return !jeuVidéo1.Equals(jeuVidéo2);
         }
 
+        /// <summary>
+        /// Réécriture getHashCode
+        /// </summary>
+        /// <returns>hashCode de Nom</returns>
+        public override int GetHashCode()
+        {
+            return Nom.GetHashCode();
 
+        }
+
+        /// <summary>
+        /// Compare l'instance actuelle avec un autre objet du même type
+        /// </summary>
+        /// <param name="other">Jeu à comparer</param>
+        /// <returns>int superieur à 0 si cette instance suit other dans l'ordre de tri, inf à 0 sinon précède et 0 si même position</returns>
+        public int CompareTo(JeuVidéo other)
+        {
+            return Nom.CompareTo(other.Nom);
+        }
+
+        /// <summary>
+        /// Compare l'instance actuelle avec un autre objet du même type
+        /// </summary>
+        /// <param name="obj">Objet à comparer</param>
+        /// <returns>int superieur à 0 si cette instance suit other dans l'ordre de tri, inf à 0 sinon précède et 0 si même position</returns>
+        int IComparable.CompareTo(object obj)
+        {
+            if (!(obj is JeuVidéo))
+            {
+                throw new ArgumentException("L'argument n'est pas un jeu-vidéo", "obj");
+            }
+            JeuVidéo autreJeu = obj as JeuVidéo;
+            return this.CompareTo(autreJeu);
+        }
 
 
     }

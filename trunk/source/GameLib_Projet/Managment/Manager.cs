@@ -2,24 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Modele;
 
-namespace Modele
+namespace Managment
 {
     public class Manager
     {
         public Manager()
         {
-            ListeJeux = new ObservableCollection<JeuVidéo>()
-            {
-                new JeuVidéo("Minecraft", 4, 29.9f, "Je suis Minecraft", "Minecraft.youtube.com", AppDomain.CurrentDomain.BaseDirectory + "../../../img\\Minecraft.jpg",
-                "Achat définitif", AppDomain.CurrentDomain.BaseDirectory + "../../../img\\mojang.png", Genre.Aventure, Pegi.Trois, new List<PlateForme>(){
-            PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne}),
-
-                 new JeuVidéo("GTAV", 5, 10f, "Je suis GTAV", "GTAV.youtube.com", AppDomain.CurrentDomain.BaseDirectory + "../../../img/gtaV.jpg",
-                 "Achat définitif", "Rockstar", Genre.Action, Pegi.DixHuits, new List<PlateForme>(){
-            PlateForme.Pc,PlateForme.Ps4,PlateForme.Xbox360,PlateForme.XboxOne, PlateForme.Ps3 })
-
-        };
+            ListeJeux = new ObservableCollection<JeuVidéo>();
         }
 
         /// <summary>
@@ -35,7 +26,7 @@ namespace Modele
         /// <summary>
         /// Liste de tous les jeux vidéos contenus dans l'application
         /// </summary>
-        public ObservableCollection<JeuVidéo> ListeJeux { get; private set; } 
+        public ObservableCollection<JeuVidéo> ListeJeux { get; private set; }
 
         /// <summary>
         /// Liste de tous les utilisateurs contenus dans l'application
@@ -62,7 +53,7 @@ namespace Modele
         /// <param name="utilisateur">Utilisateur à supprimer</param>
         public void SupprimerUtilisateur(UtilisateurConnecté utilisateur)
         {
-            if(utilisateur is Administrateur)
+            if (utilisateur is Administrateur)
             {
                 return;
             }
@@ -95,13 +86,13 @@ namespace Modele
         /// <returns>L'utilisateur recherché ou null si rien n'a été trouvé</returns>
         public UtilisateurConnecté RechercherUtilisateur(string pseudoUtilisateur)
         {
-            
+
             foreach (UtilisateurConnecté utilisateur in ListeUtilisateur)
             {
                 if (utilisateur.Pseudo == pseudoUtilisateur)
                 {
                     return utilisateur;
-                     
+
                 }
             }
             return null;
@@ -115,7 +106,7 @@ namespace Modele
         /// <param name="utilisateur1">Utilisateur qui veut ajouter le jeu, normalement admin</param>
         public void AjouterJeu(JeuVidéo jeuAAjouter, UtilisateurConnecté utilisateur)
         {
-            if(utilisateur is Administrateur)
+            if (utilisateur is Administrateur)
             {
                 ListeJeux.Add(jeuAAjouter);
             }
@@ -143,7 +134,7 @@ namespace Modele
         /// <returns>L'Le jeu recherché ou null si rien n'a été trouvé</returns>
         public JeuVidéo RechercherJeu(string nomJeu)
         {
-            
+
             foreach (JeuVidéo jeu in ListeJeux)
             {
                 if (jeu.Nom == nomJeu)
@@ -153,11 +144,11 @@ namespace Modele
             }
             return null;
         }
-        
+
         public override string ToString()
         {
             string appli;
-            appli =  $"Nombre de jeux : {NombreJeux}, Utilisateur courant : {UtilisateurCourant.Pseudo} \n";
+            appli = $"Nombre de jeux : {NombreJeux}, Utilisateur courant : {UtilisateurCourant.Pseudo} \n";
 
             appli += "\nListe des jeux : \n\n";
 
@@ -168,7 +159,7 @@ namespace Modele
                     appli += "Aucun jeux pour le moment dans l'application";
                 }
                 else { appli += $"{jeu}\n"; }
-                
+
             }
 
             appli += "\nListe des utilisateurs : \n\n";
