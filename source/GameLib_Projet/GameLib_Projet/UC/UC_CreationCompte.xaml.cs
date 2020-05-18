@@ -23,5 +23,40 @@ namespace GameLib_Projet
             InitializeComponent();
         }
 
+        public event RoutedEventHandler DejàCrééClick
+        {
+            add
+            {
+                BoutonCompteExistant.Click += value;
+            }
+            remove
+            {
+                BoutonCompteExistant.Click -= value;
+            }
+        }
+
+        public event RoutedEventHandler AnnulerClick
+        {
+            add
+            {
+                BoutonAnnuler.Click += value;
+            }
+            remove
+            {
+                BoutonAnnuler.Click -= value;
+            }
+        }
+
+        public event RoutedEventHandler CréerCompte
+        {
+            add
+            {
+                BoutonCréerCompte.Click += value;
+            }
+            remove
+            {
+                BoutonCréerCompte.Click -= value;
+            }
+        }
     }
 }

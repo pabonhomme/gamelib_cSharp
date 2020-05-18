@@ -22,5 +22,19 @@ namespace GameLib_Projet
         {
             InitializeComponent();
         }
+
+
+        public event RoutedEventHandler ButtonClick
+        {
+            add
+            {
+                BoutonPremièreConnexion.Click += value;
+            }
+            remove
+            {
+                BoutonPremièreConnexion.Click -= value;
+            }
+        }
+
     }
 }

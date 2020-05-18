@@ -28,17 +28,20 @@
             <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
-
+        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <local:ValueToVisibilityConverter x:Key="ValueToVisibilityConverter"/>
     </Window.Resources>
 
-    <DockPanel>
+    
+
+        <DockPanel>
         <Grid DockPanel.Dock="Top" Background="#2F2E33">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="147"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Button Background="#2F2E33" Height="80" Width="147" ToolTip="Accueil">
+            <Button Background="#2F2E33" Height="80" Width="147" ToolTip="Accueil" Cursor="Hand" Click="BoutonAccueil_Click">
                 <Button.Content>
                     <Image Source="img/logo.png" Width="100" Height="80"/>
                 </Button.Content>
@@ -119,9 +122,9 @@
                          >
                 </TextBox>
 
-                <Button
+                <Button x:Name="BoutonConnexion"
                     Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"
-                    ToolTip="Connectez-vous" Height="40" Width="40" Margin="100,0,20,0">
+                    ToolTip="Connectez-vous" Height="40" Width="40" Margin="100,0,20,0" Cursor="Hand" Click="BoutonConnexion_Click">
                     <materialDesign:PackIcon
                         Kind="User"
                         Height="40"
@@ -176,8 +179,8 @@
             </WrapPanel>
         </Grid>
 
-        <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding manager.ListeJeux }" DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
-                 BorderThickness="1" BorderBrush="Black" >
+        <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding Manager.ListeJeux }" DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
+                 BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding Manager.JeuVidéoSelectionné}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -185,18 +188,24 @@
                         <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontFamily="Acmefont" FontSize="24"/>
                     </StackPanel>
                 </DataTemplate>
-                
+
             </ListBox.ItemTemplate>
-      
+
         </ListBox>
-
-
-        <ScrollViewer HorizontalScrollBarVisibility="Visible">
-            <local:UC_JeuVideo/>
-        </ScrollViewer>
-   
-
+            
+        <Border  Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" Cursor="Hand">-->
+            <ContentControl Content="{Binding Navigator.SelectedUserControl}"/>
+        <!--</ScrollViewer>-->
+        </Border>
+            
+        <!--<Border Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource ValueToVisibilityConverter}}" Width="0" Height="0">
+        <ScrollViewer  HorizontalScrollBarVisibility="Auto" Cursor="Hand">-->
+            <local:UC_JeuVideo JeuVidéo="{Binding SelectedItem, ElementName=LesJeuxVidéo}" Visibility="Collapsed"/>
+        <!--</ScrollViewer>
+        </Border>-->
         
+
 
     </DockPanel>
 </Window>

@@ -23,12 +23,25 @@ namespace GameLib_Projet
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Manager manager => (Application.Current as App).manager;
+        public Manager Manager => (Application.Current as App).Manager;
+        public static Navigator Navigator { get; set; } = new Navigator();
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
         }
+       
+        private void BoutonAccueil_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.NavigateTo("MainWindowUser");
+            Manager.JeuVidéoSelectionné = null;
+        }
 
+        private void BoutonConnexion_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.NavigateTo("UC_Connexion");
+            Manager.JeuVidéoSelectionné = null;
+        }
+       
     }
 }

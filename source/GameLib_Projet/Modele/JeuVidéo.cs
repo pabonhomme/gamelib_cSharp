@@ -48,6 +48,11 @@ namespace Modele
         public string StudioDev { get; private set; }
 
         /// <summary>
+        /// Précise si le jeu est ajouté en favori par l'utilisateur
+        /// </summary>
+        public bool EstFavori { get; private set; }
+
+        /// <summary>
         /// Genre du jeu
         /// </summary>
         public Genre Genre { get; private set; }

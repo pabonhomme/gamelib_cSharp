@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:GameLib_Projet"
+             xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager.JeuVidéoSelectionné,ElementName=UC_JeuVidéo}"
              mc:Ignorable="d" Height="1000" Width="1200">
     
     <UserControl.Resources>
@@ -32,8 +32,8 @@
 
 
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Minecraft" 
-                       FontSize="70" 
+            <TextBlock Text="{Binding Nom}" 
+                       FontSize="40" 
                        Foreground="White" 
                        FontFamily="Montserrat" FontWeight="Bold" 
                        FontStyle="Normal" Width="auto" 
