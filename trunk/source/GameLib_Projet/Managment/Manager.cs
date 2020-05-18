@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Modele;
 using Persistance;
 
 namespace Managment
 {
-    public class Manager
+    public class Manager : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructeur de Manager
@@ -21,6 +23,33 @@ namespace Managment
             UtilisateurConnectéDataManager = utilisateurConnectéDataManager;
             ListeJeux = new ObservableCollection<JeuVidéo>(JeuVidéoDataManager.GetAll());
             ListeUtilisateur = UtilisateurConnectéDataManager.GetAll().ToList();
+        }
+
+        public Manager()
+        {
+
+        }
+
+        /// <summary>
+        /// Jeu Vidéo selectionné dans la liste des jeux vidéos dans la vue
+        /// </summary>
+        private JeuVidéo jeuVidéoSelectionné = null;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public JeuVidéo JeuVidéoSelectionné
+        {
+            get { return jeuVidéoSelectionné;  }
+            set
+            {
+                jeuVidéoSelectionné = value;
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>

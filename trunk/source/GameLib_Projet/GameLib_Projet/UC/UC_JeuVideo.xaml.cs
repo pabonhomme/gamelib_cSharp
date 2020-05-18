@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Managment;
+using Modele;
+using PageAccueil;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +21,21 @@ namespace GameLib_Projet
     /// </summary>
     public partial class UC_JeuVideo : UserControl
     {
+        public static readonly DependencyProperty JeuVidéoProperty = DependencyProperty.Register("JeuVidéo", typeof(JeuVidéo), typeof(UC_JeuVideo));
+
+        public Manager Manager => (Application.Current as App).Manager;
+
+        public JeuVidéo JeuVidéo
+        {
+            get
+            {
+                return Manager.JeuVidéoSelectionné;
+            }
+            set
+            {
+                Manager.JeuVidéoSelectionné = value;
+            }
+        }
         public UC_JeuVideo()
         {
             InitializeComponent();

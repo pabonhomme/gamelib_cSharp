@@ -69,14 +69,14 @@
                 <TextBlock Text="Confirmer votre mot de passe :" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5"/>
                 <PasswordBox x:Name="maPassoireBox1" Grid.Column="1" Grid.Row="5" Margin="6"/>
 
-                <Button Grid.Row="8" Margin="0,5" Background="#2F2E33" HorizontalAlignment="Center" 
+                <Button x:Name="BoutonCréerCompte" Grid.Row="8" Margin="0,5" Background="#2F2E33" HorizontalAlignment="Center" 
                         Width="86" 
                         Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
-                        BorderBrush="#419CE8">
+                        BorderBrush="#419CE8" Cursor="Hand">
                     Création
                 </Button>
 
-                <Button  Grid.Row="8" Grid.Column="1" Margin="0,5,70,5" Background="#2F2E33" HorizontalAlignment="Right" 
+                <Button x:Name="BoutonAnnuler" Grid.Row="8" Grid.Column="1" Margin="0,5,70,5" Background="#2F2E33" HorizontalAlignment="Right" 
                         Width="82" 
                         Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
                         BorderBrush="#419CE8">
@@ -85,7 +85,7 @@
 
             </Grid>
 
-            <Button Grid.Row="8" HorizontalAlignment="Center" 
+            <Button x:Name="BoutonCompteExistant" Grid.Row="8" HorizontalAlignment="Center" 
                         Style="{DynamicResource MaterialDesignFlatButton}" 
                         Foreground="LightGray">
                 Compte déja existant ?

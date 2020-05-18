@@ -44,7 +44,7 @@
                         Connexion
                     </Button>
 
-                    <Button Grid.Row="5" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="LightGray">
+                <Button x:Name="BoutonPremièreConnexion" Grid.Row="5" HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="LightGray" Cursor="Hand">
                         Première connexion ?
                     </Button>
 
