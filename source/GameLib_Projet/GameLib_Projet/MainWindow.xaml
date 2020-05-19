@@ -34,7 +34,12 @@
 
     
 
-        <DockPanel>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <Grid DockPanel.Dock="Top" Background="#2F2E33">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="147"/>
@@ -43,7 +48,7 @@
             </Grid.ColumnDefinitions>
             <Button Background="#2F2E33" Height="80" Width="147" ToolTip="Accueil" Cursor="Hand" Click="BoutonAccueil_Click">
                 <Button.Content>
-                    <Image Source="img/logo.png" Width="100" Height="80"/>
+                    <Image Source="img/Logo.png" Width="100" Height="80"/>
                 </Button.Content>
             </Button>
             <WrapPanel VerticalAlignment="Center" Grid.Column="1" Margin="50,0,0,0">
@@ -122,9 +127,18 @@
                          >
                 </TextBox>
 
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
+                        ToolTip="Ajouter un jeu" Height="40" Width="40" Margin="80,0,20,0" Cursor="Hand">
+                    <materialDesign:PackIcon 
+                        Kind="Add" 
+                        Foreground="#3A5199" 
+                        Height="40" 
+                        Width="40"/>
+                </Button>
+
                 <Button x:Name="BoutonConnexion"
                     Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"
-                    ToolTip="Connectez-vous" Height="40" Width="40" Margin="100,0,20,0" Cursor="Hand" Click="BoutonConnexion_Click">
+                    ToolTip="Connectez-vous" Height="40" Width="40" Margin="10,0,20,0" Cursor="Hand" Click="BoutonConnexion_Click">
                     <materialDesign:PackIcon
                         Kind="User"
                         Height="40"
@@ -134,7 +148,7 @@
 
         </Grid>
 
-        <Grid DockPanel.Dock="Bottom" Background="#2F2E33" Height="50">
+        <Grid Grid.Row="2" Background="#2F2E33" Height="50">
             <Grid.ColumnDefinitions>
                 
                 <ColumnDefinition />
@@ -178,34 +192,39 @@
                 </Button>
             </WrapPanel>
         </Grid>
-
-        <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding Manager.ListeJeux }" DockPanel.Dock="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
+            
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding Manager.ListeJeux }" HorizontalAlignment="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
                  BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding Manager.JeuVidéoSelectionné}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <Image Source="{Binding LienImage}" MaxHeight="200" MaxWidth="110"/>
-                        <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontFamily="Acmefont" FontSize="24"/>
-                    </StackPanel>
-                </DataTemplate>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Image Source="{Binding LienImage}" MaxHeight="200" MaxWidth="110"/>
+                            <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontFamily="Acmefont" FontSize="24"/>
+                        </StackPanel>
+                    </DataTemplate>
 
-            </ListBox.ItemTemplate>
+                </ListBox.ItemTemplate>
 
-        </ListBox>
-            
-        <Border  Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <!--<ScrollViewer HorizontalScrollBarVisibility="Auto" Cursor="Hand">-->
-            <ContentControl Content="{Binding Navigator.SelectedUserControl}"/>
-        <!--</ScrollViewer>-->
-        </Border>
-            
-        <!--<Border Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource ValueToVisibilityConverter}}" Width="0" Height="0">
-        <ScrollViewer  HorizontalScrollBarVisibility="Auto" Cursor="Hand">-->
-            <local:UC_JeuVideo JeuVidéo="{Binding SelectedItem, ElementName=LesJeuxVidéo}" Visibility="Collapsed"/>
-        <!--</ScrollViewer>
-        </Border>-->
+            </ListBox>
+
+            <Border Grid.Column="1" Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource NullToVisibilityConverter}}" HorizontalAlignment="Center" Cursor="Hand">
+                <ContentControl Content="{Binding Navigator.SelectedUserControl}"/>
+            </Border>
+
+            <Border Grid.Column="1" Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource ValueToVisibilityConverter}}" HorizontalAlignment="Center">
+                <ScrollViewer  HorizontalScrollBarVisibility="Auto" Cursor="Hand">
+                    <local:UC_JeuVideo JeuVidéo="{Binding SelectedItem, ElementName=LesJeuxVidéo}"/>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+        
         
 
 
-    </DockPanel>
+    </Grid>
 </Window>

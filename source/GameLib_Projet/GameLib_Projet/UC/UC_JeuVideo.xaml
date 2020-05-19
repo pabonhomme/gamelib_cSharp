@@ -58,7 +58,6 @@
                                Style="{StaticResource textBlockCaracteristique}"/>
             </materialDesign:Card>
         </WrapPanel>
-          
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -67,19 +66,25 @@
             </Grid.ColumnDefinitions>
 
             <Image Source="../img/Minecraft.jpg" Height="600" Margin="5"/>
-            <ToggleButton
+            <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10">
+                <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33" HorizontalAlignment="Right"                     
+                        ToolTip="Supprimer le jeu" Height="40" Width="40" Margin="10" Cursor="Hand">
+                    <materialDesign:PackIcon Kind="Delete" Foreground="#3A5199" Height="40" Width="40"/>
+                </Button>
+                <ToggleButton
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
-                    ToolTip="MaterialDesignFlatAccentToggle"
-                    IsChecked="False" Grid.Column="1" VerticalAlignment="Top" Width="60" Height="60" 
-                    HorizontalAlignment="Right" Margin="10">
+                    ToolTip="Ajouter ce jeu à vos favoris !"
+                    IsChecked="False" Width="40" Height="40">
                 <materialDesign:PackIcon
                         Kind="Star"
-                        Height="60"
-                        Width="60" Foreground="White"/>
-            </ToggleButton>
+                        Height="40"
+                        Width="40" Foreground="White"/>
+            </ToggleButton> 
+            </WrapPanel>
+            
             <TextBlock Text="Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). " 
                            Grid.Column="1"
-                           Margin="50,0,50,0"
+                           Margin="50,0"
                            TextWrapping="Wrap"  
                            VerticalAlignment="Center" FontFamily="Arial"/>
             <TextBlock Text="Ce jeu est disponible sur : PC, PS4, XboxOne, Switch !"
