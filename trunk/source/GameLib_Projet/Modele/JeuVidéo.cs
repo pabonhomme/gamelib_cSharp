@@ -63,6 +63,16 @@ namespace Modele
         public Pegi Pegi { get; private set; }
 
         /// <summary>
+        /// Lien de l'image âge minimum pegi
+        /// </summary>
+        public string LienPegi { get; private set; }
+
+        /// <summary>
+        /// Configuration minimale pour jouer au jeu
+        /// </summary>
+        public string ConfigMini { get; private set; }
+
+        /// <summary>
         /// Plate-formes où le jeu est disponible
         /// </summary>
         public List<PlateForme> ListePlateFormes { get; private set; } = new List<PlateForme>();
@@ -78,11 +88,13 @@ namespace Modele
         /// <param name="lienTrailer">Lien du trailer du jeu</param>
         /// <param name="lienImage">Lien de l'image du jeu</param>
         /// <param name="modeleEco">Modèle économique du jeu</param>
-        /// <param name="studioDev">Nom du studio de développement</param> 
+        /// <param name="studioDev">Nom du studio de développement</param>
+        /// <param name="configMini">Configuration minimale pour jouer au jeu</param>
         /// <param name="genre">Genre du jeu</param>
         /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
         /// <param name="plateFormes">Plate-formes où le jeu est disponible</param>
-        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
+        
+        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, string configMini, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
         {
             Nom = nom;
             Note = note;
@@ -92,9 +104,36 @@ namespace Modele
             LienImage = lienImage;
             ModeleEco = modeleEco;
             StudioDev = studioDev;
+            ConfigMini = configMini;
             Genre = genre;
             Pegi = pegi;
             ListePlateFormes = plateFormes;
+            LienPegi = AppDomain.CurrentDomain.BaseDirectory + GetLinkPegi(Pegi);
+        }
+
+        private string GetLinkPegi(Pegi pegi)
+        {
+            if (pegi == Pegi.Trois)
+            {
+                return "../../../img/Pegi3.jpg";
+            }
+            if (pegi == Pegi.Sept)
+            {
+                return "../../../img/Pegi7.jpg";
+            }
+            if (pegi == Pegi.Douze)
+            {
+                return "../../../img/Pegi12.jpg";
+            }
+            if (pegi == Pegi.Seize)
+            {
+                return "../../../img/Pegi16.jpg";
+            }
+            if (pegi == Pegi.DixHuits)
+            {
+                return "../../../img/Pegi18.jpg";
+            }
+            else return null;
         }
 
         /// <summary>

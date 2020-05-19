@@ -22,7 +22,10 @@ namespace GameLib_Projet
             ["UC_CreationCompte"] = new UC_CreationCompte()
         };
 
-        public void NavigateTo(string userControl) { SelectedUserControl = userControls.GetValueOrDefault(userControl); }
+        public void NavigateTo(string userControl)
+        {
+            SelectedUserControl = userControls.GetValueOrDefault(userControl);
+        }
 
         private void InitUserControls()
         {
