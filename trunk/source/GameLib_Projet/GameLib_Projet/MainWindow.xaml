@@ -30,6 +30,7 @@
         </Style>
         <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <local:ValueToVisibilityConverter x:Key="ValueToVisibilityConverter"/>
+        <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
     </Window.Resources>
 
     
@@ -46,7 +47,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
-            <Button Background="#2F2E33" Height="80" Width="147" ToolTip="Accueil" Cursor="Hand" Click="BoutonAccueil_Click">
+            <Button Background="#2F2E33" Height="80" Width="147" ToolTip="Accueil" Cursor="Hand" Click="BoutonAccueil_Click" Margin="0,2">
                 <Button.Content>
                     <Image Source="img/Logo.png" Width="100" Height="80"/>
                 </Button.Content>
@@ -128,7 +129,7 @@
                 </TextBox>
 
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Ajouter un jeu" Height="40" Width="40" Margin="80,0,20,0" Cursor="Hand">
+                        ToolTip="Ajouter un jeu" Height="40" Width="40" Margin="80,0,20,0" Cursor="Hand" Click="BoutonAjouterJeu_Click" Visibility="{Binding Manager.UtilisateurCourant,Converter={StaticResource AdminBoutonsToVisibilityConverter}}">
                     <materialDesign:PackIcon 
                         Kind="Add" 
                         Foreground="#3A5199" 
@@ -218,7 +219,7 @@
 
             <Border Grid.Column="1" Visibility="{Binding SelectedItem,ElementName=LesJeuxVidéos,Converter={StaticResource ValueToVisibilityConverter}}" HorizontalAlignment="Center">
                 <ScrollViewer  HorizontalScrollBarVisibility="Auto" Cursor="Hand">
-                    <local:UC_JeuVideo JeuVidéo="{Binding SelectedItem, ElementName=LesJeuxVidéo}"/>
+                    <local:UC_JeuVideo/>
                 </ScrollViewer>
             </Border>
         </Grid>

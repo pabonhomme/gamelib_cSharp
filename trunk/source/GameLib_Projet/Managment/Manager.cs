@@ -85,7 +85,17 @@ namespace Managment
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        public UtilisateurConnecté UtilisateurCourant { get; private set; }
+        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com") ;
+
+        public UtilisateurConnecté UtilisateurCourant
+        {
+            get { return utilisateurCourant;  }
+            set
+            {
+                utilisateurCourant = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Méthode qui ajoute un utilisateur

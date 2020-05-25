@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager.JeuVidéoSelectionné,ElementName=UC_JeuVidéo}"
-             mc:Ignorable="d" Height="1000" Width="1200">
+             xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager,ElementName=UC_JeuVideo}"
+             mc:Ignorable="d" Height="1100" Width="1200">
     
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -20,111 +20,113 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
-        
+        <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
     </UserControl.Resources>
 
     <Grid Background="#FF504E51" Width="auto" Height="auto">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="600"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
 
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="{Binding Nom}" 
+
+        <TextBlock Text="{Binding JeuVidéoSelectionné.Nom}" 
                        FontSize="40" 
                        Foreground="White" 
                        FontFamily="Montserrat" FontWeight="Bold" 
                        FontStyle="Normal" Width="auto" 
                        Height="auto"
-                       Margin="10"/>
-
-            <materialDesign:Card Margin="20,10,10,10">
-                <TextBlock Text="Aventure "
+                       Margin="0,20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <materialDesign:Card Margin="20,10,10,10" Width="150">
+                <TextBlock Text="{Binding JeuVidéoSelectionné.Genre}"
                                Style="{StaticResource textBlockCaracteristique}"/>
 
             </materialDesign:Card>
             <materialDesign:Card Margin="10" Width="100">
-                <Image  Source="../img/Pegi3.jpg" Width="40" Height="auto" HorizontalAlignment="Left" Margin="30,0,0,0"/>
+                <Image  Source="{Binding JeuVidéoSelectionné.LienPegi}" Width="40" Height="auto" HorizontalAlignment="Left" Margin="30,0,0,0"/>
             </materialDesign:Card>
 
             <materialDesign:Card Margin="10">
-                <materialDesign:RatingBar Value="4" IsReadOnly="True" x:Name="ReadOnlyRatingBar" VerticalAlignment="Center" 
+                <materialDesign:RatingBar Value="{Binding JeuVidéoSelectionné.Note}" IsReadOnly="True" x:Name="ReadOnlyRatingBar" VerticalAlignment="Center" 
                                           Margin="20" Foreground="Gold"/>
             </materialDesign:Card>
             <materialDesign:Card Margin="10">
-                <TextBlock Text="Achat definitif "
+                <TextBlock Text="{Binding JeuVidéoSelectionné.ModeleEco}"
                                Style="{StaticResource textBlockCaracteristique}"/>
             </materialDesign:Card>
         </WrapPanel>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="../img/Minecraft.jpg" Height="600" Margin="5"/>
+            <Image Source="{Binding JeuVidéoSelectionné.LienImage}" Height="600" Margin="5"/>
             <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10">
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33" HorizontalAlignment="Right"                     
-                        ToolTip="Supprimer le jeu" Height="40" Width="40" Margin="10" Cursor="Hand">
+                        ToolTip="Supprimer le jeu" Height="40" Width="40" Margin="10" Cursor="Hand" Click="BoutonSupprimer_click" Visibility="{Binding UtilisateurCourant, Converter={StaticResource AdminBoutonsToVisibilityConverter} }">
                     <materialDesign:PackIcon Kind="Delete" Foreground="#3A5199" Height="40" Width="40"/>
                 </Button>
                 <ToggleButton
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                     ToolTip="Ajouter ce jeu à vos favoris !"
-                    IsChecked="False" Width="40" Height="40">
+                    IsChecked="{Binding JeuVidéoSelectionné.EstFavori}" Width="40" Height="40" Cursor="Hand">
                 <materialDesign:PackIcon
                         Kind="Star"
                         Height="40"
                         Width="40" Foreground="White"/>
             </ToggleButton> 
             </WrapPanel>
-            
-            <TextBlock Text="Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). " 
+
+            <TextBlock Text="{Binding JeuVidéoSelectionné.Description}" 
                            Grid.Column="1"
                            Margin="50,0"
                            TextWrapping="Wrap"  
                            VerticalAlignment="Center" FontFamily="Arial"/>
-            <TextBlock Text="Ce jeu est disponible sur : PC, PS4, XboxOne, Switch !"
+            <TextBlock Text="{Binding JeuVidéoSelectionné.AffichPlateForme}"
                        Grid.Column="1"
                        VerticalAlignment="Bottom"
                        HorizontalAlignment="Center"
                        Margin="0,0,0,50"/>
+
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-           
-            <Image Source="../img/mojang.png" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
-            <Image Source="../img/Pegi3.jpg" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
-           
 
-            <Button Content="Acheter dès 29€" FontSize="30" Width="400" Height="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
+            <Image Source="{Binding JeuVidéoSelectionné.StudioDev}" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+            <Image Source="{Binding JeuVidéoSelectionné.LienPegi}" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+
+
+            <Button Content="{Binding JeuVidéoSelectionné.AffichPrix}" FontSize="30" Width="400" Height="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
                         Background="#2F2E33" Grid.Column="1" HorizontalAlignment="Center"/>
-            <materialDesign:Card Width="auto" Grid.Column="1" Grid.Row="1" Height="40" 
-                                     HorizontalAlignment="Center" Margin="25,0">
-                <WrapPanel>
-                    <TextBlock Text="Configuration minimale : Intel Core i3-3210 / AMD A8-7600; AMD Radeon R5 / Nvidia Geforce 4xx; 4Go de RAM; 1Go d'Espace Disque; Windows 7/8/10" 
+            
+            <materialDesign:Card Width="auto" Grid.Column="1" Grid.Row="1"
+                                     HorizontalAlignment="Center" Margin="25,0" >
+                <TextBlock Text="{Binding JeuVidéoSelectionné.ConfigMini}"
                                    FontSize="18" FontStyle="Italic"
-                                   TextWrapping="Wrap"
+                                   TextWrapping="Wrap" VerticalAlignment="Center"
                                    FontFamily="Arial"/>
-                </WrapPanel>
             </materialDesign:Card>
 
-            <WrapPanel  HorizontalAlignment="Right" Margin="15,10" Grid.Column="2" Grid.Row="2">
+            <WrapPanel  HorizontalAlignment="Right" Margin="15,10" Grid.Column="2" Grid.Row="1">
                 <TextBlock Text="Trailer" Padding="3,10"/>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
+                        ToolTip="Voir le trailer" Height="40" Width="40" Margin="10,0" Click="BoutonTrailer_Click">
                     <materialDesign:PackIcon Kind="Youtube" Foreground="Red" Height="40" Width="40"/>
                 </Button>
             </WrapPanel>

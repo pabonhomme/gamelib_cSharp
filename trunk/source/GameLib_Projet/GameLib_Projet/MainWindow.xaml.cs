@@ -42,6 +42,12 @@ namespace GameLib_Projet
             Navigator.NavigateTo("UC_Connexion");
             Manager.JeuVidéoSelectionné = null;
         }
-       
+
+        private void BoutonAjouterJeu_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.NavigateTo("UC_AjoutJeu");
+            
+        }
+
     }
 }
