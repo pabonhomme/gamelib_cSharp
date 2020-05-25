@@ -50,7 +50,7 @@ namespace Modele
         /// <summary>
         /// Précise si le jeu est ajouté en favori par l'utilisateur
         /// </summary>
-        public bool EstFavori { get; private set; }
+        public bool EstFavori { get; set; } = false;
 
         /// <summary>
         /// Genre du jeu
@@ -73,6 +73,48 @@ namespace Modele
         public string ConfigMini { get; private set; }
 
         /// <summary>
+        /// Phrase pour la vue qui affiche toutes les plateformes
+        /// </summary>
+        private StringBuilder affichPlateFormes;
+
+        /// <summary>
+        /// Méthode qui renvoie la propriété calculée affichPlateForme
+        /// </summary>
+        public StringBuilder AffichPlateForme
+        {
+            get {
+                affichPlateFormes = new StringBuilder();
+                affichPlateFormes.Append("Ce jeu est disponible sur : ");
+                foreach (PlateForme plateForme in ListePlateFormes)
+                {
+                    affichPlateFormes.AppendFormat("{0}, ", plateForme);
+                }
+                affichPlateFormes.Append("n'attendez pas !");
+                return affichPlateFormes;
+            }
+        }
+
+        /// <summary>
+        /// Phrase pour la vue qui affiche le prix du jeu
+        /// </summary>
+        private StringBuilder affichPrix;
+
+        /// <summary>
+        /// Méthode qui renvoie la propriété 
+        /// </summary>
+        public StringBuilder AffichPrix
+        {
+            get
+            {
+                affichPrix = new StringBuilder();
+                affichPrix.AppendFormat("Acheter dès {0}€", Prix);
+                return affichPrix;
+            }
+        }
+
+
+
+        /// <summary>
         /// Plate-formes où le jeu est disponible
         /// </summary>
         public List<PlateForme> ListePlateFormes { get; private set; } = new List<PlateForme>();
@@ -93,7 +135,6 @@ namespace Modele
         /// <param name="genre">Genre du jeu</param>
         /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
         /// <param name="plateFormes">Plate-formes où le jeu est disponible</param>
-        
         public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, string configMini, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
         {
             Nom = nom;
@@ -131,7 +172,7 @@ namespace Modele
             }
             if (pegi == Pegi.DixHuits)
             {
-                return "../../../img/Pegi18.jpg";
+                return "../../../img/Pegi18.png";
             }
             else return null;
         }
@@ -147,10 +188,12 @@ namespace Modele
 
             jeu += "\nListe des Plates formes où le jeu est disponible : \n";
 
-            foreach (PlateForme plateForme in ListePlateFormes )
+            foreach (PlateForme plateForme in ListePlateFormes)
             {
                 jeu += $"{plateForme}\n";
             }
+            //jeu += AffichPlateForme;
+
             return jeu;
         }
 

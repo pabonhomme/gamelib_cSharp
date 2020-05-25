@@ -21,24 +21,28 @@ namespace GameLib_Projet
     /// </summary>
     public partial class UC_JeuVideo : UserControl
     {
-        public static readonly DependencyProperty JeuVidéoProperty = DependencyProperty.Register("JeuVidéo", typeof(JeuVidéo), typeof(UC_JeuVideo));
 
         public Manager Manager => (Application.Current as App).Manager;
 
-        public JeuVidéo JeuVidéo
-        {
-            get
-            {
-                return Manager.JeuVidéoSelectionné;
-            }
-            set
-            {
-                Manager.JeuVidéoSelectionné = value;
-            }
-        }
+
         public UC_JeuVideo()
         {
             InitializeComponent();
         }
+        private void BoutonTrailer_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on récupère le lien du trailer du jeu voulu et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = Manager.JeuVidéoSelectionné.LienTrailer, UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+        
+        private void BoutonSupprimer_click(object sender, RoutedEventArgs e)
+        {
+            Manager.SupprimerJeu(Manager.JeuVidéoSelectionné, Manager.UtilisateurCourant);
+        }
     }
+
+    
+
+    
 }

@@ -21,20 +21,21 @@
     <None Remove="img\pegi18.png" />
     <None Remove="img\Pegi3.jpg" />
     <None Remove="img\Pegi7.jpg" />
+    <None Remove="img\RockstarGames.png" />
     <None Remove="img\test.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\baniere.jpg">
+    <Resource Include="img\Baniere.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Content Include="img\mojang.png">
+    <Content Include="img\Mojang.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="img\gtaV.jpg">
+    <Resource Include="img\GtaV.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\logo.png">
+    <Resource Include="img\Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Minecraft.jpg">
@@ -46,13 +47,16 @@
     <Resource Include="img\Pegi16.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\pegi18.png">
+    <Resource Include="img\Pegi18.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Pegi3.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\Pegi7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\RockstarGames.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
