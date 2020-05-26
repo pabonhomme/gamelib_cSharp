@@ -22,5 +22,31 @@ namespace GameLib_Projet
         {
             InitializeComponent();
         }
+
+        public event RoutedEventHandler AnnulerAjoutJeuClick
+        {
+            add
+            {
+                AnnulerBouton.Click += value;
+            }
+
+            remove
+            {
+                AnnulerBouton.Click += value;
+            }
+            
+        }
+            public event RoutedEventHandler AjouterBoutonClick
+        {
+            add
+            {
+                AnnulerBouton.Click += value;
+            }
+
+            remove
+            {
+                AnnulerBouton.Click += value;
+            }
+        }
     }
 }

@@ -35,7 +35,6 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -45,35 +44,45 @@
 
 
                 <TextBlock Text="Prénom :" TextAlignment="Left" Margin="5"/>
-                <TextBox x:Name="TextBoxPrenom" Margin="5,5" Grid.Row="1"/>
+                <TextBox x:Name="TextBoxPrenom" Text="{Binding NouveauUtilisateur.Prénom}" Margin="5,5" Grid.Row="1"/>
 
                 <TextBlock Text="Nom :" Grid.Row="2" TextAlignment="Left" Margin="5"/>
-                <TextBox x:Name="TextBoxNom" Grid.Row="3" Margin="5" />
+                <TextBox x:Name="TextBoxNom" Text="{Binding NouveauUtilisateur.Nom}" Grid.Row="3" Margin="5" />
 
-                <TextBlock Text="Date de naissance :" Grid.Row="4" Margin="5"/>
+                <TextBlock Text="Pseudo :" Grid.Row="4" TextAlignment="Left" Margin="5"/>
+                <TextBox x:Name="TextBoxPseudo" Text="{Binding NouveauUtilisateur.Pseudo}" Grid.Row="5" Margin="5" />
+
+
+
+
+                <TextBlock Text="Adresse mail :" Grid.Column="1"  TextAlignment="Left" Margin="5"/>
+                <TextBox x:Name="TextBoxMail" Text="{Binding NouveauUtilisateur.Mail}" Grid.Column="1" Grid.Row="1" Margin="5"/>
+
+                <TextBlock Text="Mot de passe :" Grid.Column="1" Grid.Row="2" TextAlignment="Left" Margin="5"/>
+                <PasswordBox x:Name="EmplacementMotDePassePremier" Grid.Column="1" Grid.Row="3" Margin="5" PasswordChanged="PremierMotDePasseEvent"/>
+
+                <TextBlock Text="Confirmer votre mot de passe :" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5"/>
+                <PasswordBox x:Name="EmplacementMotDePasseDeuxieme" Grid.Column="1" Grid.Row="5" Margin="6" PasswordChanged="DeuxiemeMotDePasseEvent"/>
+
+
+                <TextBlock Text="Date de naissance :" Grid.Row="6" Margin="5" VerticalAlignment="Center"/>
                 <DatePicker
-                    Grid.Row="5"
+                    Grid.Row="6"
+                    Grid.Column="1"
                     Width="150"
                     Height="100" 
                     HorizontalAlignment="Left"
-                    Margin="20,0,0,0"
+                    Margin="20,10,0,10"
+                    SelectedDate="{Binding NouveauUtilisateur.DateDeNaissance}"
                     materialDesign:HintAssist.Hint="Pick Date"
                     Style="{StaticResource MaterialDesignFilledDatePicker}" />
-
-                <TextBlock Text="Adresse mail :" Grid.Column="1"  TextAlignment="Left" Margin="5"/>
-                <TextBox x:Name="TextBoxPseudo" Grid.Column="1" Grid.Row="1" Margin="5"/>
-
-                <TextBlock Text="Mot de passe :" Grid.Column="1" Grid.Row="2" TextAlignment="Left" Margin="5"/>
-                <PasswordBox x:Name="maPassoireBox" Grid.Column="1" Grid.Row="3" Margin="5"/>
-
-                <TextBlock Text="Confirmer votre mot de passe :" Grid.Column="1" Grid.Row="4" TextAlignment="Left" Margin="5"/>
-                <PasswordBox x:Name="maPassoireBox1" Grid.Column="1" Grid.Row="5" Margin="6"/>
 
                 <Button x:Name="BoutonCréerCompte" Grid.Row="8" Margin="0,5" Background="#2F2E33" HorizontalAlignment="Center" 
                         Width="86" 
                         Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
-                        BorderBrush="#419CE8" Cursor="Hand">
-                    Création
+                        BorderBrush="#419CE8" Cursor="Hand"
+                        Click="BoutonCréer_click">
+                    Créer
                 </Button>
 
                 <Button x:Name="BoutonAnnuler" Grid.Row="8" Grid.Column="1" Margin="0,5,70,5" Background="#2F2E33" HorizontalAlignment="Right" 
@@ -85,7 +94,7 @@
 
             </Grid>
 
-            <Button x:Name="BoutonCompteExistant" Grid.Row="8" HorizontalAlignment="Center" 
+            <Button x:Name="BoutonCompteExistant" HorizontalAlignment="Center" 
                         Style="{DynamicResource MaterialDesignFlatButton}" 
                         Foreground="LightGray">
                 Compte déja existant ?

@@ -15,7 +15,6 @@ namespace GameLib_Projet
         Dictionary<string, UserControl> userControls = new Dictionary<string, UserControl>()
         {
             ["MainWindowUser"] = new MainWindowUser(),
-            ["MainWindowAdmin"] = new MainWindowAdmin(),
             ["UC_JeuVideo"] = new UC_JeuVideo(),
             ["UC_AjoutJeu"] = new UC_AjoutJeu(),
             ["UC_Connexion"] = new UC_Connexion(),
@@ -31,8 +30,11 @@ namespace GameLib_Projet
         {
             (userControls["UC_Connexion"] as UC_Connexion).ButtonClick += (sender, args) => SelectedUserControl = userControls["UC_CreationCompte"];
             (userControls["UC_CreationCompte"] as UC_CreationCompte).DejàCrééClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
-            (userControls["UC_CreationCompte"] as UC_CreationCompte).AnnulerClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
-            (userControls["UC_CreationCompte"] as UC_CreationCompte).CréerCompte += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
+            (userControls["UC_CreationCompte"] as UC_CreationCompte).AnnulerCreationClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
+            (userControls["UC_CreationCompte"] as UC_CreationCompte).CréerCompteClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
+            (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AnnulerAjoutJeuClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
+            (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AjouterBoutonClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
+
 
             SelectedUserControl = userControls["MainWindowUser"];
         }
