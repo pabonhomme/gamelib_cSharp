@@ -103,6 +103,7 @@ namespace Managment
         /// <param name="utilisateur">Utilisateur à ajouter</param>
         public void CréerUtilisateur(UtilisateurConnecté utilisateur)
         {
+            utilisateur.CalculAge(utilisateur.DateNaissance);
             ListeUtilisateur.Add(utilisateur);
         }
 

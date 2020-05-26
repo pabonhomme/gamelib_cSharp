@@ -9,12 +9,12 @@ namespace Modele
 
         /// Nom de l'utilisateur
         /// </summary>
-        public string Nom { get; private set; }
+        public string Nom { get;  set; }
 
         /// <summary>
         /// Prénom de l'utilisateur
         /// </summary>
-        public string Prénom { get; private set; }
+        public string Prénom { get;  set; }
 
         /// <summary>
         /// Age de l'utilisateur
@@ -26,22 +26,22 @@ namespace Modele
         /// Date de naissance de l'utilisateur
         /// </summary>
         /// 
-        public DateTime DateNaissance { get; private set; }
+        public DateTime DateNaissance { get;  set; }
 
         /// <summary>
         /// Pseudo de l'utilisateur connecté
         /// </summary>
-        public string Pseudo { get; private set; }
+        public string Pseudo { get;  set; }
 
         /// <summary>
         /// Mot de passe de l'utilisateur connecté
         /// </summary>
-        public string MotDePasse { get; private set; }
+        public string MotDePasse { get;  set; }
 
         /// <summary>
         /// Mail de l'utilisateur connecté
         /// </summary>
-        public string Mail { get; private set; }
+        public string Mail { get;  set; }
 
         /// <summary>
         /// Nombre de favoris de l'utilisateur connecté
@@ -71,7 +71,20 @@ namespace Modele
             Pseudo = pseudo;
             MotDePasse = motDePasse;
             Mail = mail;
-            Age = CalculAge(DateNaissance);
+            CalculAge(DateNaissance);
+        }
+
+        /// <summary>
+        /// Constructeur sans parametre
+        /// </summary>
+        public UtilisateurConnecté()
+        {
+            Nom = "";
+            Prénom = "";
+            Pseudo = "";
+            MotDePasse = "";
+            Mail = "";
+            Age = 0;
         }
 
         /// <summary>
@@ -79,13 +92,13 @@ namespace Modele
         /// </summary>
         /// <param name="dateNaissance">Date de naissance de l'utilisateur</param>
         /// <returns>Age de l'utilisateur</returns>
-        private int CalculAge(DateTime dateNaissance)
+        public void CalculAge(DateTime dateNaissance)
         {
             DateTime now = DateTime.Today;
             int age = now.Year - dateNaissance.Year;
             if (dateNaissance > now.AddYears(-age))
                 age--;
-            return age;
+            Age = age;
         }
 
         /// <summary>

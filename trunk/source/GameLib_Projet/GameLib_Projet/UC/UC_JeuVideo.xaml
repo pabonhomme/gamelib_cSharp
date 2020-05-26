@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager,ElementName=UC_JeuVideo}"
+             xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager}"
              mc:Ignorable="d" Height="1100" Width="1200">
     
     <UserControl.Resources>
