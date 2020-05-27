@@ -85,7 +85,7 @@ namespace Managment
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com") ;
+        private UtilisateurConnecté utilisateurCourant = null;
 
         public UtilisateurConnecté UtilisateurCourant
         {
@@ -103,7 +103,6 @@ namespace Managment
         /// <param name="utilisateur">Utilisateur à ajouter</param>
         public void CréerUtilisateur(UtilisateurConnecté utilisateur)
         {
-            utilisateur.CalculAge(utilisateur.DateNaissance);
             ListeUtilisateur.Add(utilisateur);
         }
 
