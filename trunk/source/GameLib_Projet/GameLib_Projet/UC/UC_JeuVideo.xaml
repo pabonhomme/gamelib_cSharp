@@ -21,6 +21,7 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
+        <local:FavoriBoutonToVisibilityConverter x:Key="FavoriBoutonToVisibilityConverter"/>
     </UserControl.Resources>
 
     <Grid Background="#FF504E51" Width="auto" Height="auto">
@@ -76,7 +77,8 @@
                 <ToggleButton
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                     ToolTip="Ajouter ce jeu à vos favoris !"
-                    IsChecked="{Binding JeuVidéoSelectionné.EstFavori}" Width="40" Height="40" Cursor="Hand">
+                    IsChecked="{Binding JeuVidéoSelectionné.EstFavori}" Width="40" Height="40" Cursor="Hand"
+                    Visibility="{Binding UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}">
                 <materialDesign:PackIcon
                         Kind="Star"
                         Height="40"
