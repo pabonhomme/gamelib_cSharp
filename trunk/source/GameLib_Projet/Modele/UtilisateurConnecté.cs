@@ -20,7 +20,7 @@ namespace Modele
         /// Age de l'utilisateur
         /// </summary>
         /// 
-        public int Age { get; private set; }
+        public int Age => CalculAge(DateNaissance);
 
         /// <summary>
         /// Date de naissance de l'utilisateur
@@ -71,7 +71,6 @@ namespace Modele
             Pseudo = pseudo;
             MotDePasse = motDePasse;
             Mail = mail;
-            CalculAge(DateNaissance);
         }
 
         /// <summary>
@@ -84,7 +83,6 @@ namespace Modele
             Pseudo = "";
             MotDePasse = "";
             Mail = "";
-            Age = 0;
         }
 
         /// <summary>
@@ -92,13 +90,13 @@ namespace Modele
         /// </summary>
         /// <param name="dateNaissance">Date de naissance de l'utilisateur</param>
         /// <returns>Age de l'utilisateur</returns>
-        public void CalculAge(DateTime dateNaissance)
+        public int CalculAge(DateTime dateNaissance)
         {
             DateTime now = DateTime.Today;
             int age = now.Year - dateNaissance.Year;
             if (dateNaissance > now.AddYears(-age))
                 age--;
-            Age = age;
+            return age;
         }
 
         /// <summary>
@@ -165,7 +163,7 @@ namespace Modele
         /// <returns>vrai si c'est égal</returns>
         public bool Equals(UtilisateurConnecté autre)
         {
-            return (this.Pseudo == autre.Pseudo);
+            return (this.Pseudo == autre?.Pseudo);
         }
 
         /// <summary>
@@ -176,7 +174,7 @@ namespace Modele
         /// <returns>true si égal et false sinon</returns>
         public static bool operator ==(UtilisateurConnecté user1, UtilisateurConnecté user2)
         {
-            return user1.Equals(user2);
+            return Equals(user1, user2);
         }
 
         /// <summary>
@@ -187,7 +185,7 @@ namespace Modele
         /// <returns>true si différent et false sinon</returns>
         public static bool operator !=(UtilisateurConnecté user1, UtilisateurConnecté user2)
         {
-            return !user1.Equals(user2);
+            return !Equals(user1, user2);
         }
 
         /// <summary>

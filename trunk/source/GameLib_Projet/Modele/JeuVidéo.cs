@@ -38,6 +38,11 @@ namespace Modele
         public string LienImage { get; private set; }
 
         /// <summary>
+        /// Lien pour acheter jeu
+        /// </summary>
+        public string LienAchat { get; private set; }
+
+        /// <summary>
         /// Modèle économique du jeu
         /// </summary>
         public string ModeleEco { get; private set; }
@@ -129,13 +134,14 @@ namespace Modele
         /// <param name="description">Description du jeu</param>
         /// <param name="lienTrailer">Lien du trailer du jeu</param>
         /// <param name="lienImage">Lien de l'image du jeu</param>
+        /// <param name="lienAchat">Lien pour acheter le jeu</param>
         /// <param name="modeleEco">Modèle économique du jeu</param>
         /// <param name="studioDev">Nom du studio de développement</param>
         /// <param name="configMini">Configuration minimale pour jouer au jeu</param>
         /// <param name="genre">Genre du jeu</param>
         /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
         /// <param name="plateFormes">Plate-formes où le jeu est disponible</param>
-        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string modeleEco, string studioDev, string configMini, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
+        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string lienAchat, string modeleEco, string studioDev, string configMini, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
         {
             Nom = nom;
             Note = note;
@@ -143,6 +149,7 @@ namespace Modele
             Description = description;
             LienTrailer = lienTrailer;
             LienImage = lienImage;
+            LienAchat = lienAchat;
             ModeleEco = modeleEco;
             StudioDev = studioDev;
             ConfigMini = configMini;

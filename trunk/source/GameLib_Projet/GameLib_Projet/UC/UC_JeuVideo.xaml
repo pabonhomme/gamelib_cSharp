@@ -112,8 +112,8 @@
             <Image Source="{Binding JeuVidéoSelectionné.LienPegi}" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
 
 
-            <Button Content="{Binding JeuVidéoSelectionné.AffichPrix}" FontSize="30" Width="400" Height="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
-                        Background="#2F2E33" Grid.Column="1" HorizontalAlignment="Center"/>
+            <Button Content="{Binding JeuVidéoSelectionné.AffichPrix}" FontSize="30" Width="400"  ToolTip="Acheter le jeu" Height="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
+                        Background="#2F2E33" Grid.Column="1" HorizontalAlignment="Center" Click="BoutonAchat_Click"/>
             
             <materialDesign:Card Width="auto" Grid.Column="1" Grid.Row="1"
                                      HorizontalAlignment="Center" Margin="25,0" >
