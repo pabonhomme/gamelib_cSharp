@@ -35,7 +35,14 @@ namespace GameLib_Projet
             var info = new System.Diagnostics.ProcessStartInfo { FileName = Manager.JeuVidéoSelectionné.LienTrailer, UseShellExecute = true };
             System.Diagnostics.Process.Start(info);
         }
-        
+
+        private void BoutonAchat_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on récupère le lien du trailer du jeu voulu et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = Manager.JeuVidéoSelectionné.LienAchat, UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+
         private void BoutonSupprimer_click(object sender, RoutedEventArgs e)
         {
             Manager.SupprimerJeu(Manager.JeuVidéoSelectionné, Manager.UtilisateurCourant);
