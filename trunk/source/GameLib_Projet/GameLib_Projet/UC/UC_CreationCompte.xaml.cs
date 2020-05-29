@@ -27,6 +27,8 @@ namespace GameLib_Projet
 
         public Manager Manager => (Application.Current as App).Manager;
 
+        public static Navigator Navigator  => Navigator.GetInstance();
+
         private UtilisateurConnecté nouveauUtilisateur;
 
         public UtilisateurConnecté NouveauUtilisateur
@@ -54,7 +56,7 @@ namespace GameLib_Projet
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void ChargementUc(object sender, RoutedEventArgs e)
+        private void ChargementUcCréation(object sender, RoutedEventArgs e)
         {
             NouveauUtilisateur = new UtilisateurConnecté() { DateNaissance = DateTime.Today };
             EmplacementMotDePassePremier.Password = "";
@@ -85,17 +87,6 @@ namespace GameLib_Projet
             }
         }
 
-        public event RoutedEventHandler CréerCompteClick
-        {
-            add
-            {
-                BoutonCréerCompte.Click += value;
-            }
-            remove
-            {
-                BoutonCréerCompte.Click -= value;
-            }
-        }
         private void PremierMotDePasseEvent(object sender, RoutedEventArgs e)
         {
 
@@ -114,14 +105,17 @@ namespace GameLib_Projet
 
         private void BoutonCréer_click(object sender, RoutedEventArgs e)
         {
-            
+
             if (Manager.RechercherUtilisateur(NouveauUtilisateur.Pseudo) != null)
             {
                 MessageBox.Show("Ce pseudo appartient déja à un utilisateur existant.", "Attention ce pseudo est déja utilisé", MessageBoxButton.OK, MessageBoxImage.Error);
-               
             }
 
-            else Manager.CréerUtilisateur(NouveauUtilisateur);
+            else
+            {
+                Manager.CréerUtilisateur(NouveauUtilisateur);
+                Navigator.NavigateTo("UC_Connexion");
+            }
         }
     }
 

@@ -75,7 +75,7 @@ namespace Managment
         /// <summary>
         /// Liste de tous les jeux vidéos contenus dans l'application
         /// </summary>
-        public ObservableCollection<JeuVidéo> ListeJeux { get; private set; }
+        public ObservableCollection<JeuVidéo> ListeJeux { get; set; }
 
         /// <summary>
         /// Liste de tous les utilisateurs contenus dans l'application
@@ -85,7 +85,7 @@ namespace Managment
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        private UtilisateurConnecté utilisateurCourant = null;
+        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com");
 
         public UtilisateurConnecté UtilisateurCourant
         {
@@ -128,14 +128,14 @@ namespace Managment
         /// <param name="utilisateur">Utilisateur qui souhaite se connecter</param>
         /// <param name="motDePasseVerif">Mot de passe rentré par l'utilisateur lors de sa tentative de connexion</param>
         /// <returns></returns>
-        public string Connexion(UtilisateurConnecté utilisateur, string motDePasseVerif)
+        public bool Connexion(UtilisateurConnecté utilisateur)
         {
-            if (utilisateur.MotDePasse == motDePasseVerif)
+            if (RechercherUtilisateur(utilisateur.Pseudo) == null || RechercherUtilisateur(utilisateur.Pseudo).MotDePasse != utilisateur.MotDePasse)
             {
-                UtilisateurCourant = utilisateur;
-                return "Connexion réussie";
+                UtilisateurCourant = RechercherUtilisateur(utilisateur.Pseudo);
+                return true;
             }
-            else return "Connexion échouée";
+            else return false;
         }
 
         /// <summary>

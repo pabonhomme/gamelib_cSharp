@@ -28,18 +28,28 @@ namespace GameLib_Projet
 
         private void InitUserControls()
         {
-            (userControls["UC_Connexion"] as UC_Connexion).ButtonClick += (sender, args) => SelectedUserControl = userControls["UC_CreationCompte"];
+            (userControls["UC_Connexion"] as UC_Connexion).PremièreConnexionClick += (sender, args) => SelectedUserControl = userControls["UC_CreationCompte"];
             (userControls["UC_CreationCompte"] as UC_CreationCompte).DejàCrééClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
-            (userControls["UC_CreationCompte"] as UC_CreationCompte).AnnulerCreationClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
-            (userControls["UC_CreationCompte"] as UC_CreationCompte).CréerCompteClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
+            (userControls["UC_CreationCompte"] as UC_CreationCompte).AnnulerCreationClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
             (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AnnulerAjoutJeuClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
-            (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AjouterBoutonClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
+            (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AjouterJeuBoutonClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
 
 
             SelectedUserControl = userControls["MainWindowUser"];
         }
 
-        public Navigator()
+        private static Navigator instanceUnique;
+
+        public static Navigator GetInstance()
+        {
+            if(instanceUnique == null)
+            {
+                instanceUnique = new Navigator();
+            }
+            return instanceUnique;
+        }
+
+        private Navigator()
         {
             InitUserControls();
         }

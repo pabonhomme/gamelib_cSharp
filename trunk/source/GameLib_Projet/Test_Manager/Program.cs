@@ -44,7 +44,7 @@ namespace Test_Manager
 
             
             Console.WriteLine("Ajout d'un favori par l'utilisateur courant\n\n");
-            mngr.UtilisateurCourant.AjouterFav(jeuvidéo2);
+            //mngr.UtilisateurCourant.AjouterFav(jeuvidéo2);
 
             Console.WriteLine("Description de l'application\n\n");
             Console.WriteLine(mngr);

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GameLib_Projet"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800" Loaded="ChargementUc">
+             d:DesignHeight="500" d:DesignWidth="800" Loaded="ChargementUcCréation">
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="FontWeight" Value="Regular" />

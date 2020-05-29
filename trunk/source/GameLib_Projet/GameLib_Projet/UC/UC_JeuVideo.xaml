@@ -78,7 +78,8 @@
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                     ToolTip="Ajouter ce jeu à vos favoris !"
                     IsChecked="{Binding JeuVidéoSelectionné.EstFavori}" Width="40" Height="40" Cursor="Hand"
-                    Visibility="{Binding UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}">
+                    Visibility="{Binding UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}"
+                    Click="BoutonFavori_Click">
                 <materialDesign:PackIcon
                         Kind="Star"
                         Height="40"

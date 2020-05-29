@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GameLib_Projet"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="ChargementUcConnexion">
     
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
@@ -33,14 +33,14 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Adresse mail" Grid.Row="0"  TextAlignment="Left"/>
-                    <TextBox x:Name="TextBoxPseudo" Grid.Row="1" Margin="5"/>
+                    <TextBlock Text="Pseudo" Grid.Row="0"  TextAlignment="Left"/>
+                    <TextBox x:Name="TextBoxPseudo" Grid.Row="1" Margin="5" Text="{Binding NouveauUtilisateurCourant.Pseudo}"/>
                     <TextBlock Text="Mot de passe" Grid.Row="2" TextAlignment="Left"/>
-                    <PasswordBox x:Name="maPassoireBox" Grid.Row="3" Margin="5"/>
+                    <PasswordBox x:Name="EmplacementMotDePasse" Grid.Row="3" Margin="5" PasswordChanged="MotDePasseEvent"/>
 
 
-                    <Button Grid.Row="4" Margin="10" Background="#2F2E33" HorizontalAlignment="Center" 
-                        Width="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" BorderBrush="#419CE8">
+                    <Button x:Name="BoutonConnexion"  Grid.Row="4" Margin="10" Background="#2F2E33" HorizontalAlignment="Center" 
+                        Width="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" BorderBrush="#419CE8" Click="BoutonConnexion_Click">
                         Connexion
                     </Button>
 

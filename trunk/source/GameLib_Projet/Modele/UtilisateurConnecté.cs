@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Modele
@@ -100,13 +101,22 @@ namespace Modele
         }
 
         /// <summary>
-        /// Méthode pour ajouter un favori à sa liste de favoris
+        /// méthode qui ajouter en favoris
         /// </summary>
-        /// <param name="jeu">Jeu vidéo à ajouter en favori</param>
-        public void AjouterFav(JeuVidéo jeuFav)
+        /// <param name="listejeu">Liste de tous les jeux</param>
+        /// <param name="jeufav">jeu à ajouter en favori</param>
+        /// <returns>la liste changéee</returns>
+        public ObservableCollection<JeuVidéo> AjouterFav(ObservableCollection<JeuVidéo> listejeu, JeuVidéo jeufav)
         {
-            ListeFavoris.Add(jeuFav);
-           
+            foreach (JeuVidéo j in listejeu)
+            {
+                if (j == jeufav)
+                {
+                    j.EstFavori = true;
+                }
+            }
+            return listejeu;
+
         }
         /// <summary>
         /// Méthode pour supprimer un favori de sa liste de favoris
