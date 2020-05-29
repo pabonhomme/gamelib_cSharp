@@ -24,7 +24,7 @@ namespace GameLib_Projet
     public partial class MainWindow : Window
     {
         public Manager Manager => (Application.Current as App).Manager;
-        public static Navigator Navigator { get; set; } = new Navigator();
+        public static Navigator Navigator { get; set; } = Navigator.GetInstance();
         public MainWindow()
         {
             InitializeComponent();
@@ -46,7 +46,7 @@ namespace GameLib_Projet
         private void BoutonAjouterJeu_Click(object sender, RoutedEventArgs e)
         {
             Navigator.NavigateTo("UC_AjoutJeu");
-            
+            Manager.JeuVidéoSelectionné = null;
         }
 
     }

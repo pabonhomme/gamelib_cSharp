@@ -36,7 +36,7 @@ namespace GameLib_Projet
             }
             
         }
-            public event RoutedEventHandler AjouterBoutonClick
+            public event RoutedEventHandler AjouterJeuBoutonClick
         {
             add
             {

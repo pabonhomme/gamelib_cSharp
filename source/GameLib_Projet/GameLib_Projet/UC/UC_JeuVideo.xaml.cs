@@ -1,8 +1,10 @@
 ﻿using Managment;
+using Microsoft.VisualBasic;
 using Modele;
 using PageAccueil;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +27,7 @@ namespace GameLib_Projet
         public Manager Manager => (Application.Current as App).Manager;
 
 
+
         public UC_JeuVideo()
         {
             InitializeComponent();
@@ -45,11 +48,25 @@ namespace GameLib_Projet
 
         private void BoutonSupprimer_click(object sender, RoutedEventArgs e)
         {
-            Manager.SupprimerJeu(Manager.JeuVidéoSelectionné, Manager.UtilisateurCourant);
+            MessageBoxResult result = MessageBox.Show("Etes vous sûr de vouloir supprimer ce jeu ?", "Attention suppression", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
+
+            if (result == MessageBoxResult.OK)
+            {
+                Manager.SupprimerJeu(Manager.JeuVidéoSelectionné, Manager.UtilisateurCourant);
+            }
+            return;
+
+
+
+        }
+
+        private void BoutonFavori_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.ListeJeux = Manager.UtilisateurCourant.AjouterFav(Manager.ListeJeux, Manager.JeuVidéoSelectionné);
         }
     }
 
-    
 
-    
+
+
 }
