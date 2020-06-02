@@ -3,7 +3,9 @@ using Modele;
 using PageAccueil;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows;
@@ -54,7 +56,7 @@ namespace GameLib_Projet
 
         private void ChargementUcConnexion(object sender, RoutedEventArgs e)
         {
-            nouveauUtilisateurCourant = new UtilisateurConnecté();
+            NouveauUtilisateurCourant = new UtilisateurConnecté() { DateNaissance = DateTime.Today };
             EmplacementMotDePasse.Password = "";
         }
 
@@ -73,15 +75,29 @@ namespace GameLib_Projet
             }
             else
             {
+                
                 MessageBoxResult result = MessageBox.Show("Bienvenue sur votre application GameLib, vous êtes connecté", "Connexion réussie", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 if (result == MessageBoxResult.OK)
                 {
                     Navigator.NavigateTo("MainWindowUser");
+                    Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()];
+                    
+                    for (int i = 0; i < Manager.ListeJeux.Count(); i++)
+                    {
+                        Manager.ListeJeuxArray[i] = Manager.ListeJeux[i].Clone() as JeuVidéo; //si vous avez implémenté ICloneable                                                                      
+                    }
+                    
+                    Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.ListeJeuxArray);
+                    Manager.VerifFavoris();
                 }
             }
         }
 
+        private void BoutonAnnulerConnexion_Click(object sender, RoutedEventArgs e)
+        {
+            Navigator.NavigateTo("MainWindowUser");
+        }
 
         public event RoutedEventHandler PremièreConnexionClick
         {

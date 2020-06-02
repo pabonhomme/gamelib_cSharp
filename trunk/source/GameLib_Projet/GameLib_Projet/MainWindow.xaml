@@ -25,12 +25,24 @@
             <Setter Property="BorderBrush" Value="#3A5199"/>
             <Setter Property="Height" Value="55"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
+            <!--<Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>-->
             <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MaterialDesignAccentCheckBox}">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Toledo"/>
+            <Setter Property="Foreground" Value="#FFA4A1A1"/>
+            <Setter Property="FontStretch" Value="Condensed"/>
+            <Setter Property="BorderBrush" Value="#3A5199"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,10,0,5"/>
         </Style>
         <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <local:ValueToVisibilityConverter x:Key="ValueToVisibilityConverter"/>
         <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
+        <local:FavoriBoutonToVisibilityConverter x:Key="FavoriBoutonToVisibilityConverter"/>
+        <local:StringToImageConverter x:Key="StringToImageConverter"/>
     </Window.Resources>
 
     
@@ -53,7 +65,7 @@
                 </Button.Content>
             </Button>
             <WrapPanel VerticalAlignment="Center" Grid.Column="1" Margin="50,0,0,0">
-                <ComboBox Margin="10" materialDesign:HintAssist.Hint="Genre" Style="{StaticResource Combobox}">
+                <ComboBox x:Name="ComboBoxGenre" Margin="10" materialDesign:HintAssist.Hint="Genre" Style="{StaticResource Combobox}" SelectionChanged="ComboBoxGenre_SelectionChangedEvent">
                     
                     <ComboBoxItem Content="Aventure"/>
                     <ComboBoxItem Content="Action"/>
@@ -62,32 +74,32 @@
                     <ComboBoxItem Content="RPG"/>
                 </ComboBox>
 
-                <ComboBox MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge" Style="{StaticResource Combobox}">
-                    <ComboBoxItem>
+                <ComboBox x:Name="ComboBoxLimiteAge" MaxWidth="150" materialDesign:HintAssist.Hint="Limite d'âge" Style="{StaticResource Combobox}" SelectionChanged="ComboBoxLimiteAge_SelectionChangedEvent">
+                    <ComboBoxItem x:Name="Pegi3">
                         <WrapPanel>
                             <Image Source="img/Pegi3.jpg" Height="20"/>
                             <TextBlock Text="Pegi 3" Foreground="LightGreen"/>
                         </WrapPanel>
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="Pegi7">
                         <WrapPanel>
                             <Image Source="img/Pegi7.jpg" Height="20"/>
                             <TextBlock Foreground="Green"><Run Text=" Pegi 7"/></TextBlock>
                         </WrapPanel>
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="Pegi12">
                         <WrapPanel>
                             <Image Source="img/Pegi12.jpg" Height="20"/>
                             <TextBlock Foreground="Orange"><Run Text=" Pegi 12"/></TextBlock>
                         </WrapPanel>
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="Pegi16">
                         <WrapPanel>
                             <Image Source="img/Pegi16.jpg" Height="20"/>
                             <TextBlock Foreground="OrangeRed"><Run Text=" Pegi 16"/></TextBlock>
                         </WrapPanel>
                     </ComboBoxItem>
-                    <ComboBoxItem>
+                    <ComboBoxItem x:Name="Pegi18">
                         <WrapPanel>
                             <Image Source="img/Pegi18.png" Height="20"/>
                             <TextBlock Foreground="DarkRed" FontWeight="Bold"><Run Text=" Pegi 18"/></TextBlock>
@@ -95,7 +107,7 @@
                     </ComboBoxItem>
 
                 </ComboBox>
-                <ComboBox materialDesign:HintAssist.Hint="Note" Style="{StaticResource Combobox}">
+                <ComboBox x:Name="ComboBoxNote" materialDesign:HintAssist.Hint="Note" Style="{StaticResource Combobox}" SelectionChanged="ComboBoxNote_SelectionChangedEvent">
 
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
@@ -104,27 +116,28 @@
                     <ComboBoxItem Content="5"/>
                 </ComboBox>
 
-                <ComboBox materialDesign:HintAssist.Hint="Plate-forme" Style="{StaticResource Combobox}">
-                    
+                <ComboBox x:Name="ComboBoxPlateForme" materialDesign:HintAssist.Hint="Plate-forme" Style="{StaticResource Combobox}" SelectionChanged="ComboBoxPlateForme_SelectionChangedEvent">
 
-                    <ComboBoxItem Content="PC"/>
-                    <ComboBoxItem Content="PS4"/>
-                    <ComboBoxItem Content="Xbox One"/>
+
+                    <ComboBoxItem Content="Ps4"/>
+                    <ComboBoxItem Content="XboxOne"/>
+                    <ComboBoxItem Content="Switch"/>
+                    <ComboBoxItem Content="Pc"/>
+                    <ComboBoxItem Content="Ps3"/>
+                    <ComboBoxItem Content="Xbox360"/>
                 </ComboBox>
 
-                <ComboBox materialDesign:HintAssist.Hint="Favoris" Style="{StaticResource Combobox}">
-                    
-                    <ComboBoxItem Content="Oui"/>
-                    <ComboBoxItem Content="Non"/>
-                </ComboBox>
-
+                <CheckBox x:Name="CheckBoxFavoris" FontSize="20" Click="CheckBoxFavoris_Click" Visibility="{Binding Manager.UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}"
+                                 
+                          Content="Mes favoris" Foreground="#FFA4A1A1"/>           
+        
             </WrapPanel>
             <WrapPanel VerticalAlignment="Center" Grid.Column="2">
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"  Width="33" Height="33" />
-                <TextBox x:Name="boxRecherche" materialDesign:HintAssist.Hint="Recherche" 
+                <TextBox x:Name="TextboxRechercheJeu" materialDesign:HintAssist.Hint="Recherche"
                          materialDesign:HintAssist.HelperText="Tapez le nom d'un jeu..."
                          Background="{DynamicResource MaterialDesignTextFieldBoxBackground}"
-                         Margin="0" Padding="4,0,0,0" FontSize="20" Width="200" VerticalAlignment="Center"
+                         Margin="0" Padding="4,0,0,0" FontSize="20" Width="200" VerticalAlignment="Center" KeyDown="TouchePresséeTextBoxRecherche_Event"
                          >
                 </TextBox>
 
@@ -199,12 +212,12 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding Manager.ListeJeux }" HorizontalAlignment="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
+            <ListBox x:Name="LesJeuxVidéos" ItemsSource="{Binding Manager.ListeJeuxAux }" HorizontalAlignment="Left" Background="#3A5199" HorizontalContentAlignment="Stretch" 
                  BorderThickness="1" BorderBrush="Black" SelectedItem="{Binding Manager.JeuVidéoSelectionné}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Image Source="{Binding LienImage}" MaxHeight="200" MaxWidth="110"/>
+                            <Image Source="{Binding LienImage, Converter={StaticResource StringToImageConverter}}" MaxHeight="200" MaxWidth="110"/>
                             <TextBlock Text="{Binding Nom}" HorizontalAlignment="Center" FontFamily="Acmefont" FontSize="24" TextWrapping="Wrap"/>
                         </StackPanel>
                     </DataTemplate>

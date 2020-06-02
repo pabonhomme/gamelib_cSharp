@@ -22,6 +22,11 @@ namespace Persistance
             };
         }
 
+        public override IEnumerable<UtilisateurConnecté> GetAll()
+        {
+            return MyCollection;
+        }
+
         /// <summary>
         /// Méthode qui récupère l'utilisateur dont le pseudo est rentré en paramètre
         /// </summary>

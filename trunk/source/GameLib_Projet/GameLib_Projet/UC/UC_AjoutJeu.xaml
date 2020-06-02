@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GameLib_Projet"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             d:DesignHeight="625" d:DesignWidth="800">
+             mc:Ignorable="d" Loaded="ChargementAjoutJeuUC"
+             d:DesignHeight="690" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="White"/>
@@ -29,24 +29,26 @@
         <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="Margin" Value="10"/>
         </Style>
-       
+        <local:StringToImageConverter x:Key="StringToImageConverter"/>
     </UserControl.Resources>
-    
-    <materialDesign:Card
+
+    <ScrollViewer>
+        <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth5"
-    Width="800" Height="625">
-      
-            <Grid>
+    Width="725" Height="Auto">
+
+            <Grid VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="140"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="Auto"/>
 
 
-            </Grid.RowDefinitions>
+                </Grid.RowDefinitions>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -54,12 +56,12 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <WrapPanel>
-                        <TextBlock Text="Entrez le titre :"/>
-                        <TextBox x:Name="TextBoxTitre" Width="200"/>
+                        <TextBlock Text="Entrez le nom :"/>
+                        <TextBox x:Name="TextBoxTitre" Width="200" Text="{Binding NouveauJeu.Nom}"/>
                     </WrapPanel>
                     <WrapPanel Grid.Column="1">
                         <TextBlock Text="Entrez le prix du jeu :"/>
-                        <TextBox x:Name="TextBoxPrix" Width="40"/>
+                        <TextBox x:Name="TextBoxPrix" Width="25" Text="{Binding NouveauJeu.Prix}"/>
                     </WrapPanel>
                     <WrapPanel  Grid.Column="1">
 
@@ -70,51 +72,54 @@
                         <ColumnDefinition Width="450"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-
                     <WrapPanel Grid.Row="1" Margin="10,0,10,0">
-                    <ComboBox materialDesign:HintAssist.Hint="Genre" Style="{StaticResource Combo}">
+                        <ComboBox materialDesign:HintAssist.Hint="Genre" Style="{StaticResource Combo}" Name="GenreCombobox" SelectionChanged="ComboBox_SelectionChanged1">
                             <ComboBoxItem Content="Aventure"/>
                             <ComboBoxItem Content="Action"/>
                             <ComboBoxItem Content="Combat"/>
                             <ComboBoxItem Content="FPS"/>
                             <ComboBoxItem Content="RPG"/>
+                        </ComboBox>
 
-                    </ComboBox>
-                        <ComboBox materialDesign:HintAssist.Hint="PEGI" Style="{StaticResource Combo}">
+
+
+                        <ComboBox materialDesign:HintAssist.Hint="PEGI" Style="{StaticResource Combo}" Name="PegiCombobox" SelectionChanged="ComboBox_SelectionChanged2">
                             <ComboBoxItem Content="3"/>
                             <ComboBoxItem Content="7"/>
                             <ComboBoxItem Content="12"/>
                             <ComboBoxItem Content="16"/>
                             <ComboBoxItem Content="18"/>
                         </ComboBox>
-                    <ComboBox materialDesign:HintAssist.Hint="Note" Style="{StaticResource Combo}">
+                        <ComboBox materialDesign:HintAssist.Hint="Note" Style="{StaticResource Combo}" Name="NoteCombobox" SelectionChanged="ComboBox_SelectionChanged3" >
                             <ComboBoxItem Content="1"/>
                             <ComboBoxItem Content="2"/>
                             <ComboBoxItem Content="3"/>
                             <ComboBoxItem Content="4"/>
                             <ComboBoxItem Content="5"/>
                         </ComboBox>
-                    <ComboBox materialDesign:HintAssist.Hint="Modele Economique" Style="{StaticResource Combo}">
+                        <ComboBox materialDesign:HintAssist.Hint="Modele Economique" Style="{StaticResource Combo}" Name="ModeleEcoCombobox" SelectionChanged="ComboBox_SelectionChanged4">
                             <ComboBoxItem Content="Gratuit"/>
                             <ComboBoxItem Content="Achat définif"/>
                             <ComboBoxItem Content="Achat Mensuel"/>
                         </ComboBox>
                     </WrapPanel>
                     <WrapPanel Grid.Column="1">
-                    <TextBlock 
+                        <TextBlock 
                 Text="Rechercher l'image du jeu :"
                 Margin="10,20,20,0"/>
-                    <Button Width="70"
+                        <Button Width="70"
                             Height="70" 
                             Background="#FF424242"
-                            Margin="0,5,0,0">
-                        <materialDesign:PackIcon Kind="ImageSearchOutline"
+                            Margin="0,5,0,0"
+                            Click="AjoutImageJeu_click">
+                            <materialDesign:PackIcon Kind="ImageSearchOutline"
                                          Width="40"
                                          Height="60"
                                          Foreground="White"/>
-                    </Button>
-                   
-                   </WrapPanel>
+                        </Button>
+                        <Image Source="{Binding NouveauJeu.LienImage, Converter={StaticResource StringToImageConverter}}" Width="150" Height="100"/>
+
+                    </WrapPanel>
 
                 </Grid>
 
@@ -133,19 +138,25 @@
              Grid.Row="0"/>
 
                     <WrapPanel Grid.Row="1">
-                        <CheckBox x:Name="PC"
+                        <CheckBox Click="CheckBoxPlateforme_PC_Click"
+                                  Name="CheckBoxPC"
                           Margin="10" 
                           Content="PC"/>
 
-                        <CheckBox x:Name="PS4" Grid.Row="1"
+                        <CheckBox x:Name="CheckBoxPs4" Grid.Row="1" 
+                                  Click="CheckBoxPlateforme_Ps4_Click"
                           Content="PS4"/>
-                        <CheckBox x:Name="PS3" Grid.Row="1"
+                        <CheckBox x:Name="CheckBoxPs3" Grid.Row="1"
+                                  Click="CheckBoxPlateforme_Ps3_Click"
                           Content="PS3"/>
-                        <CheckBox x:Name="Switch" Grid.Row="1"
+                        <CheckBox x:Name="CheckBoxSwitch" Grid.Row="1"
+                                  Click="CheckBoxPlateforme_Switch_Click"
                           Content="Switch"/>
-                        <CheckBox x:Name="XboxOne" Grid.Row="1"
+                        <CheckBox x:Name="CheckBoxXboxOne" Grid.Row="1"
+                                  Click="CheckBoxPlateforme_XboxOne_Click"
                           Content="XboxOne"/>
-                        <CheckBox x:Name="Xbox360" Grid.Row="1"
+                        <CheckBox x:Name="CheckBoxX360" Grid.Row="1"
+                                  Click="CheckBoxPlateforme_Xbox360_Click"
                           Content="Xbox360"/>
                     </WrapPanel>
 
@@ -154,6 +165,7 @@
                        VerticalAlignment="Center"
                        Margin="10"/>
                     <TextBox x:Name="TextBoxLienYTB" 
+                             Text="{Binding NouveauJeu.LienTrailer}"
                      Grid.Row="1"
                      Grid.Column="1"
                      VerticalAlignment="Top"
@@ -164,25 +176,32 @@
 
                 <WrapPanel Grid.Row="3">
                     <TextBlock    
-            Text="Entrez la description du jeu :"
-            />
+            Text="Entrez la description du jeu :"/>
                     <TextBox x:Name="TextBoxDescription" Width="400"
+                             Text="{Binding NouveauJeu.Description}"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
                      VerticalScrollBarVisibility="Visible"/>
                 </WrapPanel>
+                <WrapPanel Grid.Row="4">
+                    <TextBlock    
+            Text="Entrez le lien d'achat du jeu :"/>
+                    <TextBox x:Name="TextBoxLienAchat" Width="400"
+                             Text="{Binding NouveauJeu.LienAchat}"/>
+                </WrapPanel>
 
-                <Grid Grid.Row="4" Margin="0,62,0,0" Grid.RowSpan="2">
+                <Grid Grid.Row="5" Margin="0,62,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="450"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <WrapPanel Grid.Row="5">
+                    <WrapPanel>
                         <TextBlock    
             Text="Entrez la configuration minimale du jeu :"
             />
                         <TextBox x:Name="TextBoxConfig" Width="400"
+                                 Text="{Binding NouveauJeu.ConfigMini}"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
                      VerticalScrollBarVisibility="Visible"/>
@@ -192,24 +211,28 @@
                         <TextBlock 
                 Text="Image du studio de dev :"
                 Margin="10,20,10,0"/>
-                    <Button Width="70"
+                        <Button Width="70"
                             Height="70" 
                             Background="#FF424242"
-                            Margin="0,5,0,0">
-                        <materialDesign:PackIcon Kind="ImageSearchOutline"
+                            Margin="0,5,0,0"
+                            Click="AjoutImageStudioDev_click">
+                            <materialDesign:PackIcon Kind="ImageSearchOutline"
                                          Width="40"
                                          Height="60"
                                          Foreground="White"/>
-                    </Button>
-                </WrapPanel>
+                        </Button>
+                        <Image Source="{Binding NouveauJeu.StudioDev, Converter={StaticResource StringToImageConverter}}" Width="150" Height="100"/>
+                    </WrapPanel>
 
                 </Grid>
-            <WrapPanel Grid.Row="5" HorizontalAlignment="Center">
-                <Button x:Name="AjouterBouton" Content="Ajouter" Margin="50,0"/>
-                <Button x:Name="AnnulerBouton" Content="Annuler" Margin="50,0"/>
-            </WrapPanel>
+                <WrapPanel Grid.Row="6" HorizontalAlignment="Center" Margin="10">
+                    <Button x:Name="AjouterBouton" Content="Ajouter" Margin="50,0" Click="BoutonAjouterJeu_click"/>
+                    <Button x:Name="AnnulerBouton" Content="Annuler" Margin="50,0"/>
+                </WrapPanel>
 
             </Grid>
-    </materialDesign:Card>
+
+        </materialDesign:Card>
+    </ScrollViewer>
 
 </UserControl>

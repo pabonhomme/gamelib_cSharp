@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -10,7 +11,7 @@ using Persistance;
 
 namespace Managment
 {
-    public class Manager : INotifyPropertyChanged
+    public partial class Manager : INotifyPropertyChanged
     {
         /// <summary>
         /// Constructeur de Manager
@@ -21,8 +22,16 @@ namespace Managment
         {
             JeuVidéoDataManager = jeuVidéoDataManager;
             UtilisateurConnectéDataManager = utilisateurConnectéDataManager;
-            ListeJeux = new ObservableCollection<JeuVidéo>(JeuVidéoDataManager.GetAll());
             ListeUtilisateur = UtilisateurConnectéDataManager.GetAll().ToList();
+            ListeJeux = JeuVidéoDataManager.GetAll().ToList();
+            ListeJeux.Sort();
+            ListeJeuxArray = new JeuVidéo[ListeJeux.Count()];
+            for (int i = 0; i < ListeJeux.Count(); i++)
+            {
+                ListeJeuxArray[i] = ListeJeux[i].Clone() as JeuVidéo; //si vous avez implémenté ICloneable                                                                      
+            }
+            ListeJeuxAux = new ObservableCollection<JeuVidéo>(ListeJeuxArray);
+            
         }
 
         public Manager()
@@ -30,26 +39,11 @@ namespace Managment
 
         }
 
-        /// <summary>
-        /// Jeu Vidéo selectionné dans la liste des jeux vidéos dans la vue
-        /// </summary>
-        private JeuVidéo jeuVidéoSelectionné = null;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public JeuVidéo JeuVidéoSelectionné
-        {
-            get { return jeuVidéoSelectionné;  }
-            set
-            {
-                jeuVidéoSelectionné = value;
-                OnPropertyChanged();
-            }
         }
 
         /// <summary>
@@ -62,146 +56,30 @@ namespace Managment
         /// </summary>
         private IDataManager<UtilisateurConnecté> UtilisateurConnectéDataManager { get; set; }
 
-        /// <summary>
-        /// Nombre de jeux total dans l'application
-        /// </summary>
-        public int NombreJeux => ListeJeux.Count;
-
-        /// <summary>
-        /// Nombre d'utilisateur total dans l'application
-        /// </summary>
-        public int NombreUtilisateur => ListeUtilisateur.Count;
-
-        /// <summary>
-        /// Liste de tous les jeux vidéos contenus dans l'application
-        /// </summary>
-        public ObservableCollection<JeuVidéo> ListeJeux { get; set; }
-
-        /// <summary>
-        /// Liste de tous les utilisateurs contenus dans l'application
-        /// </summary>
-        public List<UtilisateurConnecté> ListeUtilisateur { get; private set; }
-
-        /// <summary>
-        /// Utilisateur courant de l'application
-        /// </summary>
-        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com");
-
-        public UtilisateurConnecté UtilisateurCourant
-        {
-            get { return utilisateurCourant;  }
-            set
-            {
-                utilisateurCourant = value;
-                OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Méthode qui ajoute un utilisateur
-        /// </summary>
-        /// <param name="utilisateur">Utilisateur à ajouter</param>
-        public void CréerUtilisateur(UtilisateurConnecté utilisateur)
-        {
-            ListeUtilisateur.Add(utilisateur);
-        }
-
-        /// <summary>
-        /// Méthode qui supprime un utilisateur
-        /// </summary>
-        /// <param name="utilisateur">Utilisateur à supprimer</param>
-        public void SupprimerUtilisateur(UtilisateurConnecté utilisateur)
-        {
-            if (utilisateur is Administrateur)
-            {
-                return;
-            }
-            else
-            {
-                ListeUtilisateur.Remove(utilisateur);
-            }
-        }
-
-        /// <summary>
-        /// Méthode de connexion à l'application
-        /// </summary>
-        /// <param name="utilisateur">Utilisateur qui souhaite se connecter</param>
-        /// <param name="motDePasseVerif">Mot de passe rentré par l'utilisateur lors de sa tentative de connexion</param>
-        /// <returns></returns>
-        public bool Connexion(UtilisateurConnecté utilisateur)
-        {
-            if (RechercherUtilisateur(utilisateur.Pseudo) == null || RechercherUtilisateur(utilisateur.Pseudo).MotDePasse != utilisateur.MotDePasse)
-            {
-                UtilisateurCourant = RechercherUtilisateur(utilisateur.Pseudo);
-                return true;
-            }
-            else return false;
-        }
-
-        /// <summary>
-        /// Méthode qui recherche un utilisateur grâce au nom envoyé par l'application
-        /// </summary>
-        /// <param name="nomUtilisateur">Nom de l'utilisateur voulu</param>
-        /// <returns>L'utilisateur recherché ou null si rien n'a été trouvé</returns>
-        public UtilisateurConnecté RechercherUtilisateur(string pseudoUtilisateur)
+        public void VerifFavoris()
         {
 
-            foreach (UtilisateurConnecté utilisateur in ListeUtilisateur)
+            foreach (UtilisateurConnecté user in ListeUtilisateur)
             {
-                if (utilisateur.Pseudo == pseudoUtilisateur)
+
+                if (user.Equals(UtilisateurCourant))
                 {
-                    return utilisateur;
+                    user.ListeFavoris = UtilisateurCourant.ListeFavoris;
+                    foreach (JeuVidéo jeuAux in ListeJeuxAux)
+                    {                        
+                        foreach (JeuVidéo jeuUser in UtilisateurCourant.ListeFavoris)
+                        {
+
+                            if (jeuUser.Equals(jeuAux))
+                            {
+                                jeuAux.EstFavori = true;
+                            }
+                        }
+                    }
 
                 }
             }
-            return null;
-        }
-
-
-        /// <summary>
-        ///  Méthode qui permet à l'administrateur d'ajouter un jeu de la liste de jeu
-        /// </summary>
-        /// <param name="jeuAAjouter">Jeu qui va être ajouté</param>
-        /// <param name="utilisateur1">Utilisateur qui veut ajouter le jeu, normalement admin</param>
-        public void AjouterJeu(JeuVidéo jeuAAjouter, UtilisateurConnecté utilisateur)
-        {
-            if (utilisateur is Administrateur)
-            {
-                ListeJeux.Add(jeuAAjouter);
-            }
-
-        }
-
-        /// <summary>
-        /// Méthode qui permet à l'administrateur de supprimer un jeu de la liste de jeu
-        /// </summary>
-        /// <param name="jeuASupprimer">Jeu qui va être supprimé</param>
-        /// <param name="utilisateur1">Utilisateur qui veut supprimer le jeu, normalement admin</param>
-        public void SupprimerJeu(JeuVidéo jeuASupprimer, UtilisateurConnecté utilisateur)
-        {
-            if (utilisateur is Administrateur)
-            {
-                ListeJeux.Remove(jeuASupprimer);
-            }
-
-        }
-
-        /// <summary>
-        /// Méthode qui recherche un jeu grâce au nom rentré dans la barre de recherche de l'application
-        /// </summary>
-        /// <param name="nomJeu">Nom du jeu voulu</param>
-        /// <returns>L'Le jeu recherché ou null si rien n'a été trouvé</returns>
-        public JeuVidéo RechercherJeu(string nomJeu)
-        {
-
-            foreach (JeuVidéo jeu in ListeJeux)
-            {
-                if (jeu.Nom == nomJeu)
-                {
-                    return jeu;
-                }
-            }
-            return null;
+            
         }
 
         /// <summary>
@@ -215,7 +93,7 @@ namespace Managment
 
             appli += "\nListe des jeux : \n\n";
 
-            foreach (JeuVidéo jeu in ListeJeux)
+            foreach (JeuVidéo jeu in ListeJeuxAux)
             {
                 if (NombreJeux == 0)
                 {
@@ -236,6 +114,6 @@ namespace Managment
             }
 
             return appli;
-        }
+        }        
     }
 }

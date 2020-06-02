@@ -52,7 +52,7 @@ namespace Modele
         /// <summary>
         /// Liste des favoris de l'utilisateur connecté
         /// </summary>
-        public List<JeuVidéo> ListeFavoris { get; private set; } = new List<JeuVidéo>();
+        public List<JeuVidéo> ListeFavoris { get; set; } = new List<JeuVidéo>();
 
         /// <summary>
         /// Constructeur d'un utilisateur connecté
@@ -103,21 +103,13 @@ namespace Modele
         /// <summary>
         /// méthode qui ajouter en favoris
         /// </summary>
-        /// <param name="listejeu">Liste de tous les jeux</param>
         /// <param name="jeufav">jeu à ajouter en favori</param>
         /// <returns>la liste changéee</returns>
-        public ObservableCollection<JeuVidéo> AjouterFav(ObservableCollection<JeuVidéo> listejeu, JeuVidéo jeufav)
+        public void AjouterFav(JeuVidéo jeufav)
         {
-            foreach (JeuVidéo j in listejeu)
-            {
-                if (j == jeufav)
-                {
-                    j.EstFavori = true;
-                }
-            }
-            return listejeu;
-
+            ListeFavoris.Add(jeufav);
         }
+
         /// <summary>
         /// Méthode pour supprimer un favori de sa liste de favoris
         /// </summary>

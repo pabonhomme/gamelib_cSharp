@@ -32,7 +32,6 @@ namespace GameLib_Projet
             (userControls["UC_CreationCompte"] as UC_CreationCompte).DejàCrééClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
             (userControls["UC_CreationCompte"] as UC_CreationCompte).AnnulerCreationClick += (sender, args) => SelectedUserControl = userControls["UC_Connexion"];
             (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AnnulerAjoutJeuClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
-            (userControls["UC_AjoutJeu"] as UC_AjoutJeu).AjouterJeuBoutonClick += (sender, args) => SelectedUserControl = userControls["MainWindowUser"];
 
 
             SelectedUserControl = userControls["MainWindowUser"];
@@ -40,7 +39,7 @@ namespace GameLib_Projet
 
         private static Navigator instanceUnique;
 
-        public static Navigator GetInstance()
+        public static Navigator GetInstance() // singleton
         {
             if(instanceUnique == null)
             {
