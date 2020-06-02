@@ -62,7 +62,17 @@ namespace GameLib_Projet
 
         private void BoutonFavori_Click(object sender, RoutedEventArgs e)
         {
-            Manager.ListeJeux = Manager.UtilisateurCourant.AjouterFav(Manager.ListeJeux, Manager.JeuVidéoSelectionné);
+            if(Manager.JeuVidéoSelectionné.EstFavori != true)
+            {
+                Manager.UtilisateurCourant.SupprimerFav(Manager.JeuVidéoSelectionné);
+                Manager.VerifFavoris();
+            }
+            else
+            {
+                Manager.UtilisateurCourant.AjouterFav(Manager.JeuVidéoSelectionné);
+                Manager.VerifFavoris();
+            }
+            
         }
     }
 

@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager}"
+            xmlns:local="clr-namespace:GameLib_Projet" x:Name="UC_JeuVidéo" DataContext="{Binding Manager}"
              mc:Ignorable="d" Height="1100" Width="1200">
-    
+
     <UserControl.Resources>
         <Style TargetType="{x:Type TextBlock}">
             <Setter Property="Foreground" Value="White"/>
@@ -22,6 +22,31 @@
         </Style>
         <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
         <local:FavoriBoutonToVisibilityConverter x:Key="FavoriBoutonToVisibilityConverter"/>
+        <local:StringToImageConverter x:Key="StringToImageConverter"/>
+
+        <DataTemplate x:Key="DetailJeuVideo">
+
+            <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <materialDesign:Card Margin="20,10,10,10" Width="150">
+                    <TextBlock Text="{Binding Genre}"
+                               Style="{StaticResource textBlockCaracteristique}"/>
+
+                </materialDesign:Card>
+                <materialDesign:Card Margin="10" Width="100">
+                    <Image  Source="{Binding LienPegi, Converter={StaticResource StringToImageConverter}}" Width="40" Height="auto" HorizontalAlignment="Left" Margin="30,0,0,0"/>
+                </materialDesign:Card>
+
+                <materialDesign:Card Margin="10">
+                    <materialDesign:RatingBar Value="{Binding Note}" IsReadOnly="True" x:Name="ReadOnlyRatingBar" VerticalAlignment="Center" 
+                                          Margin="20" Foreground="Gold"/>
+                </materialDesign:Card>
+                <materialDesign:Card Margin="10">
+                    <TextBlock Text="{Binding ModeleEco}"
+                               Margin="5"
+                               Style="{StaticResource textBlockCaracteristique}"/>
+                </materialDesign:Card>
+            </WrapPanel>
+        </DataTemplate>
     </UserControl.Resources>
 
     <Grid Background="#FF504E51" Width="auto" Height="auto">
@@ -32,8 +57,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-
-
         <TextBlock Text="{Binding JeuVidéoSelectionné.Nom}" 
                        FontSize="40" 
                        Foreground="White" 
@@ -41,26 +64,10 @@
                        FontStyle="Normal" Width="auto" 
                        Height="auto"
                        Margin="0,20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
-            <materialDesign:Card Margin="20,10,10,10" Width="150">
-                <TextBlock Text="{Binding JeuVidéoSelectionné.Genre}"
-                               Style="{StaticResource textBlockCaracteristique}"/>
 
-            </materialDesign:Card>
-            <materialDesign:Card Margin="10" Width="100">
-                <Image  Source="{Binding JeuVidéoSelectionné.LienPegi}" Width="40" Height="auto" HorizontalAlignment="Left" Margin="30,0,0,0"/>
-            </materialDesign:Card>
 
-            <materialDesign:Card Margin="10">
-                <materialDesign:RatingBar Value="{Binding JeuVidéoSelectionné.Note}" IsReadOnly="True" x:Name="ReadOnlyRatingBar" VerticalAlignment="Center" 
-                                          Margin="20" Foreground="Gold"/>
-            </materialDesign:Card>
-            <materialDesign:Card Margin="10">
-                <TextBlock Text="{Binding JeuVidéoSelectionné.ModeleEco}"
-                               Style="{StaticResource textBlockCaracteristique}"/>
-            </materialDesign:Card>
-        </WrapPanel>
+        <ContentControl Content="{Binding JeuVidéoSelectionné}" Grid.Row="1"
+                        ContentTemplate="{StaticResource DetailJeuVideo}"/>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -68,7 +75,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding JeuVidéoSelectionné.LienImage}" Height="600" Margin="5"/>
+            <Image Source="{Binding JeuVidéoSelectionné.LienImage, Converter={StaticResource StringToImageConverter}}" Height="600" Margin="5"/>
             <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10">
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33" HorizontalAlignment="Right"                     
                         ToolTip="Supprimer le jeu" Height="40" Width="40" Margin="10" Cursor="Hand" Click="BoutonSupprimer_click" Visibility="{Binding UtilisateurCourant, Converter={StaticResource AdminBoutonsToVisibilityConverter} }">
@@ -80,11 +87,11 @@
                     IsChecked="{Binding JeuVidéoSelectionné.EstFavori}" Width="40" Height="40" Cursor="Hand"
                     Visibility="{Binding UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}"
                     Click="BoutonFavori_Click">
-                <materialDesign:PackIcon
+                    <materialDesign:PackIcon
                         Kind="Star"
                         Height="40"
                         Width="40" Foreground="White"/>
-            </ToggleButton> 
+                </ToggleButton>
             </WrapPanel>
 
             <TextBlock Text="{Binding JeuVidéoSelectionné.Description}" 
@@ -111,13 +118,13 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding JeuVidéoSelectionné.StudioDev}" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
-            <Image Source="{Binding JeuVidéoSelectionné.LienPegi}" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+            <Image Source="{Binding JeuVidéoSelectionné.StudioDev, Converter={StaticResource StringToImageConverter}}" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+            <Image Source="{Binding JeuVidéoSelectionné.LienPegi, Converter={StaticResource StringToImageConverter}}" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
 
 
             <Button Content="{Binding JeuVidéoSelectionné.AffichPrix}" FontSize="30" Width="400"  ToolTip="Acheter le jeu" Height="100" Style="{DynamicResource MaterialDesignRaisedDarkButton}" 
                         Background="#2F2E33" Grid.Column="1" HorizontalAlignment="Center" Click="BoutonAchat_Click"/>
-            
+
             <materialDesign:Card Width="auto" Grid.Column="1" Grid.Row="1"
                                      HorizontalAlignment="Center" Margin="25,0" >
                 <TextBlock Text="{Binding JeuVidéoSelectionné.ConfigMini}"
@@ -141,4 +148,5 @@
 
 
 </UserControl>
+
 

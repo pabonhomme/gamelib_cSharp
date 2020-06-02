@@ -15,10 +15,9 @@ namespace Persistance
         /// Méthode qui récupère la collection d'objet
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<T> GetAll()
-        {
-            return MyCollection;
-        }
+        public abstract IEnumerable<T> GetAll();
+        
+        
 
         /// <summary>
         /// Méthode abstraite qui récupère l'objet dont le nom est rentré en paramètre

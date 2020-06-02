@@ -6,6 +6,10 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\IUT\Csharp\GameLib_Csharp\trunk\source\GameLib_Projet\GameLibProjet_Bin\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="img\accueil.jpg" />
     <None Remove="img\baniere.jpg" />

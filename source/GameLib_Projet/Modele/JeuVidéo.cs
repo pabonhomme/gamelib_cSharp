@@ -1,81 +1,112 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Modele
 {
-    public class JeuVidéo : IEquatable<JeuVidéo>, IComparable<JeuVidéo>, IComparable
+    public class JeuVidéo : IEquatable<JeuVidéo>, IComparable<JeuVidéo>, IComparable, INotifyPropertyChanged, ICloneable
     {
        
         /// <summary>
         /// Nom du jeu
         /// </summary>
-        public string Nom { get; private set; }
+        public string Nom { get; set; }
 
         /// <summary>
         /// Note du jeu
         /// </summary>
-        public int Note { get; private set; }
+        public int Note { get; set; }
 
         /// <summary>
         /// Prix du jeu
         /// </summary>
-        public float Prix { get; private set; }
+        public float Prix { get; set; }
 
         /// <summary>
         /// Description du jeu
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Lien du trailer du jeu
         /// </summary>
-        public string LienTrailer { get; private set; }
+        public string LienTrailer { get; set; }
 
         /// <summary>
         /// Lien de l'image du jeu
         /// </summary>
-        public string LienImage { get; private set; }
+        private string lienImage;
+        public string LienImage
+        {
+            get { return lienImage; }
+
+            set
+            {
+                lienImage = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Lien pour acheter jeu
         /// </summary>
-        public string LienAchat { get; private set; }
+        public string LienAchat { get; set; }
 
         /// <summary>
         /// Modèle économique du jeu
         /// </summary>
-        public string ModeleEco { get; private set; }
+        public string ModeleEco { get; set; }
 
         /// <summary>
         /// Nom du studio de dévelopement
         /// </summary>
-        public string StudioDev { get; private set; }
+        private string studioDev;
+        public string StudioDev
+        {
+            get { return studioDev; }
+
+            set
+            {
+                studioDev = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Précise si le jeu est ajouté en favori par l'utilisateur
         /// </summary>
-        public bool EstFavori { get; set; } = false;
+        private bool estFavori = false;
+        public bool EstFavori
+        {
+            get { return estFavori; }
+            set
+            {
+                estFavori = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Genre du jeu
         /// </summary>
-        public Genre Genre { get; private set; }
+        public Genre Genre { get; set; }
 
         /// <summary>
         /// Age minimum pour avoir le jeu du jeu
         /// </summary>
-        public Pegi Pegi { get; private set; }
+        public Pegi Pegi { get; set; }
 
         /// <summary>
         /// Lien de l'image âge minimum pegi
         /// </summary>
-        public string LienPegi { get; private set; }
+        public string LienPegi => GetLinkPegi(Pegi);
 
         /// <summary>
         /// Configuration minimale pour jouer au jeu
         /// </summary>
-        public string ConfigMini { get; private set; }
+        public string ConfigMini { get; set; }
 
         /// <summary>
         /// Phrase pour la vue qui affiche toutes les plateformes
@@ -122,8 +153,14 @@ namespace Modele
         /// <summary>
         /// Plate-formes où le jeu est disponible
         /// </summary>
-        public List<PlateForme> ListePlateFormes { get; private set; } = new List<PlateForme>();
+        public List<PlateForme> ListePlateFormes { get; set; } = new List<PlateForme>();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Constructeur
@@ -156,30 +193,58 @@ namespace Modele
             Genre = genre;
             Pegi = pegi;
             ListePlateFormes = plateFormes;
-            LienPegi = AppDomain.CurrentDomain.BaseDirectory + GetLinkPegi(Pegi);
+        }
+
+        public JeuVidéo(JeuVidéo jeu) 
+        {
+            Nom = jeu.Nom;
+            Note = jeu.Note;
+            Prix = jeu.Prix;
+            Description = jeu.Description;
+            LienTrailer = jeu.LienTrailer;
+            LienImage = jeu.LienImage;
+            LienAchat = jeu.LienAchat;
+            ModeleEco = jeu.ModeleEco;
+            StudioDev = jeu.StudioDev;
+            ConfigMini = jeu.ConfigMini;
+            Genre = jeu.Genre;
+            Pegi = jeu.Pegi;
+            ListePlateFormes = jeu.ListePlateFormes;
+        }
+
+        public JeuVidéo()
+        {
+            Nom = "";
+            Prix = 0;
+            Description = "";
+            LienTrailer = "";
+            LienImage = "";
+            LienAchat = "";
+            StudioDev = "";
+            ConfigMini = "";
         }
 
         private string GetLinkPegi(Pegi pegi)
         {
             if (pegi == Pegi.Trois)
             {
-                return "../../../img/Pegi3.jpg";
+                return "Pegi3.jpg";
             }
             if (pegi == Pegi.Sept)
             {
-                return "../../../img/Pegi7.jpg";
+                return "Pegi7.jpg";
             }
             if (pegi == Pegi.Douze)
             {
-                return "../../../img/Pegi12.jpg";
+                return "Pegi12.jpg";
             }
             if (pegi == Pegi.Seize)
             {
-                return "../../../img/Pegi16.jpg";
+                return "Pegi16.jpg";
             }
             if (pegi == Pegi.DixHuits)
             {
-                return "../../../img/Pegi18.png";
+                return "Pegi18.png";
             }
             else return null;
         }
@@ -237,7 +302,7 @@ namespace Modele
         /// <returns>true si égal et false sinon</returns>
         public static bool operator ==(JeuVidéo jeuVidéo1, JeuVidéo jeuVideo2)
         {
-            return jeuVidéo1.Equals(jeuVideo2);
+            return Equals(jeuVidéo1, jeuVideo2);
         }
 
         /// <summary>
@@ -248,7 +313,7 @@ namespace Modele
         /// <returns>true si différent et false sinon</returns>
         public static bool operator !=(JeuVidéo jeuVidéo1, JeuVidéo jeuVidéo2)
         {
-            return !jeuVidéo1.Equals(jeuVidéo2);
+            return !Equals(jeuVidéo1, jeuVidéo2);
         }
 
         /// <summary>
@@ -286,6 +351,9 @@ namespace Modele
             return this.CompareTo(autreJeu);
         }
 
-
+        public object Clone()
+        {
+            return new JeuVidéo(this);
+        }
     }
 }
