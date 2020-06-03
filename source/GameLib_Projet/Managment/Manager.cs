@@ -30,6 +30,7 @@ namespace Managment
             {
                 ListeJeuxArray[i] = ListeJeux[i].Clone() as JeuVidéo; //si vous avez implémenté ICloneable                                                                      
             }
+
             ListeJeuxAux = new ObservableCollection<JeuVidéo>(ListeJeuxArray);
             
         }

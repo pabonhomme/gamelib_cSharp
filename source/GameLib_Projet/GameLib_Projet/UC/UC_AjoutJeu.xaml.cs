@@ -97,15 +97,28 @@ namespace GameLib_Projet
 
                 //Ouverture fichier
                 FileInfo InfoFichier = new FileInfo(dialog.FileName);
-                string filename = InfoFichier.Name;
+                string NomImage = InfoFichier.Name;
 
-                if (File.Exists(System.IO.Path.Combine(StringToImageConverter.CheminImages, filename)))
+                if (File.Exists(System.IO.Path.Combine(StringToImageConverter.CheminImages, NomImage)))
                 {
-                    File.Delete(System.IO.Path.Combine(StringToImageConverter.CheminImages, filename));
+                    var jeu = Manager.ListeJeux.SingleOrDefault(jeu => jeu.LienImage == InfoFichier.Name); //Utilisation du Linq pour savoir si l'image est déja utilisé par un jeu
+                    if (jeu != null) //Si un jeu existe avec la meme image
+                    {
+                        MessageBox.Show("Cette image de jeu est déja utilisée, veuillez la changer", "Erreur image jeu", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return; //Alors lien image du studioDev = à ceux des jeux déja présents
+                    }
+                    else
+                    {
+                        NouveauJeu.LienImage = NomImage;
+                        return;
+                    }
+
+
+
                 }
 
-                File.Copy(dialog.FileName, System.IO.Path.Combine(StringToImageConverter.CheminImages, InfoFichier.Name));
-                NouveauJeu.LienImage = filename;
+                File.Copy(dialog.FileName, System.IO.Path.Combine(StringToImageConverter.CheminImages, NomImage)); //Si non, copie de l'image dans le dossier du projet avec comme nom celui de l'image qu'on ajoute
+                NouveauJeu.LienImage = NomImage;
 
             }
         }
@@ -127,30 +140,27 @@ namespace GameLib_Projet
 
                 //Ouverture fichier
                 FileInfo InfoFichier = new FileInfo(dialog.FileName); // sert de wrapper (emballage) pour un chemin d'accès de fichier.
-                string filename = InfoFichier.Name; //Nom du fichier qu'on souhaite ajouter
+                string NomImage = InfoFichier.Name; //Nom du fichier qu'on souhaite ajouter
 
-                if (File.Exists(System.IO.Path.Combine(StringToImageConverter.CheminImages, filename)))
+                if (File.Exists(System.IO.Path.Combine(StringToImageConverter.CheminImages, NomImage))) // On teste si l'image qu'on veut ajouter existe
                 {
-                    var zebi = Manager.ListeJeux.SingleOrDefault(jeu => jeu.LienImage == InfoFichier.Name); //Utilisation du Linq pour savoir si l'image est déja utilisé par un jeu
-                    if (zebi != null) //Si un ou plusieurs jeux existent avec la meme image
-                    {
-                        NouveauJeu.StudioDev = zebi.StudioDev; //Alors lien image du studioDev = à ceux des jeux déja présents
-                    }
-                    else
-                    {
-                        File.Delete(System.IO.Path.Combine(StringToImageConverter.CheminImages, filename)); //Si pas utilisé, alors on supprime l'image déja présente
-                        File.Copy(dialog.FileName, System.IO.Path.Combine(StringToImageConverter.CheminImages, InfoFichier.Name)); //Copie de l'image dans le dossier du projet
-                        NouveauJeu.StudioDev = filename;
-                    }
-
+                    NouveauJeu.StudioDev = NomImage; //Si oui on donne juste comme contenu du studio de Dev, le nom de l'image qu'on veut ajouter
+                    return;
                 }
 
+                File.Copy(dialog.FileName, System.IO.Path.Combine(StringToImageConverter.CheminImages, NomImage)); //Si non, copie de l'image dans le dossier du projet avec comme nom celui de l'image qu'on ajoute
+                NouveauJeu.StudioDev = NomImage;
             }
         }
         private void BoutonAjouterJeu_click(object sender, RoutedEventArgs e)
         {
             if (Manager.RechercherJeu(NouveauJeu.Nom) == null)
             {
+                if (String.IsNullOrWhiteSpace(NouveauJeu.LienImage))
+                {
+                    MessageBox.Show("Aucune image n'est sélectionnée pour le jeu", "Erreur pas de sélection pour l'image jeu", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 Manager.AjouterJeu(NouveauJeu, Manager.UtilisateurCourant);
 
