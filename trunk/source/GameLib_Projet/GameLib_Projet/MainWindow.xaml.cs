@@ -219,7 +219,7 @@ namespace GameLib_Projet
         {
             if (e.Key == Key.Return)
             {
-                if(Manager.RechercherJeu(TextboxRechercheJeu.Text) != null)
+                if(Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text) != null)
                 {
                     Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>() { Manager.RechercherJeu(TextboxRechercheJeu.Text) };
                 }

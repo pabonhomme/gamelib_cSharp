@@ -25,7 +25,7 @@
             <Setter Property="BorderBrush" Value="#3A5199"/>
             <Setter Property="Height" Value="55"/>
             <Setter Property="FontSize" Value="20"/>
-            <!--<Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>-->
+            <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="True"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
         <Style TargetType="{x:Type CheckBox}" BasedOn="{StaticResource MaterialDesignAccentCheckBox}">

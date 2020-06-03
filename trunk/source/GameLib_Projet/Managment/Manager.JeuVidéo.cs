@@ -88,13 +88,23 @@ namespace Managment
         }
 
         /// <summary>
-        /// Méthode qui recherche un jeu grâce au nom rentré dans la barre de recherche de l'application
+        /// Méthode qui recherche un jeu grâce au nom rentré dans la barre de recherche de l'application sans avoir le nom complet
         /// </summary>
         /// <param name="nomJeu">Nom du jeu voulu</param>
-        /// <returns>L'Le jeu recherché ou null si rien n'a été trouvé</returns>
-        public JeuVidéo RechercherJeu(string nomJeu)
+        /// <returns>Le jeu recherché ou null si rien n'a été trouvé</returns>
+        public JeuVidéo RechercherJeuTextBox(string nomJeu)
         {
             return ListeJeux.SingleOrDefault(jeu => jeu.Nom.StartsWith(nomJeu));
+        }
+
+        /// <summary>
+        /// Méthode qui recherche un jeu et le renvoie seulement si le nom complet est le même
+        /// </summary>
+        /// <param name="nomJeu">Nom du jeu voulu</param>
+        /// <returns>Le jeu recherché ou null si rien n'a été trouvé</returns>
+        public JeuVidéo RechercherJeu(string nomJeu)
+        {
+            return ListeJeux.SingleOrDefault(jeu => jeu.Nom.Equals(nomJeu));
         }
     }
 }

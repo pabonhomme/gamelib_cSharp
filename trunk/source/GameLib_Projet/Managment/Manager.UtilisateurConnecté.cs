@@ -26,7 +26,7 @@ namespace Managment
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        private UtilisateurConnecté utilisateurCourant = null;
+        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com");
 
         public UtilisateurConnecté UtilisateurCourant
         {
