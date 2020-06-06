@@ -66,11 +66,13 @@ namespace GameLib_Projet
             {
                 Manager.UtilisateurCourant.SupprimerFav(Manager.JeuVidéoSelectionné);
                 Manager.VerifFavoris();
+                //Manager.SauvegardeDonnées();
             }
             else
             {
                 Manager.UtilisateurCourant.AjouterFav(Manager.JeuVidéoSelectionné);
                 Manager.VerifFavoris();
+                //Manager.SauvegardeDonnées();
             }
             
         }

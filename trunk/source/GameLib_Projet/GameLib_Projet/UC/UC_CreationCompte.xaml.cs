@@ -113,7 +113,7 @@ namespace GameLib_Projet
 
             else
             {
-                Manager.CréerUtilisateur(NouveauUtilisateur);
+                Manager.CréerUtilisateur(NouveauUtilisateur);                
                 Navigator.NavigateTo("UC_Connexion");
             }
         }

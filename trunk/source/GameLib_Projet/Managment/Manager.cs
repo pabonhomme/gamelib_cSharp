@@ -14,16 +14,49 @@ namespace Managment
     public partial class Manager : INotifyPropertyChanged
     {
         /// <summary>
-        /// Constructeur de Manager
+        /// Variable qui contient les données
         /// </summary>
-        /// <param name="jeuVidéoDataManager">Objet contenant une collection de jeux-vidéos</param>
-        /// <param name="utilisateurConnectéDataManager">Objet contenent une collection d'utilisateurs connectés</param>
-        public Manager(IDataManager<JeuVidéo> jeuVidéoDataManager, IDataManager<UtilisateurConnecté> utilisateurConnectéDataManager)
+        public IDataManager DataManager { get; set; }
+
+        /// <summary>
+        /// Evenement qui permet de signaler à la vue par un évenement qu'une propriété a changé
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Méthode qui va tester si la propriété qui l'appelle a changé 
+        /// </summary>
+        /// <param name="propertyName"></param>
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            JeuVidéoDataManager = jeuVidéoDataManager;
-            UtilisateurConnectéDataManager = utilisateurConnectéDataManager;
-            ListeUtilisateur = UtilisateurConnectéDataManager.GetAll().ToList();
-            ListeJeux = JeuVidéoDataManager.GetAll().ToList();
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Contructeur de manager
+        /// </summary>
+        /// <param name="dataManager">Données pour l'application</param>
+        public Manager(IDataManager dataManager )
+        {
+            DataManager = dataManager;
+            ChargeDonnées();
+        }
+
+        /// <summary>
+        /// Constructeur sans paramètres
+        /// </summary>
+        public Manager()
+        {
+
+        }
+
+        public void ChargeDonnées()
+        {
+            var données = DataManager.ChargeDonnées();
+            foreach(var jeu in données.jeuVidéos)
+            {
+                ListeJeux.Add(jeu);
+            }
             ListeJeux.Sort();
             ListeJeuxArray = new JeuVidéo[ListeJeux.Count()];
             for (int i = 0; i < ListeJeux.Count(); i++)
@@ -32,34 +65,21 @@ namespace Managment
             }
 
             ListeJeuxAux = new ObservableCollection<JeuVidéo>(ListeJeuxArray);
-            
+
+            foreach (var user in données.utilisateursConnectés)
+            {
+                ListeUtilisateur.Add(user);
+            }
         }
 
-        public Manager()
+
+        public void SauvegardeDonnées()
         {
-
+            DataManager.SauvegardeDonnées(ListeJeux, ListeUtilisateur);
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        /// <summary>
-        /// Collection de jeux-vidéos
-        /// </summary>
-        private IDataManager<JeuVidéo> JeuVidéoDataManager { get; set; }
-
-        /// <summary>
-        /// Collection d'utilisateurs
-        /// </summary>
-        private IDataManager<UtilisateurConnecté> UtilisateurConnectéDataManager { get; set; }
 
         public void VerifFavoris()
         {
-
             foreach (UtilisateurConnecté user in ListeUtilisateur)
             {
 

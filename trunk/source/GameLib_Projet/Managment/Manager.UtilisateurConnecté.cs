@@ -21,12 +21,12 @@ namespace Managment
         /// <summary>
         /// Liste de tous les utilisateurs contenus dans l'application
         /// </summary>
-        public List<UtilisateurConnecté> ListeUtilisateur { get; private set; }
+        public List<UtilisateurConnecté> ListeUtilisateur { get; private set; } = new List<UtilisateurConnecté>();
 
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com");
+        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>());
 
         public UtilisateurConnecté UtilisateurCourant
         {
@@ -63,6 +63,7 @@ namespace Managment
         public void CréerUtilisateur(UtilisateurConnecté utilisateur)
         {
             ListeUtilisateur.Add(utilisateur);
+            //SauvegardeDonnées();
         }
 
         /// <summary>
@@ -79,6 +80,7 @@ namespace Managment
             {
                 ListeUtilisateur.Remove(utilisateur);
             }
+            //SauvegardeDonnées();
         }
 
         /// <summary>

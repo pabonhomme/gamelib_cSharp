@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    /// <summary>
+    /// Représente un jeu vidéo de l'application
+    /// </summary>
     public class JeuVidéo : IEquatable<JeuVidéo>, IComparable<JeuVidéo>, IComparable, INotifyPropertyChanged, ICloneable
     {
        
@@ -155,8 +159,14 @@ namespace Modele
         /// </summary>
         public List<PlateForme> ListePlateFormes { get; set; } = new List<PlateForme>();
 
+        /// <summary>
+        /// Evenement qui permet de signaler à la vue par un évenement qu'une propriété a changé
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Méthode qui va tester si la propriété qui l'appelle a changé 
+        /// </summary>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -194,34 +204,17 @@ namespace Modele
             Pegi = pegi;
             ListePlateFormes = plateFormes;
         }
-
-        public JeuVidéo(JeuVidéo jeu) 
-        {
-            Nom = jeu.Nom;
-            Note = jeu.Note;
-            Prix = jeu.Prix;
-            Description = jeu.Description;
-            LienTrailer = jeu.LienTrailer;
-            LienImage = jeu.LienImage;
-            LienAchat = jeu.LienAchat;
-            ModeleEco = jeu.ModeleEco;
-            StudioDev = jeu.StudioDev;
-            ConfigMini = jeu.ConfigMini;
-            Genre = jeu.Genre;
-            Pegi = jeu.Pegi;
-            ListePlateFormes = jeu.ListePlateFormes;
-        }
-
+        
         public JeuVidéo()
         {
-            Nom = "";
+            Nom = string.Empty;
             Prix = 0;
-            Description = "";
-            LienTrailer = "";
-            LienImage = "";
-            LienAchat = "";
-            StudioDev = "";
-            ConfigMini = "";
+            Description = string.Empty;
+            LienTrailer = string.Empty;
+            LienImage = string.Empty;
+            LienAchat = string.Empty;
+            StudioDev = string.Empty;
+            ConfigMini = string.Empty;
         }
 
         private string GetLinkPegi(Pegi pegi)
@@ -353,7 +346,7 @@ namespace Modele
 
         public object Clone()
         {
-            return new JeuVidéo(this);
+            return MemberwiseClone();
         }
     }
 }
