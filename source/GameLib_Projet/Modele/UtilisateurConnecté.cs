@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Modele
 {
+    /// <summary>
+    /// Représente un utilisateur qui est connecté à l'application
+    /// </summary>
     public class UtilisateurConnecté : IEquatable<UtilisateurConnecté>, IComparable<UtilisateurConnecté>, IComparable
     {
-
+        /// <summary>
         /// Nom de l'utilisateur
         /// </summary>
         public string Nom { get;  set; }
@@ -20,13 +24,11 @@ namespace Modele
         /// <summary>
         /// Age de l'utilisateur
         /// </summary>
-        /// 
         public int Age => CalculAge(DateNaissance);
 
         /// <summary>
         /// Date de naissance de l'utilisateur
         /// </summary>
-        /// 
         public DateTime DateNaissance { get;  set; }
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace Modele
         /// <summary>
         /// Liste des favoris de l'utilisateur connecté
         /// </summary>
-        public List<JeuVidéo> ListeFavoris { get; set; } = new List<JeuVidéo>();
+        public List<JeuVidéo> ListeFavoris { get; set; }
 
         /// <summary>
         /// Constructeur d'un utilisateur connecté
@@ -63,8 +65,7 @@ namespace Modele
         /// <param name="pseudo">Pseudo de l'utilisateur</param>
         /// <param name="motDePasse">Mot de passe de l"utilisateur</param>
         /// <param name="mail">Mail de l'utilisateur</param>
-        /// <param name="nombreFavoris">Nombre de favroi de l'utilisateur</param>
-        public UtilisateurConnecté(string nom, string prénom, DateTime dateNaissance, string pseudo, string motDePasse, string mail)
+        public UtilisateurConnecté(string nom, string prénom, DateTime dateNaissance, string pseudo, string motDePasse, string mail, List<JeuVidéo> listeFavori)
         {
             Nom = nom;
             Prénom = prénom;
@@ -72,6 +73,7 @@ namespace Modele
             Pseudo = pseudo;
             MotDePasse = motDePasse;
             Mail = mail;
+            ListeFavoris = listeFavori;
         }
 
         /// <summary>
@@ -84,6 +86,7 @@ namespace Modele
             Pseudo = "";
             MotDePasse = "";
             Mail = "";
+            ListeFavoris = new List<JeuVidéo>();
         }
 
         /// <summary>

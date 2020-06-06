@@ -46,7 +46,7 @@ namespace GameLib_Projet
             var Content = (string) GenreSelectionné.Content;
 
             Genre g = (Genre)Enum.Parse(typeof(Genre), Content); //Convertit le string en Enum Genre contenu dans la variable g
-            Manager.TriGenre(g);
+            Manager.ListeJeuxAux =  Tris.TriGenre(g, Manager.ListeJeuxAux);
             if (Manager.ListeJeuxAux.Count() == 0)
             {
                 ReinitialiserListeAux();
@@ -68,23 +68,23 @@ namespace GameLib_Projet
 
             if (LimiteSelectionnée == Pegi3)
             {
-                Manager.TriLimiteAge(Pegi.Trois);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Trois, Manager.ListeJeuxAux); 
             }
             if (LimiteSelectionnée == Pegi7)
             {
-                Manager.TriLimiteAge(Pegi.Sept);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Sept, Manager.ListeJeuxAux);
             }
             if (LimiteSelectionnée == Pegi12)
             {
-                Manager.TriLimiteAge(Pegi.Douze);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Douze, Manager.ListeJeuxAux);
             }
             if (LimiteSelectionnée == Pegi16)
             {
-                Manager.TriLimiteAge(Pegi.Seize);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Seize, Manager.ListeJeuxAux);
             }
             if (LimiteSelectionnée == Pegi18)
             {
-                Manager.TriLimiteAge(Pegi.DixHuits);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.DixHuits, Manager.ListeJeuxAux);
             }
             if (Manager.ListeJeuxAux.Count() == 0)
             {
@@ -107,7 +107,7 @@ namespace GameLib_Projet
             var NoteSelectionné = (ComboBoxItem)ComboBoxNote.SelectedItem; //Prend l'élément sélectionné de la combobox
             var Content = (string)NoteSelectionné.Content;
             int note = int.Parse(Content); //Convertit le string  contenu dans la variable Content en int
-            Manager.TriNote(note);
+            Manager.ListeJeuxAux = Tris.TriNote(note, Manager.ListeJeuxAux);
             if (Manager.ListeJeuxAux.Count() == 0)
             {
                 ReinitialiserListeAux();
@@ -130,7 +130,7 @@ namespace GameLib_Projet
             var PlateFormeSelectionnée = (ComboBoxItem)ComboBoxPlateForme.SelectedItem; //Prend l'élément sélectionné de la combobox
             var Content = (string)PlateFormeSelectionnée.Content;
             PlateForme plateForme = (PlateForme)Enum.Parse(typeof(PlateForme), Content); //Convertit le string Content en Enum Plateforme contenu dans la variable plateForme
-            Manager.TriPlateForme(plateForme);
+            Manager.ListeJeuxAux = Tris.TriPlateForme(plateForme, Manager.ListeJeuxAux);
             if (Manager.ListeJeuxAux.Count() == 0)
             {
                 ReinitialiserListeAux();
@@ -150,8 +150,8 @@ namespace GameLib_Projet
             
             if(CheckBoxFavoris.IsChecked == true) // vérifie si la textbox est cochée
             {
-                
-                Manager.TriFavoris(true); // Si oui alors tri de la liste auxiliaire avec affichage uniquement favoris
+
+                Manager.ListeJeuxAux = Tris.TriFavoris(true, Manager.ListeJeuxAux); // Si oui alors tri de la liste auxiliaire avec affichage uniquement favoris
                 if (Manager.ListeJeuxAux.Count() == 0) // Si aucun jeu dans la liste de favoris alors message pr utilisateur disant qu'il faut qu'il en ajoute pr utiliser cette chekbox et remise à 0 de la liste auxiliaire
                 {
                     ReinitialiserListeAux();
@@ -162,7 +162,7 @@ namespace GameLib_Projet
             }
             else if(CheckBoxFavoris.IsChecked == false) // Affichage des jeux non-favoris
             {
-                Manager.TriFavoris(false);
+                Manager.ListeJeuxAux = Tris.TriFavoris(false, Manager.ListeJeuxAux);
             }
 
             if(Manager.ListeJeuxAux.Count() == 0) // Si aucun jeu alors remise à 0 de la liste

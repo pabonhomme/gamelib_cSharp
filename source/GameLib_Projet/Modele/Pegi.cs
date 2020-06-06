@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Modele
 {
+    /// <summary>
+    /// Limite d'âge d'un jeu vidéo
+    /// </summary>
     public enum Pegi
     {
         Zero,

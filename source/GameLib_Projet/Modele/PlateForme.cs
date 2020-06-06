@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Modele
 {
+    /// <summary>
+    /// Toutes les différentes plates-formes sur lesquelles un jeu peut être disponible
+    /// </summary>
     public enum PlateForme
     {
         Inconnue,

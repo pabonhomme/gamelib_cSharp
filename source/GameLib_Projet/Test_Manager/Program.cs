@@ -10,9 +10,9 @@ namespace Test_Manager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Test de la classe Application\n\n");
+            Console.WriteLine("Test de la classe Manager\n\n");
 
-            Manager mngr = new Manager(new StubJeuVidéoDataManager(), new StubUtilisateurConnectéDataManager());
+            Manager mngr = new Manager(new StubDataManager());
 
             JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.99f, "Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). ",
                  "https://youtu.be/MmB9b5njVbA",
@@ -51,7 +51,7 @@ namespace Test_Manager
             //mngr.ListeUtilisateur.Sort();
             Console.WriteLine("Pour vous connecter, veuillez renseigner votre mot de passe");
             // Console.WriteLine(mngr.Connexion(mngr.RechercherUtilisateur("paul_b63"), Console.ReadLine()));
-            mngr.Connexion(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com"));
+            mngr.Connexion(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()));
 
             //Console.WriteLine("\n\nAjout des jeux à l'application\n\n");
             //mngr.AjouterJeu(jeuvidéo1, mngr.UtilisateurCourant);

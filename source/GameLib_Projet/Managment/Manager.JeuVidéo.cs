@@ -17,7 +17,6 @@ namespace Managment
         /// Jeu Vidéo selectionné dans la liste des jeux vidéos dans la vue
         /// </summary>
         private JeuVidéo jeuVidéoSelectionné = null;
-
         public JeuVidéo JeuVidéoSelectionné
         {
             get { return jeuVidéoSelectionné; }
@@ -41,7 +40,7 @@ namespace Managment
         /// <summary>
         /// Liste de tous les jeux vidéos affichés dans la vue de l'application
         /// </summary>
-        public List<JeuVidéo> ListeJeux { get; private set; }
+        public List<JeuVidéo> ListeJeux { get; private set; } = new List<JeuVidéo>();
 
         /// <summary>
         /// Liste de tous les jeux vidéos affichés dans la vue de l'application
@@ -69,6 +68,7 @@ namespace Managment
                 ListeJeux.Add(jeuAAjouter);
                 ListeJeuxAux.Add(jeuAAjouter);
             }
+           // SauvegardeDonnées();
 
         }
 
@@ -76,7 +76,7 @@ namespace Managment
         /// Méthode qui permet à l'administrateur de supprimer un jeu de la liste de jeu
         /// </summary>
         /// <param name="jeuASupprimer">Jeu qui va être supprimé</param>
-        /// <param name="utilisateur1">Utilisateur qui veut supprimer le jeu, normalement admin</param>
+        /// <param name="utilisateur">Utilisateur qui veut supprimer le jeu, normalement admin</param>
         public void SupprimerJeu(JeuVidéo jeuASupprimer, UtilisateurConnecté utilisateur)
         {
             if (utilisateur is Administrateur)
@@ -84,11 +84,12 @@ namespace Managment
                 ListeJeux.Remove(jeuASupprimer);
                 ListeJeuxAux.Remove(jeuASupprimer);
             }
+           // SauvegardeDonnées();
 
         }
 
         /// <summary>
-        /// Méthode qui recherche un jeu grâce au nom rentré dans la barre de recherche de l'application sans avoir le nom complet
+        /// Méthode qui recherche un jeu grâce au nom rentré dans la barre de recherche de l'application avec le nom complet ou le début de lettre
         /// </summary>
         /// <param name="nomJeu">Nom du jeu voulu</param>
         /// <returns>Le jeu recherché ou null si rien n'a été trouvé</returns>

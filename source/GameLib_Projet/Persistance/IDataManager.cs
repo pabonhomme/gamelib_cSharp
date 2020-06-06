@@ -1,13 +1,15 @@
-﻿using System;
+﻿using Modele;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Persistance
 {
-    public interface IDataManager<T> where T : class
+    public interface IDataManager
     {
-        IEnumerable<T> GetAll();
+        (IEnumerable<JeuVidéo> jeuVidéos, IEnumerable<UtilisateurConnecté> utilisateursConnectés) ChargeDonnées();
 
-        T GetByName(string name);
+        void SauvegardeDonnées(IEnumerable<JeuVidéo> jeuVidéos, IEnumerable<UtilisateurConnecté> utilisateursConnectés);
+
     }
 }
