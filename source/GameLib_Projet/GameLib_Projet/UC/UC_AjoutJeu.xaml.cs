@@ -154,6 +154,8 @@ namespace GameLib_Projet
         }
         private void BoutonAjouterJeu_click(object sender, RoutedEventArgs e)
         {
+            bool v = CreationObjectValidator.validationUtilisateur(NouveauJeu);
+
             if (Manager.RechercherJeu(NouveauJeu.Nom) == null)
             {
                 if (String.IsNullOrWhiteSpace(NouveauJeu.LienImage))
@@ -162,15 +164,27 @@ namespace GameLib_Projet
                     return;
                 }
 
-                Manager.AjouterJeu(NouveauJeu, Manager.UtilisateurCourant);
 
-                Navigator.NavigateTo("MainWindowUser");
+                if (v == false)
+                {
+                    MessageBox.Show("Tous les champs ne sont pas valides. Veuillez réessayer", "Erreur création compte", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (v == true)
+                {
+                    Manager.AjouterJeu(NouveauJeu, Manager.UtilisateurCourant);
+
+                    Navigator.NavigateTo("MainWindowUser");
+                }
 
             }
             else
             {
                 MessageBox.Show("Ce jeu existe déja", "Attention Jeu déja existant", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+
         }
 
 

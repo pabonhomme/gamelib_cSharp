@@ -51,8 +51,42 @@ namespace Persistance
                  "Battlefield5.jpg", "https://www.instant-gaming.com/fr/612-acheter-cle-origin-battlefield-5/",
                  "Achat définitif",
                  "Dice.png", "Configuration minimale : Processeur : (Intel) Core i5 6600K ou AMD FX-6350, Mémoire : 8 Go de RAM, Carte graphiques : Nvidia GeForce GTX 660 2GB ou AMD Radeon HD 7850 2GB, DirectX 11, Stockage : 50 Go, Système d'exploitation: Windows 7, Windows 8.1 et Windows 10 64 bits. Internet : 512 kbps mini.",
-                 Genre.FPS, Pegi.DixHuits, new List<PlateForme>() { PlateForme.Pc, PlateForme.Ps4, PlateForme.XboxOne })
-            };
+                 Genre.FPS, Pegi.DixHuits, new List<PlateForme>() { PlateForme.Pc, PlateForme.Ps4, PlateForme.XboxOne }),
+             new JeuVidéo("Spider-man ", 3, 14.99f, "Spider-Man est un jeu d'action sur PlayStation 4. Le Tisseur est de retour pour le plaisir des joueurs qui pourront alterner phases d'exploration en voltigeant de building en building, phases d’infiltration et affrontements contre les super-vilains comme Le Caïd, Vulture, Electro, Mister Negative, etc.",
+                 "https://www.youtube.com/watch?v=q4GdJVvdxss",
+                 "spiderman.jpeg", "https://www.instant-gaming.com/fr/3656-acheter-cle-playstation-marvels-spider-man-the-city-that-never-sleeps-ps4/",
+                 "Achat définitif",
+                 "InsomniacGames.png", "Il faut avoir au minimum une PS4 pour lancer le jeu.",
+                 Genre.Aventure, Pegi.Seize, new List<PlateForme>() {PlateForme.Ps4}),
+
+                new JeuVidéo("Counter Strike Global Offensive ", 5, 14.99f, "Counter-Strike : Global Offensive est un FPS multijoueurs en ligne sur PC. Les anti-terroristes et les terroristes s'affrontent dans différents modes de jeu avec une trentaine d'armes différentes, sans compter les grenades.Un mode entraînement permet aux joueurs de s'habituer aux commandes.",
+                 "https://www.youtube.com/watch?v=edYCtaNueQY",
+                 "csgo.jpeg", "https://www.instant-gaming.com/fr/62-acheter-cle-steam-counter-strike-global-offensive-prime-status-upgrade/",
+                 "Achat définitif",
+                 "valve.png", "Système d'exploitation : Windows® 7/Vista/XP Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ X3 8750 ou meilleur Mémoire vive : 2 GB de mémoire Graphiques : Carte graphique de 256 MB ou plus compatible DirectX 9 et Pixel Shader 3.0 DirectX : Version 9.0c Espace disque : 15 GB d'espace disque disponible",
+                 Genre.FPS, Pegi.DixHuits, new List<PlateForme>() {PlateForme.Pc}),
+
+                new JeuVidéo("Call of Duty Modern Warfare ", 3, 53.11f, "Counter-Strike : Global Offensive est un FPS multijoueurs en ligne sur PC. Les anti-terroristes et les terroristes s'affrontent dans différents modes de jeu avec une trentaine d'armes différentes, sans compter les grenades.Un mode entraînement permet aux joueurs de s'habituer aux commandes.",
+                 "https://www.youtube.com/watch?v=bH1lHCirCGI",
+                 "ModernWarfare.jpeg", "https://www.instant-gaming.com/fr/4394-acheter-cle-call-of-duty-modern-warfare/",
+                 "Achat définitif",
+                 "InfinityWard.png", "Système d'exploitation : Windows® 7 64-bit (SP1) or Windows® 10 64-bit Processeur : Intel® Core™ i3-4340 ou AMD FX-6300 Mémoire : 8GB RAM Carte graphique : NVIDIA® GeForce® GTX 670 / NVIDIA® GeForce® GTX 1650 ou AMD Radeon™ HD 7950 – DirectX 12.0 compatible system",
+                 Genre.FPS, Pegi.DixHuits, new List<PlateForme>() {PlateForme.Pc, PlateForme.Ps4, PlateForme.XboxOne}),
+
+                 new JeuVidéo("World of Warcraft ", 4, 11.99f, "World of Warcraft sur PC est un jeu de rôle massivement multijoueurs. Au sein du royaume d'Azeroth, rejoignez les forces de la Horde ou de l'Alliance. Créez votre personnage parmi huit races et neuf classes disponibles puis rejoignez ou fondez votre propre guilde. Fabriquez armes et armures et combattez seul ou en groupe face à des armées de démons et autres bestioles plus ou moins attrayante.",
+                 "https://www.youtube.com/watch?v=vlVSJ0AvZe0",
+                 "Wow.jpg", "https://www.instant-gaming.com/fr/803-acheter-cle-battlenet-world-of-warcraft-carte-30-jours/",
+                 "Achat mensuel",
+                 "Blizzard.png", "Système d'exploitation : Windows® 7 64 bits (avec les derniers service packs) Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ 8750 Carte graphique : NVIDIA® GeForce® 8800 GT 512 Mo ou AMD Radeon™ HD 4850 512 Mo ou Intel® HD Graphics 4000 Mémoire : 2 Go de RAM (4 Go pour les cartes graphiques intégrées, comme les Intel HD Graphics series) Stockage : 5 Go d’espace disponible",
+                 Genre.RPG, Pegi.Douze, new List<PlateForme>() {PlateForme.Pc}),
+
+            new JeuVidéo("Mortal Kombat 11", 3, 14.84f, "Mortal Kombat 11 pour PC est un jeu de combat en 2.5D qui marque - comme son nom l'indique - vingt-sept années impressionnantes de Mortal Kombat. Cela offre non seulement aux joueurs un contenu riche (surtout aux nouveaux joueurs), mais cela signifie aussi que les développeurs ont accumulé beaucoup d’expérience et sont donc aujourd’hui capable de faire des jeux de combat fascinants et immersifs. Ce jeu en est la preuve vivante!",
+                 "https://www.youtube.com/watch?v=bxFoRCvEjUA",
+                 "MortalKombat11.jpg", "https://www.instant-gaming.com/fr/3339-acheter-cle-steam-mortal-kombat-11/",
+                 "Achat définitif",
+                 "NetherRealm.png", "OS: 64-bit Windows 7 / Windows 10 Architecture: 64 bits Processeurs :Intel Core i5-750, 2.66 GHz / AMD Phenom II X4 965, 3.4 GHz ou AMD Ryzen™ 3 1200, 3.1 GHz Mémoire: 8 Go RAM Carte graphique (AMD): AMD® Radeon™ HD 7950 ou AMD® Radeon™ R9 270 Carte graphique(NVIDIA): NVIDIA® GeForce™ GTX 670 ou NVIDIA® GeForce™ GTX 1050 DirectX: API 11",
+                 Genre.Combat, Pegi.DixHuits, new List<PlateForme>() { PlateForme.Pc, PlateForme.XboxOne })
+        };
             
 
             return listeJeux;

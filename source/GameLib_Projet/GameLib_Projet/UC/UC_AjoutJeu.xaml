@@ -57,7 +57,18 @@
                     </Grid.ColumnDefinitions>
                     <WrapPanel>
                         <TextBlock Text="Entrez le nom :"/>
-                        <TextBox x:Name="TextBoxTitre" Width="200" Text="{Binding NouveauJeu.Nom}"/>
+                        <TextBox x:Name="TextBoxTitre" Width="200" Text="{Binding NouveauJeu.Nom, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <Border BorderBrush="Red" BorderThickness="1">
+                                            <AdornedElementPlaceholder/>
+                                        </Border>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
                     </WrapPanel>
                     <WrapPanel Grid.Column="1">
                         <TextBlock Text="Entrez le prix du jeu :"/>
@@ -165,11 +176,22 @@
                        VerticalAlignment="Center"
                        Margin="10"/>
                     <TextBox x:Name="TextBoxLienYTB" 
-                             Text="{Binding NouveauJeu.LienTrailer}"
+                             Text="{Binding NouveauJeu.LienTrailer, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      Grid.Row="1"
                      Grid.Column="1"
                      VerticalAlignment="Top"
-                     Width="300" />
+                     Width="300">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <Border BorderBrush="Red" BorderThickness="1">
+                                        <AdornedElementPlaceholder/>
+                                    </Border>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
 
 
                 </Grid>
@@ -178,16 +200,38 @@
                     <TextBlock    
             Text="Entrez la description du jeu :"/>
                     <TextBox x:Name="TextBoxDescription" Width="400"
-                             Text="{Binding NouveauJeu.Description}"
+                             Text="{Binding NouveauJeu.Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
-                     VerticalScrollBarVisibility="Visible"/>
+                     VerticalScrollBarVisibility="Visible">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <Border BorderBrush="Red" BorderThickness="1">
+                                        <AdornedElementPlaceholder/>
+                                    </Border>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </WrapPanel>
                 <WrapPanel Grid.Row="4">
                     <TextBlock    
             Text="Entrez le lien d'achat du jeu :"/>
                     <TextBox x:Name="TextBoxLienAchat" Width="400"
-                             Text="{Binding NouveauJeu.LienAchat}"/>
+                             Text="{Binding NouveauJeu.LienAchat, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
+                        <Validation.ErrorTemplate>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <Border BorderBrush="Red" BorderThickness="1">
+                                        <AdornedElementPlaceholder/>
+                                    </Border>
+                                    <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Validation.ErrorTemplate>
+                    </TextBox>
                 </WrapPanel>
 
                 <Grid Grid.Row="5" Margin="0,62,0,0">
@@ -201,10 +245,21 @@
             Text="Entrez la configuration minimale du jeu :"
             />
                         <TextBox x:Name="TextBoxConfig" Width="400"
-                                 Text="{Binding NouveauJeu.ConfigMini}"
+                                 Text="{Binding NouveauJeu.ConfigMini, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                      TextWrapping="Wrap"
                      AcceptsReturn="True"
-                     VerticalScrollBarVisibility="Visible"/>
+                     VerticalScrollBarVisibility="Visible">
+                            <Validation.ErrorTemplate>
+                                <ControlTemplate>
+                                    <StackPanel>
+                                        <Border BorderBrush="Red" BorderThickness="1">
+                                            <AdornedElementPlaceholder/>
+                                        </Border>
+                                        <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                                    </StackPanel>
+                                </ControlTemplate>
+                            </Validation.ErrorTemplate>
+                        </TextBox>
                     </WrapPanel>
 
                     <WrapPanel Grid.Column="1">

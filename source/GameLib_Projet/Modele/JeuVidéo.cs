@@ -10,7 +10,7 @@ namespace Modele
     /// <summary>
     /// Représente un jeu vidéo de l'application
     /// </summary>
-    public class JeuVidéo : IEquatable<JeuVidéo>, IComparable<JeuVidéo>, IComparable, INotifyPropertyChanged, ICloneable
+    public partial class JeuVidéo : IEquatable<JeuVidéo>, IComparable<JeuVidéo>, IComparable, INotifyPropertyChanged, ICloneable
     {
        
         /// <summary>

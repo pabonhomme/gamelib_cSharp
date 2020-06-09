@@ -9,7 +9,7 @@ namespace Modele
     /// <summary>
     /// Représente un utilisateur qui est connecté à l'application
     /// </summary>
-    public class UtilisateurConnecté : IEquatable<UtilisateurConnecté>, IComparable<UtilisateurConnecté>, IComparable
+    public partial class UtilisateurConnecté : IEquatable<UtilisateurConnecté>, IComparable<UtilisateurConnecté>, IComparable
     {
         /// <summary>
         /// Nom de l'utilisateur
