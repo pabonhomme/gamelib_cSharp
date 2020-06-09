@@ -31,6 +31,7 @@ namespace GameLib_Projet
         public UC_JeuVideo()
         {
             InitializeComponent();
+            DataContext = Manager;
         }
         private void BoutonTrailer_Click(object sender, RoutedEventArgs e)
         {

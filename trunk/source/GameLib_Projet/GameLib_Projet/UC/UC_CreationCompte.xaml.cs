@@ -22,12 +22,12 @@ namespace GameLib_Projet
     /// <summary>
     /// Logique d'interaction pour UC_CreationCompte.xaml
     /// </summary>
-    public partial class UC_CreationCompte : UserControl , INotifyPropertyChanged
+    public partial class UC_CreationCompte : UserControl, INotifyPropertyChanged
     {
 
         public Manager Manager => (Application.Current as App).Manager;
 
-        public static Navigator Navigator  => Navigator.GetInstance();
+        public static Navigator Navigator => Navigator.GetInstance();
 
         private UtilisateurConnecté nouveauUtilisateur;
 
@@ -44,7 +44,7 @@ namespace GameLib_Projet
         public UC_CreationCompte()
         {
             InitializeComponent();
-            
+
             DataContext = this;
 
         }
@@ -96,27 +96,50 @@ namespace GameLib_Projet
 
         private void DeuxiemeMotDePasseEvent(object sender, RoutedEventArgs e)
         {
-            //string deuxiemeMdp = EmplacementMotDePasseDeuxieme.Password;
-            //if (deuxiemeMdp != NouveauUtilisateur.MotDePasse)
-            //{
-            //    MessageBox.Show("Le mot de passe n'est pas le même que celui écrit précédemment", "Attention mot de passe différent", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
+
+            return;
+
         }
+
 
         private void BoutonCréer_click(object sender, RoutedEventArgs e)
         {
+            bool v = CreationObjectValidator.validationUtilisateur(NouveauUtilisateur);
+
+            if (v == false)
+            {
+                MessageBox.Show("Tous les champs ne sont pas valides. Veuillez réessayer", "Erreur création compte", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             if (Manager.RechercherUtilisateur(NouveauUtilisateur.Pseudo) != null)
             {
-                MessageBox.Show("Ce pseudo appartient déja à un utilisateur existant.", "Attention ce pseudo est déja utilisé", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Ce pseudo appartient déja à un utilisateur existant. Veuillez réessayer", "Attention ce pseudo est déja utilisé", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
-            else
+            if (string.IsNullOrWhiteSpace(NouveauUtilisateur.MotDePasse))
             {
-                Manager.CréerUtilisateur(NouveauUtilisateur);                
+                MessageBox.Show("Votre mot de passe n'est pas valide. Veuillez réessayer", "Mot de passe Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (EmplacementMotDePassePremier.Password != EmplacementMotDePasseDeuxieme.Password)
+            {
+                MessageBox.Show("Vos deux mots de passe ne correspondent pas. Veuillez réessayer", "Mot de passe Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (v == true)
+            {
+                Manager.CréerUtilisateur(NouveauUtilisateur);
                 Navigator.NavigateTo("UC_Connexion");
             }
-        }
-    }
 
+            
+
+
+
+        }
+
+    }
 }
