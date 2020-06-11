@@ -86,7 +86,7 @@ namespace Managment
         /// <summary>
         /// Méthode qui recherche un utilisateur grâce au nom envoyé par l'application
         /// </summary>
-        /// <param name="nomUtilisateur">Nom de l'utilisateur voulu</param>
+        /// <param name="pseudoUtilisateur">Nom de l'utilisateur voulu</param>
         /// <returns>L'utilisateur recherché ou null si rien n'a été trouvé</returns>
         public UtilisateurConnecté RechercherUtilisateur(string pseudoUtilisateur)
         {

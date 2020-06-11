@@ -8,7 +8,7 @@ namespace Managment
     public static class CreationObjectValidator
     {
 
-        public static bool validationUtilisateur(object value)
+        public static bool ValidationAjout(object value)
         {
             if (value is UtilisateurConnecté)
             {
