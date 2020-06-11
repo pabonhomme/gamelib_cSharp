@@ -90,16 +90,8 @@ namespace Managment
         /// <returns>L'utilisateur recherché ou null si rien n'a été trouvé</returns>
         public UtilisateurConnecté RechercherUtilisateur(string pseudoUtilisateur)
         {
-          
-            foreach (UtilisateurConnecté utilisateur in ListeUtilisateur)
-            {
-                if (utilisateur.Pseudo == pseudoUtilisateur)
-                {
-                    
-                    return utilisateur;
-                }
-            }         
-            return null;
+
+            return ListeUtilisateur.SingleOrDefault(user => user.Pseudo.Equals(pseudoUtilisateur));
         }
     }
 }

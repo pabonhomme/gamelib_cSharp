@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistance", "Persistance\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Managment", "Managment\Managment.csproj", "{1DECEAEF-869B-4727-9589-2765098C89E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_DataContract", "Test_DataContract\Test_DataContract.csproj", "{E1F58756-CC94-47AB-BEBB-383E5429656E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_DataContract", "Test_DataContract\Test_DataContract.csproj", "{E1F58756-CC94-47AB-BEBB-383E5429656E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

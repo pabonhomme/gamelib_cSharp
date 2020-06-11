@@ -118,7 +118,9 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="{Binding JeuVidéoSelectionné.StudioDev, Converter={StaticResource StringToImageConverter}}" Width="auto" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left"/>
+            
+            <Image Source="{Binding JeuVidéoSelectionné.StudioDev, Converter={StaticResource StringToImageConverter}}"/>
+          
             <Image Source="{Binding JeuVidéoSelectionné.LienPegi, Converter={StaticResource StringToImageConverter}}" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
 
 

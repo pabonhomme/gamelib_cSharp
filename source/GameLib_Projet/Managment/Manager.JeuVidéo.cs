@@ -93,9 +93,10 @@ namespace Managment
         /// </summary>
         /// <param name="nomJeu">Nom du jeu voulu</param>
         /// <returns>Le jeu recherché ou null si rien n'a été trouvé</returns>
-        public JeuVidéo RechercherJeuTextBox(string nomJeu)
+        public List<JeuVidéo> RechercherJeuTextBox(string nomJeu)
         {
-            return ListeJeux.SingleOrDefault(jeu => jeu.Nom.StartsWith(nomJeu));
+
+            return ListeJeux.Where(jeu => jeu.Nom.ToLower().StartsWith(nomJeu.ToLower())).ToList();
         }
 
         /// <summary>
@@ -105,7 +106,7 @@ namespace Managment
         /// <returns>Le jeu recherché ou null si rien n'a été trouvé</returns>
         public JeuVidéo RechercherJeu(string nomJeu)
         {
-            return ListeJeux.SingleOrDefault(jeu => jeu.Nom.Equals(nomJeu));
+            return ListeJeux.SingleOrDefault(jeu => jeu.Nom.ToLower().Equals(nomJeu.ToLower()));
         }
     }
 }

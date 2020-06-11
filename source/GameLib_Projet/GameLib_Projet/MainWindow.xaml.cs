@@ -37,16 +37,16 @@ namespace GameLib_Projet
         private void ComboBoxGenre_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxGenre = (ComboBox)sender;
-            if(ComboBoxGenre.SelectedItem == null)
+            if (ComboBoxGenre.SelectedItem == null)
             {
                 ReinitialiserListeAux();
                 return;
             }
             var GenreSelectionné = (ComboBoxItem)ComboBoxGenre.SelectedItem; //Prend l'élément sélectionné de la combobox
-            var Content = (string) GenreSelectionné.Content;
+            var Content = (string)GenreSelectionné.Content;
 
             Genre g = (Genre)Enum.Parse(typeof(Genre), Content); //Convertit le string en Enum Genre contenu dans la variable g
-            Manager.ListeJeuxAux =  Tris.TriGenre(g, Manager.ListeJeuxAux);
+            Manager.ListeJeuxAux = Tris.TriGenre(g, Manager.ListeJeuxAux);
             if (Manager.ListeJeuxAux.Count() == 0)
             {
                 ReinitialiserListeAux();
@@ -68,7 +68,7 @@ namespace GameLib_Projet
 
             if (LimiteSelectionnée == Pegi3)
             {
-                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Trois, Manager.ListeJeuxAux); 
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Trois, Manager.ListeJeuxAux);
             }
             if (LimiteSelectionnée == Pegi7)
             {
@@ -147,8 +147,8 @@ namespace GameLib_Projet
         /// <param name="e"></param>
         private void CheckBoxFavoris_Click(object sender, RoutedEventArgs e)
         {
-            
-            if(CheckBoxFavoris.IsChecked == true) // vérifie si la textbox est cochée
+
+            if (CheckBoxFavoris.IsChecked == true) // vérifie si la textbox est cochée
             {
 
                 Manager.ListeJeuxAux = Tris.TriFavoris(true, Manager.ListeJeuxAux); // Si oui alors tri de la liste auxiliaire avec affichage uniquement favoris
@@ -160,15 +160,15 @@ namespace GameLib_Projet
                     CheckBoxFavoris.IsChecked = false;
                 }
             }
-            else if(CheckBoxFavoris.IsChecked == false) // Affichage des jeux non-favoris
+            else if (CheckBoxFavoris.IsChecked == false) // Affichage des jeux non-favoris
             {
                 Manager.ListeJeuxAux = Tris.TriFavoris(false, Manager.ListeJeuxAux);
             }
 
-            if(Manager.ListeJeuxAux.Count() == 0) // Si aucun jeu alors remise à 0 de la liste
+            if (Manager.ListeJeuxAux.Count() == 0) // Si aucun jeu alors remise à 0 de la liste
             {
                 ReinitialiserListeAux();
-                ReinitialiserCombobox();               
+                ReinitialiserCombobox();
             }
         }
 
@@ -176,11 +176,12 @@ namespace GameLib_Projet
         private void BoutonAccueil_Click(object sender, RoutedEventArgs e)
         {
             Navigator.NavigateTo("MainWindowUser");
+            ReinitialiserListeAux();
             ReinitialiserCombobox();
             Manager.JeuVidéoSelectionné = null;
         }
 
-        private void ReinitialiserListeAux()
+            private void ReinitialiserListeAux()
         {
             Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()];
 
@@ -219,18 +220,17 @@ namespace GameLib_Projet
         {
             if (e.Key == Key.Return)
             {
-                if(Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text) != null)
+                if (Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text).Count() != 0)
                 {
-                    Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>() { Manager.RechercherJeu(TextboxRechercheJeu.Text) };
+                    Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text));
                 }
                 else
                 {
                     MessageBox.Show("Aucun jeu ne correspond à votre recherche. Vérifiez qu'il n'y ai pas d'erreur dans le nom du jeu voulu et réessayez.", "Erreur recherche", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                
+
             }
 
         }
-        
     }
 }
