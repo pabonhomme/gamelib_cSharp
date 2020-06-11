@@ -60,7 +60,7 @@ namespace Test_Manager
             //mngr.AjouterJeu(jeuvidéo3, mngr.UtilisateurCourant);
 
             Console.WriteLine("Test des méthodes de tris\n\n");
-            mngr.TriPlateForme(PlateForme.Ps4);
+            Tris.TriPlateForme(PlateForme.Ps4, mngr.ListeJeuxAux);
             //Console.WriteLine("Ajout d'un favori par l'utilisateur courant\n\n");
             //mngr.UtilisateurCourant.AjouterFav(jeuvidéo2);
 

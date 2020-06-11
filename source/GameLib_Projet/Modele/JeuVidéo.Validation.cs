@@ -30,19 +30,19 @@ namespace Modele
                     case nameof(ConfigMini):
                         if (string.IsNullOrWhiteSpace(ConfigMini))
                         {
-                            return "La ConfigMini est vide";
+                            return "La configuration minimale est vide";
                         }
                         break;
                     case nameof(LienAchat):
                         if (string.IsNullOrWhiteSpace(LienAchat))
                         {
-                            return "Le LienAchat est vide";
+                            return "Le lien d'achat est vide";
                         }
                         break;
                     case nameof(LienTrailer):
                         if (string.IsNullOrWhiteSpace(LienTrailer))
                         {
-                            return "Le LienTrailer est vide";
+                            return "Le lien trailer est vide";
                         }
                         break;
                 }

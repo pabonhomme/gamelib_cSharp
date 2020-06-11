@@ -49,13 +49,25 @@ namespace GameLib_Projet
 
         }
 
+        /// <summary>
+        /// Evenement qui permet de signaler à la vue par un évenement qu'une propriété a changé
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Méthode qui va tester si la propriété qui l'appelle a changé 
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Méthode appelée lors du chargement de UC_CréationCompte
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChargementUcCréation(object sender, RoutedEventArgs e)
         {
             NouveauUtilisateur = new UtilisateurConnecté() { DateNaissance = DateTime.Today };
@@ -63,6 +75,9 @@ namespace GameLib_Projet
             EmplacementMotDePasseDeuxieme.Password = "";
         }
 
+        /// <summary>
+        /// Evenement appelé dans le navigator permettant de revenir sur l'UC_Connexion
+        /// </summary>
         public event RoutedEventHandler DejàCrééClick
         {
             add
@@ -75,6 +90,9 @@ namespace GameLib_Projet
             }
         }
 
+        /// <summary>
+        /// Evenement appelé dans le navigator permettant de revenir sur l'UC_Connexion
+        /// </summary>
         public event RoutedEventHandler AnnulerCreationClick
         {
             add
@@ -87,6 +105,11 @@ namespace GameLib_Projet
             }
         }
 
+        /// <summary>
+        /// Evenement qui fait référence à la première PassWordBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PremierMotDePasseEvent(object sender, RoutedEventArgs e)
         {
 
@@ -94,6 +117,11 @@ namespace GameLib_Projet
 
         }
 
+        /// <summary>
+        /// Evenement qui fait référence à la deuxième PassWordBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeuxiemeMotDePasseEvent(object sender, RoutedEventArgs e)
         {
 
@@ -101,10 +129,14 @@ namespace GameLib_Projet
 
         }
 
-
+        /// <summary>
+        /// Méthode appelée lors du clique du bouton crée situé dans l'UC_CreationUtilisateur et qui permet de créer un NouveauUtilisateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonCréer_click(object sender, RoutedEventArgs e)
         {
-            bool v = CreationObjectValidator.validationUtilisateur(NouveauUtilisateur);
+            bool v = CreationObjectValidator.ValidationAjout(NouveauUtilisateur); //Met dans la variable v le résultat booleen de la méthode validationAjout qui return false si un des champs rentrés n'est pas valide
 
             if (v == false)
             {

@@ -31,11 +31,21 @@ namespace GameLib_Projet
 
         public static Navigator Navigator => Navigator.GetInstance();
 
-
+        /// <summary>
+        /// Nouveau Jeu Vidéo que l'admin va créer
+        /// </summary>
         private JeuVidéo nouveauJeu;
+
+        /// <summary>
+        /// Evenement qui permet de signaler à la vue par un évenement qu'une propriété a changé
+        /// </summary>
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Méthode qui va tester si la propriété qui l'appelle a changé 
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -59,16 +69,24 @@ namespace GameLib_Projet
             DataContext = this;
         }
 
+        /// <summary>
+        /// Permet d'initialiser les textBox et l'openFileDialog de l'UC_AjoutJeuVidéo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChargementAjoutJeuUC(object sender, RoutedEventArgs e)
         {
-            NouveauJeu = new JeuVidéo();
+            NouveauJeu = new JeuVidéo(); //Initialise les infos du nouveau jeux à 0
         }
 
-        public event RoutedEventHandler AnnulerAjoutJeuClick
+        /// <summary>
+        /// Event pour le navigateur permettant de renvoyer sur l'UC MainWindowUser
+        /// </summary>
+        public event RoutedEventHandler AnnulerAjoutJeuClick 
         {
             add
             {
-                AnnulerBouton.Click += value;
+                AnnulerBouton.Click += value; 
             }
 
             remove
@@ -78,7 +96,11 @@ namespace GameLib_Projet
 
         }
 
-
+        /// <summary>
+        /// Permet d'ajouter l'image de notre nouveau jeu grâce à un OpenFileDialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AjoutImageJeu_click(object sender, RoutedEventArgs e)
         {
             //Configuration OpenFile dialogue box
@@ -122,7 +144,13 @@ namespace GameLib_Projet
 
             }
         }
-        private void AjoutImageStudioDev_click(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Permet d'ajouter l'image du studio de développement du nouveau jeu grâce à un OpenFileDialog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AjoutImageStudioDev_click(object sender, RoutedEventArgs e) 
         {
             //Configuration OpenFile dialogue box
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog(); //OpenFileDialog : Affiche une boite de dialogue qui invite l'utilisateur à ouvrir un fichier.
@@ -152,34 +180,40 @@ namespace GameLib_Projet
                 NouveauJeu.StudioDev = NomImage;
             }
         }
+
+        /// <summary>
+        /// Permet de créer le nouveau jeu et contrôle divers saises de l'utilisateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonAjouterJeu_click(object sender, RoutedEventArgs e)
         {
-            bool v = CreationObjectValidator.validationUtilisateur(NouveauJeu);
+            bool v = CreationObjectValidator.ValidationAjout(NouveauJeu); //Met dans la variable v le résultat booleen de la méthode validationAjout qui return false si un des champs rentrés pour créer le jeu n'est pas valide
 
-            if (Manager.RechercherJeu(NouveauJeu.Nom) == null)
+            if (Manager.RechercherJeu(NouveauJeu.Nom) == null) //Teste si le Nom du jeu n'est pas déja existant dans la ListeJeux
             {
-                if (String.IsNullOrWhiteSpace(NouveauJeu.LienImage))
+                if (String.IsNullOrWhiteSpace(NouveauJeu.LienImage)) //Teste si le lien d'image est vide
                 {
                     MessageBox.Show("Aucune image n'est sélectionnée pour le jeu", "Erreur pas de sélection pour l'image jeu", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
 
-                if (v == false)
+                if (v == false) // Si un des champs rentré par l'utilisateur dans les textbox de l'ajoutJeu n'est pas valide
                 {
                     MessageBox.Show("Tous les champs ne sont pas valides. Veuillez réessayer", "Erreur création compte", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
-                if (v == true)
+                if (v == true) //Si tous les champs rentrés par l'utilisateurs sont valide et que le jeu existe bien dans ListeJeuxVidéos
                 {
-                    Manager.AjouterJeu(NouveauJeu, Manager.UtilisateurCourant);
+                    Manager.AjouterJeu(NouveauJeu, Manager.UtilisateurCourant); //Ajoute le NouveauJeu dans ListeJeux
 
-                    Navigator.NavigateTo("MainWindowUser");
+                    Navigator.NavigateTo("MainWindowUser"); //Renvoie à l'UC MainWindowUser
                 }
 
-            }
-            else
+            } 
+            else //Sinon le nom du jeu existe déja dans la ListeJeux
             {
                 MessageBox.Show("Ce jeu existe déja", "Attention Jeu déja existant", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -188,7 +222,12 @@ namespace GameLib_Projet
         }
 
 
-        private void ComboBox_SelectionChanged1(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// SelectionChanged de la combobox du Genre du Nouveaujeu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboBox_SelectionChanged1(object sender, SelectionChangedEventArgs e) 
         {
 
             var item = (ComboBoxItem)GenreCombobox.SelectedValue; //Prend l'élément sélectionné de la combobox
@@ -197,7 +236,13 @@ namespace GameLib_Projet
             NouveauJeu.Genre = g;
 
         }
-        private void ComboBox_SelectionChanged2(object sender, SelectionChangedEventArgs e)
+
+        /// <summary>
+        /// SelectionChanged de la combobox du Pegi du Nouveaujeu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboBox_SelectionChanged2(object sender, SelectionChangedEventArgs e) 
         {
 
             var item = (ComboBoxItem)PegiCombobox.SelectedValue; //Prend l'élément sélectionné de la combobox
@@ -208,6 +253,11 @@ namespace GameLib_Projet
         }
 
 
+        /// <summary>
+        /// SelectionChanged de la combobox de la Note du Nouveaujeu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectionChanged3(object sender, SelectionChangedEventArgs e)
         {
 
@@ -217,6 +267,12 @@ namespace GameLib_Projet
             NouveauJeu.Note = a;
 
         }
+
+        /// <summary>
+        /// SelectionChanged de la combobox du ModeleEconomique du Nouveaujeu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectionChanged4(object sender, SelectionChangedEventArgs e)
         {
 
@@ -226,19 +282,29 @@ namespace GameLib_Projet
 
         }
 
+        /// <summary>
+        /// Rentre dans la méthode si l'utilisateur clique sur la case de la checkbox PC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBoxPlateforme_PC_Click(Object sender, RoutedEventArgs e)
         {
-            NouveauJeu.ListePlateFormes.Remove(PlateForme.Pc);
-            if (CheckBoxPC.IsChecked == null || CheckBoxPC.IsChecked == false)
+            NouveauJeu.ListePlateFormes.Remove(PlateForme.Pc); //Réinitialise l'attribut PC dans la Liste de plateformes du NouveauJeu évitant que si l'on clique puis déclique la checkbox, la plateforme n'est ajouté qu'une seule fois ou non
+            if (CheckBoxPC.IsChecked == null || CheckBoxPC.IsChecked == false) //Regarde si la CheckBox sélectionnée est pas décochée ou null
             {
                 return;
             }
-            else NouveauJeu.ListePlateFormes.Add(PlateForme.Pc);
+            else NouveauJeu.ListePlateFormes.Add(PlateForme.Pc); //Ajoute l'élement PC dans la ListeDePlateForme du NouveauJeu
         }
 
+        /// <summary>
+        /// Rentre dans la méthode si l'utilisateur clique sur la case de la checkbox PS4
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBoxPlateforme_Ps4_Click(Object sender, RoutedEventArgs e)
         {
-            NouveauJeu.ListePlateFormes.Remove(PlateForme.Ps4);
+            NouveauJeu.ListePlateFormes.Remove(PlateForme.Ps4); //Réinitialise l'attribut Ps4 dans la Liste de plateformes du NouveauJeu évitant que si l'on clique puis déclique la checkbox, la plateforme n'est ajouté qu'une seule fois ou non
             if (CheckBoxPs4.IsChecked == null || CheckBoxPs4.IsChecked == false)
             {
                 return;
@@ -246,9 +312,14 @@ namespace GameLib_Projet
             else NouveauJeu.ListePlateFormes.Add(PlateForme.Ps4);
         }
 
+        /// <summary>
+        /// Rentre dans la méthode si l'utilisateur clique sur la case de la checkbox PS3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBoxPlateforme_Ps3_Click(Object sender, RoutedEventArgs e)
         {
-            NouveauJeu.ListePlateFormes.Remove(PlateForme.Ps3);
+            NouveauJeu.ListePlateFormes.Remove(PlateForme.Ps3); //Réinitialise l'attribut Ps3 dans la Liste de plateformes du NouveauJeu évitant que si l'on clique puis déclique la checkbox, la plateforme n'est ajouté qu'une seule fois ou non
             if (CheckBoxPs3.IsChecked == null || CheckBoxPs3.IsChecked == false)
             {
                 return;
@@ -256,9 +327,14 @@ namespace GameLib_Projet
             else NouveauJeu.ListePlateFormes.Add(PlateForme.Ps3);
         }
 
+        /// <summary>
+        /// Rentre dans la méthode si l'utilisateur clique sur la case de la checkbox Switch
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBoxPlateforme_Switch_Click(Object sender, RoutedEventArgs e)
         {
-            NouveauJeu.ListePlateFormes.Remove(PlateForme.Switch);
+            NouveauJeu.ListePlateFormes.Remove(PlateForme.Switch); //Réinitialise l'attribut Switch dans la Liste de plateformes du NouveauJeu évitant que si l'on clique puis déclique la checkbox, la plateforme n'est ajouté qu'une seule fois ou non
             if (CheckBoxSwitch.IsChecked == null || CheckBoxSwitch.IsChecked == false)
             {
                 return;
@@ -266,9 +342,14 @@ namespace GameLib_Projet
             else NouveauJeu.ListePlateFormes.Add(PlateForme.Switch);
         }
 
+        /// <summary>
+        /// Rentre dans la méthode si l'utilisateur clique sur la case de la checkbox XboxOne
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBoxPlateforme_XboxOne_Click(Object sender, RoutedEventArgs e)
         {
-            NouveauJeu.ListePlateFormes.Remove(PlateForme.XboxOne);
+            NouveauJeu.ListePlateFormes.Remove(PlateForme.XboxOne); //Réinitialise l'attribut XboxOne dans la Liste de plateformes du NouveauJeu évitant que si l'on clique puis déclique la checkbox, la plateforme n'est ajouté qu'une seule fois ou non
             if (CheckBoxXboxOne.IsChecked == null || CheckBoxXboxOne.IsChecked == false)
             {
                 return;
@@ -276,9 +357,14 @@ namespace GameLib_Projet
             else NouveauJeu.ListePlateFormes.Add(PlateForme.XboxOne);
         }
 
+        /// <summary>
+        /// Rentre dans la méthode si l'utilisateur clique sur la case de la checkbox Xbox360
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CheckBoxPlateforme_Xbox360_Click(Object sender, RoutedEventArgs e)
         {
-            NouveauJeu.ListePlateFormes.Remove(PlateForme.Xbox360);
+            NouveauJeu.ListePlateFormes.Remove(PlateForme.Xbox360); //Réinitialise l'attribut Xbox360 dans la Liste de plateformes du NouveauJeu évitant que si l'on clique puis déclique la checkbox, la plateforme n'est ajouté qu'une seule fois ou non
             if (CheckBoxX360.IsChecked == null || CheckBoxX360.IsChecked == false)
             {
                 return;

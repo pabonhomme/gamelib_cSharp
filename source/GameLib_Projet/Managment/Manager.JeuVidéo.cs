@@ -97,8 +97,7 @@ namespace Managment
         {
 
             return ListeJeux.Where(jeu => jeu.Nom.ToLower().StartsWith(nomJeu.ToLower())).ToList();
-        }
-
+        } 
         /// <summary>
         /// Méthode qui recherche un jeu et le renvoie seulement si le nom complet est le même
         /// </summary>
