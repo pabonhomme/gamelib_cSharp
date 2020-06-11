@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataToPersist xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/Persistance">
+  <ListeJeux z:Id="2" z:Size="9">
+    <JeuVidéoDTO z:Id="3">
+      <Nom z:Id="4">Battlefield 5</Nom>
+      <Note>2</Note>
+      <Prix>16.24</Prix>
+      <Description z:Id="5">Participez au plus grand conflit de l'Histoire avec Battlefield V. La licence revient aux sources et dépeint la Seconde Guerre mondiale comme jamais auparavant. Livrez des batailles multijoueur frénétiques et brutales aux côtés de votre escouade dans des modes imposants comme Grandes opérations et coopératifs comme Tir Groupé. Prenez part aux batailles méconnues de la Guerre avec les récits de guerre du mode solo. Combattez dans des environnements inédits et spectaculaires aux quatre coins du monde et découvrez le Battlefield le plus riche et le plus immersif à ce jour.</Description>
+      <LienTrailer z:Id="6">https://www.youtube.com/watch?v=fb1MR85XFOc</LienTrailer>
+      <LienImage z:Id="7">Battlefield5.jpg</LienImage>
+      <LienAchat z:Id="8">https://www.instant-gaming.com/fr/612-acheter-cle-origin-battlefield-5/</LienAchat>
+      <ModeleEco z:Id="9">Achat définitif</ModeleEco>
+      <StudioDev z:Id="10">Dice.png</StudioDev>
+      <Genre>FPS</Genre>
+      <Pegi>DixHuits</Pegi>
+      <ConfigMini z:Id="11">Configuration minimale : Processeur : (Intel) Core i5 6600K ou AMD FX-6350, Mémoire : 8 Go de RAM, Carte graphiques : Nvidia GeForce GTX 660 2GB ou AMD Radeon HD 7850 2GB, DirectX 11, Stockage : 50 Go, Système d'exploitation: Windows 7, Windows 8.1 et Windows 10 64 bits. Internet : 512 kbps mini.</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="12" z:Size="3">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+        <d4p1:PlateForme>Ps4</d4p1:PlateForme>
+        <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="13">
+      <Nom z:Id="14">Call of Duty Modern Warfare</Nom>
+      <Note>3</Note>
+      <Prix>53.11</Prix>
+      <Description z:Id="15">Counter-Strike : Global Offensive est un FPS multijoueurs en ligne sur PC. Les anti-terroristes et les terroristes s'affrontent dans différents modes de jeu avec une trentaine d'armes différentes, sans compter les grenades.Un mode entraînement permet aux joueurs de s'habituer aux commandes.</Description>
+      <LienTrailer z:Id="16">https://www.youtube.com/watch?v=bH1lHCirCGI</LienTrailer>
+      <LienImage z:Id="17">ModernWarfare.jpeg</LienImage>
+      <LienAchat z:Id="18">https://www.instant-gaming.com/fr/4394-acheter-cle-call-of-duty-modern-warfare/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Id="19">InfinityWard.png</StudioDev>
+      <Genre>FPS</Genre>
+      <Pegi>DixHuits</Pegi>
+      <ConfigMini z:Id="20">Système d'exploitation : Windows® 7 64-bit (SP1) or Windows® 10 64-bit Processeur : Intel® Core™ i3-4340 ou AMD FX-6300 Mémoire : 8GB RAM Carte graphique : NVIDIA® GeForce® GTX 670 / NVIDIA® GeForce® GTX 1650 ou AMD Radeon™ HD 7950 – DirectX 12.0 compatible system</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="21" z:Size="3">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+        <d4p1:PlateForme>Ps4</d4p1:PlateForme>
+        <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="22">
+      <Nom z:Id="23">Call of Duty Modern Warfare 3</Nom>
+      <Note>3</Note>
+      <Prix>13.99</Prix>
+      <Description z:Id="24">Call of Duty : Modern Warfare 3 (Europe) pour PC est le troisième de la série Modern Warfare, le huitième de la franchise Call of Duty. C'est un jeu de tir à la première personne, avec, similaire aux autres jeux de la série, avec un décor de guerre, ou une série de décors et de lieux prenant place dans le monde entier. Vous et votre équipe êtes chargés de trouver l’ennemi et d'arrêter ses plans infâmes : vous devez d'abord l’éliminer et vous frayer un chemin à travers des hordes d'ennemis pour ce faire.</Description>
+      <LienTrailer z:Id="25">https://www.youtube.com/watch?v=coiTJbr9m04</LienTrailer>
+      <LienImage z:Id="26">CallOfDutyMW3.jpg</LienImage>
+      <LienAchat z:Id="27">https://www.instant-gaming.com/fr/61-acheter-cle-steam-call-of-duty-modern-warfare-3/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Ref="19" i:nil="true" />
+      <Genre>FPS</Genre>
+      <Pegi>DixHuits</Pegi>
+      <ConfigMini z:Id="28">Configuration minimale : Système d'exploitation : Windows XP / Windows Vista / Windows 7 Processeur : Intel Core 2 Duo E6600 ou équivalent Memoire : 2 Go de RAM Carte graphique : Shader 3.0 ou mieux, NVIDIA GeForce 8600GT ou ATI Radeon X1950 Disque dur : 16 Go de libre</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="29" z:Size="3">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+        <d4p1:PlateForme>Ps3</d4p1:PlateForme>
+        <d4p1:PlateForme>Xbox360</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="30">
+      <Nom z:Id="31">Counter Strike Global Offensive</Nom>
+      <Note>5</Note>
+      <Prix>14.99</Prix>
+      <Description z:Ref="15" i:nil="true" />
+      <LienTrailer z:Id="32">https://www.youtube.com/watch?v=edYCtaNueQY</LienTrailer>
+      <LienImage z:Id="33">csgo.jpeg</LienImage>
+      <LienAchat z:Id="34">https://www.instant-gaming.com/fr/62-acheter-cle-steam-counter-strike-global-offensive-prime-status-upgrade/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Id="35">valve.png</StudioDev>
+      <Genre>FPS</Genre>
+      <Pegi>DixHuits</Pegi>
+      <ConfigMini z:Id="36">Système d'exploitation : Windows® 7/Vista/XP Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ X3 8750 ou meilleur Mémoire vive : 2 GB de mémoire Graphiques : Carte graphique de 256 MB ou plus compatible DirectX 9 et Pixel Shader 3.0 DirectX : Version 9.0c Espace disque : 15 GB d'espace disque disponible</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="37" z:Size="1">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="38">
+      <Nom z:Id="39">GTAV</Nom>
+      <Note>5</Note>
+      <Prix>15.99</Prix>
+      <Description z:Id="40">GTA V est un jeu en monde ouvert. Comprenez par là que le joueur peut aller où il veut quand il veut pour accomplir des missions ou simplement pour explorer les lieux et pratiquer plusieurs activités. Une liberté d’action que l’on retrouve au cœur même de l’aventure ; il est ainsi possible de remplir chaque mission de nombreuses manières. Au joueur de choisir son approche en choisissant la plus adaptée. L’objectif : organiser une série de braquages dont certains seront aussi épiques que dangereux. À chacun de définir son style et sa façon de procéder.</Description>
+      <LienTrailer z:Id="41">https://youtu.be/QkkoHAzjnUs</LienTrailer>
+      <LienImage z:Id="42">GtaV.jpg</LienImage>
+      <LienAchat z:Id="43">https://www.instant-gaming.com/fr/186-acheter-cle-rockstar-grand-theft-auto-v/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Id="44">RockstarGames.png</StudioDev>
+      <Genre>Action</Genre>
+      <Pegi>DixHuits</Pegi>
+      <ConfigMini z:Id="45">Configuration minimale : Système d'exploitation : Windows 8.1 64 bits, Windows 8 64 bits, Windows 7 64 bits Service Pack 1 Processeur : Intel Core 2 Quad CPU Q6600 @ 2,40 GHz (4 CPUs) / AMD Phenom 9850 Quad-Core (4 CPUs) @ 2,5 GHz Mémoire : 4 Go Carte graphique : NVIDIA 9800 GT 1 Go / AMD HD 4870 1 Go (DX 10, 10.1, 11) Carte son : 100 % compatible avec DirectX 10 Espace disque dur : 65 Go</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="46" z:Size="5">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+        <d4p1:PlateForme>Ps4</d4p1:PlateForme>
+        <d4p1:PlateForme>Xbox360</d4p1:PlateForme>
+        <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
+        <d4p1:PlateForme>Ps3</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="47">
+      <Nom z:Id="48">Minecraft</Nom>
+      <Note>4</Note>
+      <Prix>29.99</Prix>
+      <Description z:Id="49">Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). </Description>
+      <LienTrailer z:Id="50">https://youtu.be/MmB9b5njVbA</LienTrailer>
+      <LienImage z:Id="51">Minecraft.jpg</LienImage>
+      <LienAchat z:Id="52">https://www.instant-gaming.com/fr/442-acheter-cle-minecraft/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Id="53">mojang.png</StudioDev>
+      <Genre>Aventure</Genre>
+      <Pegi>Trois</Pegi>
+      <ConfigMini z:Id="54">Configuration minimale : Intel Core i3-3210 / AMD A8-7600; AMD Radeon R5 / Nvidia Geforce 4xx; 4Go de RAM; 1Go d'Espace Disque; Windows 7/8/10</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="55" z:Size="4">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+        <d4p1:PlateForme>Ps4</d4p1:PlateForme>
+        <d4p1:PlateForme>Xbox360</d4p1:PlateForme>
+        <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="56">
+      <Nom z:Id="57">Mortal Kombat 11</Nom>
+      <Note>3</Note>
+      <Prix>14.84</Prix>
+      <Description z:Id="58">Mortal Kombat 11 pour PC est un jeu de combat en 2.5D qui marque - comme son nom l'indique - vingt-sept années impressionnantes de Mortal Kombat. Cela offre non seulement aux joueurs un contenu riche (surtout aux nouveaux joueurs), mais cela signifie aussi que les développeurs ont accumulé beaucoup d’expérience et sont donc aujourd’hui capable de faire des jeux de combat fascinants et immersifs. Ce jeu en est la preuve vivante!</Description>
+      <LienTrailer z:Id="59">https://www.youtube.com/watch?v=bxFoRCvEjUA</LienTrailer>
+      <LienImage z:Id="60">MortalKombat11.jpg</LienImage>
+      <LienAchat z:Id="61">https://www.instant-gaming.com/fr/3339-acheter-cle-steam-mortal-kombat-11/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Id="62">NetherRealm.png</StudioDev>
+      <Genre>Combat</Genre>
+      <Pegi>DixHuits</Pegi>
+      <ConfigMini z:Id="63">OS: 64-bit Windows 7 / Windows 10 Architecture: 64 bits Processeurs :Intel Core i5-750, 2.66 GHz / AMD Phenom II X4 965, 3.4 GHz ou AMD Ryzen™ 3 1200, 3.1 GHz Mémoire: 8 Go RAM Carte graphique (AMD): AMD® Radeon™ HD 7950 ou AMD® Radeon™ R9 270 Carte graphique(NVIDIA): NVIDIA® GeForce™ GTX 670 ou NVIDIA® GeForce™ GTX 1050 DirectX: API 11</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="64" z:Size="2">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+        <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="65">
+      <Nom z:Id="66">Spider-man </Nom>
+      <Note>3</Note>
+      <Prix>14.99</Prix>
+      <Description z:Id="67">Spider-Man est un jeu d'action sur PlayStation 4. Le Tisseur est de retour pour le plaisir des joueurs qui pourront alterner phases d'exploration en voltigeant de building en building, phases d’infiltration et affrontements contre les super-vilains comme Le Caïd, Vulture, Electro, Mister Negative, etc.</Description>
+      <LienTrailer z:Id="68">https://www.youtube.com/watch?v=q4GdJVvdxss</LienTrailer>
+      <LienImage z:Id="69">spiderman.jpeg</LienImage>
+      <LienAchat z:Id="70">https://www.instant-gaming.com/fr/3656-acheter-cle-playstation-marvels-spider-man-the-city-that-never-sleeps-ps4/</LienAchat>
+      <ModeleEco z:Ref="9" i:nil="true" />
+      <StudioDev z:Id="71">InsomniacGames.png</StudioDev>
+      <Genre>Aventure</Genre>
+      <Pegi>Seize</Pegi>
+      <ConfigMini z:Id="72">Il faut avoir au minimum une PS4 pour lancer le jeu.</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="73" z:Size="1">
+        <d4p1:PlateForme>Ps4</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+    <JeuVidéoDTO z:Id="74">
+      <Nom z:Id="75">World of Warcraft</Nom>
+      <Note>4</Note>
+      <Prix>11.99</Prix>
+      <Description z:Id="76">World of Warcraft sur PC est un jeu de rôle massivement multijoueurs. Au sein du royaume d'Azeroth, rejoignez les forces de la Horde ou de l'Alliance. Créez votre personnage parmi huit races et neuf classes disponibles puis rejoignez ou fondez votre propre guilde. Fabriquez armes et armures et combattez seul ou en groupe face à des armées de démons et autres bestioles plus ou moins attrayante.</Description>
+      <LienTrailer z:Id="77">https://www.youtube.com/watch?v=vlVSJ0AvZe0</LienTrailer>
+      <LienImage z:Id="78">Wow.jpg</LienImage>
+      <LienAchat z:Id="79">https://www.instant-gaming.com/fr/803-acheter-cle-battlenet-world-of-warcraft-carte-30-jours/</LienAchat>
+      <ModeleEco z:Id="80">Achat mensuel</ModeleEco>
+      <StudioDev z:Id="81">Blizzard.png</StudioDev>
+      <Genre>RPG</Genre>
+      <Pegi>Douze</Pegi>
+      <ConfigMini z:Id="82">Système d'exploitation : Windows® 7 64 bits (avec les derniers service packs) Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ 8750 Carte graphique : NVIDIA® GeForce® 8800 GT 512 Mo ou AMD Radeon™ HD 4850 512 Mo ou Intel® HD Graphics 4000 Mémoire : 2 Go de RAM (4 Go pour les cartes graphiques intégrées, comme les Intel HD Graphics series) Stockage : 5 Go d’espace disponible</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="83" z:Size="1">
+        <d4p1:PlateForme>Pc</d4p1:PlateForme>
+      </ListePlateFormes>
+    </JeuVidéoDTO>
+  </ListeJeux>
+  <ListeUtilisateurs z:Id="84" z:Size="4">
+    <UtilisateurConnectéDTO z:Id="85">
+      <Pseudo z:Id="86">paul_b63</Pseudo>
+      <Nom z:Id="87">Bonhomme</Nom>
+      <Prénom z:Id="88">Paul</Prénom>
+      <DateNaissance>2001-11-18T00:00:00</DateNaissance>
+      <MotDePasse z:Id="89">MotDePassePaul</MotDePasse>
+      <Mail z:Id="90">polo.clash@gmail.com</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="91" z:Size="0" />
+    </UtilisateurConnectéDTO>
+    <UtilisateurConnectéDTO z:Id="92">
+      <Pseudo z:Id="93">shotlouf</Pseudo>
+      <Nom z:Id="94">Chevassus</Nom>
+      <Prénom z:Id="95">Noe</Prénom>
+      <DateNaissance>2001-06-21T00:00:00</DateNaissance>
+      <MotDePasse z:Id="96">MotDePasseNoe</MotDePasse>
+      <Mail z:Id="97">noe@orange.fr</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="98" z:Size="0" />
+    </UtilisateurConnectéDTO>
+    <UtilisateurConnectéDTO z:Id="99">
+      <Pseudo z:Id="100">adel88</Pseudo>
+      <Nom z:Id="101">Zemili</Nom>
+      <Prénom z:Id="102">Adel</Prénom>
+      <DateNaissance>2001-12-16T00:00:00</DateNaissance>
+      <MotDePasse z:Id="103">MotDePasseAdel</MotDePasse>
+      <Mail z:Id="104">adel@orange.fr</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="105" z:Size="0" />
+    </UtilisateurConnectéDTO>
+    <UtilisateurConnectéDTO z:Id="106">
+      <Pseudo z:Id="107">zoezoe</Pseudo>
+      <Nom z:Id="108">Rigaud</Nom>
+      <Prénom z:Id="109">Zoé</Prénom>
+      <DateNaissance>2001-01-04T00:00:00</DateNaissance>
+      <MotDePasse z:Id="110">MotDePasseZoe</MotDePasse>
+      <Mail z:Id="111">zoe@orange.fr</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="112" z:Size="0" />
+    </UtilisateurConnectéDTO>
+  </ListeUtilisateurs>
+</DataToPersist>
