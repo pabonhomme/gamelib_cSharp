@@ -16,6 +16,6 @@ namespace PageAccueil
     /// </summary>
     public partial class App : Application
     {
-        public Manager Manager { get; set; } = new Manager( new StubDataManager());
+        public Manager Manager { get; set; } = new Manager( new BddDataManager());
     }
 }
