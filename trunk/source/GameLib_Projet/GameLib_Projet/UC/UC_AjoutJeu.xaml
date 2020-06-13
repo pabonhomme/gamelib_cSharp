@@ -90,6 +90,8 @@
                             <ComboBoxItem Content="Combat"/>
                             <ComboBoxItem Content="FPS"/>
                             <ComboBoxItem Content="RPG"/>
+                            <ComboBoxItem Content="Stratégie"/>
+                            <ComboBoxItem Content="Sport"/>
                         </ComboBox>
 
 
@@ -110,8 +112,8 @@
                         </ComboBox>
                         <ComboBox materialDesign:HintAssist.Hint="Modele Economique" Style="{StaticResource Combo}" Name="ModeleEcoCombobox" SelectionChanged="ComboBox_SelectionChanged4">
                             <ComboBoxItem Content="Gratuit"/>
-                            <ComboBoxItem Content="Achat définif"/>
-                            <ComboBoxItem Content="Achat Mensuel"/>
+                            <ComboBoxItem Content="Définitif"/>
+                            <ComboBoxItem Content="Mensuel"/>
                         </ComboBox>
                     </WrapPanel>
                     <WrapPanel Grid.Column="1">

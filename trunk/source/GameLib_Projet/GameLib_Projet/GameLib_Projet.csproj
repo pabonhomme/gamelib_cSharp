@@ -12,14 +12,21 @@
 
   <ItemGroup>
     <None Remove="img\accueil.jpg" />
+    <None Remove="img\AssassinCreedOrigin.jpg" />
     <None Remove="img\baniere.jpg" />
     <None Remove="img\Battlefield5.jpg" />
     <None Remove="img\Blizzard.png" />
     <None Remove="img\CallOfDutyMW3.jpg" />
+    <None Remove="img\CivilizationVI.jpg" />
     <None Remove="img\csgo.jpeg" />
     <None Remove="img\Dice.png" />
+    <None Remove="img\EaSport.png" />
+    <None Remove="img\EpicGame.png" />
     <None Remove="img\etoile.png" />
+    <None Remove="img\Fifa20.jpg" />
+    <None Remove="img\Firaxis.png" />
     <None Remove="img\FondGame.jpg" />
+    <None Remove="img\Fortnite.jpg" />
     <None Remove="img\gtaV.jpg" />
     <None Remove="img\InfinityWard.png" />
     <None Remove="img\InsomniacGames.png" />
@@ -28,6 +35,7 @@
     <None Remove="img\ModernWarfare.jpeg" />
     <None Remove="img\mojang.png" />
     <None Remove="img\MortalKombat11.jpg" />
+    <None Remove="img\Nadeo.png" />
     <None Remove="img\NetherRealm.png" />
     <None Remove="img\pc.jpg" />
     <None Remove="img\Pegi12.jpg" />
@@ -38,19 +46,28 @@
     <None Remove="img\RockstarGames.png" />
     <None Remove="img\spiderman.jpeg" />
     <None Remove="img\test.jpg" />
+    <None Remove="img\Trackmania.jpg" />
+    <None Remove="img\Ubisoft.png" />
     <None Remove="img\Valve.png" />
     <None Remove="img\Wow.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="img\AssassinCreedOrigin.jpg" />
     <Content Include="img\Baniere.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="img\Battlefield5.jpg" />
     <Content Include="img\Blizzard.png" />
     <Content Include="img\CallOfDutyMW3.jpg" />
+    <Content Include="img\CivilizationVI.jpg" />
     <Content Include="img\csgo.jpeg" />
     <Content Include="img\Dice.png" />
+    <Content Include="img\EaSport.png" />
+    <Content Include="img\EpicGame.png" />
+    <Content Include="img\Fifa20.jpg" />
+    <Content Include="img\Firaxis.png" />
+    <Content Include="img\Fortnite.jpg" />
     <Content Include="img\InfinityWard.png" />
     <Content Include="img\InsomniacGames.png" />
     <Content Include="img\ModernWarfare.jpeg" />
@@ -67,6 +84,7 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     <Content Include="img\MortalKombat11.jpg" />
+    <Content Include="img\Nadeo.png" />
     <Content Include="img\NetherRealm.png" />
     <Content Include="img\Pegi12.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -87,6 +105,8 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
     <Content Include="img\spiderman.jpeg" />
+    <Content Include="img\Trackmania.jpg" />
+    <Content Include="img\Ubisoft.png" />
     <Content Include="img\Valve.png" />
     <Content Include="img\Wow.jpg" />
   </ItemGroup>

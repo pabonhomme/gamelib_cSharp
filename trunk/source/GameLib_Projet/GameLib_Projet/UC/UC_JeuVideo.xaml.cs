@@ -33,6 +33,12 @@ namespace GameLib_Projet
             InitializeComponent();
             DataContext = Manager;
         }
+
+        /// <summary>
+        /// Bouton avec le logo youtube dans UC_JeuVidéo permettant d'ouvrir la page youtube du trailer du jeu correspondant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonTrailer_Click(object sender, RoutedEventArgs e)
         {
             // Ici on récupère le lien du trailer du jeu voulu et on lance le navigateur par défaut pour ouvrir le lien
@@ -40,6 +46,11 @@ namespace GameLib_Projet
             System.Diagnostics.Process.Start(info);
         }
 
+        /// <summary>
+        /// Bouton d'achat du jeu permettant d'ouvrir la page d'achat du jeu correspondant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonAchat_Click(object sender, RoutedEventArgs e)
         {
             // Ici on récupère le lien du trailer du jeu voulu et on lance le navigateur par défaut pour ouvrir le lien
@@ -47,6 +58,11 @@ namespace GameLib_Projet
             System.Diagnostics.Process.Start(info);
         }
 
+        /// <summary>
+        /// Bouton permettant de supprimer le jeu correspondant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonSupprimer_click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Etes vous sûr de vouloir supprimer ce jeu ?", "Attention suppression", MessageBoxButton.OKCancel, MessageBoxImage.Exclamation);
@@ -56,14 +72,16 @@ namespace GameLib_Projet
                 Manager.SupprimerJeu(Manager.JeuVidéoSelectionné, Manager.UtilisateurCourant);
             }
             return;
-
-
-
         }
 
+        /// <summary>
+        /// Bouton permettant l'ajout en favori du jeu correspondant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonFavori_Click(object sender, RoutedEventArgs e)
         {
-            if(Manager.JeuVidéoSelectionné.EstFavori != true)
+            if (Manager.JeuVidéoSelectionné.EstFavori != true) //Teste si le bouton est décoché puiqu'avec le binding estFavori du code XAML, il renvoie false
             {
                 Manager.UtilisateurCourant.SupprimerFav(Manager.JeuVidéoSelectionné);
                 Manager.VerifFavoris();
@@ -75,7 +93,7 @@ namespace GameLib_Projet
                 Manager.VerifFavoris();
                 //Manager.SauvegardeDonnées();
             }
-            
+
         }
     }
 

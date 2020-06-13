@@ -60,7 +60,7 @@ namespace Persistance
         /// Modèle économique du jeu
         /// </summary>
         [DataMember(EmitDefaultValue = false, Order = 7)]
-        public string ModeleEco { get; set; }
+        public ModeleEco ModeleEco { get; set; }
 
         /// <summary>
         /// Nom du studio de dévelopement
