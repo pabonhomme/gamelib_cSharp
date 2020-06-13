@@ -19,7 +19,7 @@
     <Window.Resources>
         <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}" x:Key="Combobox">
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Toledo"/>
+            <Setter Property="FontFamily" Value="../Font/#Toledo__.ttf"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontStretch" Value="Condensed"/>
             <Setter Property="BorderBrush" Value="#3A5199"/>

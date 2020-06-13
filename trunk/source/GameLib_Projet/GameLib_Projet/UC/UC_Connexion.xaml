@@ -22,6 +22,7 @@
     materialDesign:ShadowAssist.ShadowDepth="Depth5"
     Padding="32" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="500">
         <WrapPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="{Binding MessageEstConnecté}"/>
             <TextBlock Text="Connexion" FontWeight="Bold" TextAlignment="Center" 
                        FontSize="30" Margin="0,15"/>
             <Grid HorizontalAlignment="Center" Width="300">

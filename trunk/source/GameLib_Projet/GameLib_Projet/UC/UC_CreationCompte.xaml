@@ -13,7 +13,7 @@
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Margin" Value="10,20,0,10"/>
         </Style>
 
         <Style TargetType="{x:Type TextBox}">
@@ -37,7 +37,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="70"/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>

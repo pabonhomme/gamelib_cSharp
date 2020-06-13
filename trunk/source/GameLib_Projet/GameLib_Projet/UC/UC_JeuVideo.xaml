@@ -23,6 +23,7 @@
         <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
         <local:FavoriBoutonToVisibilityConverter x:Key="FavoriBoutonToVisibilityConverter"/>
         <local:StringToImageConverter x:Key="StringToImageConverter"/>
+        <local:TextNonFavToVisiblityConverter x:Key="TextNonFavToVisiblityConverter"/>
 
         <DataTemplate x:Key="DetailJeuVideo">
 
@@ -77,6 +78,7 @@
 
             <Image Source="{Binding JeuVidéoSelectionné.LienImage, Converter={StaticResource StringToImageConverter}}" Height="600" Margin="5"/>
             <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10">
+                <TextBlock Text="Connectez vous pour pouvoir ajouter ce jeu à vos favoris"  Visibility="{Binding UtilisateurCourant, Converter={StaticResource TextNonFavToVisiblityConverter} }" Foreground="Gold"/>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33" HorizontalAlignment="Right"                     
                         ToolTip="Supprimer le jeu" Height="40" Width="40" Margin="10" Cursor="Hand" Click="BoutonSupprimer_click" Visibility="{Binding UtilisateurCourant, Converter={StaticResource AdminBoutonsToVisibilityConverter} }">
                     <materialDesign:PackIcon Kind="Delete" Foreground="#3A5199" Height="40" Width="40"/>
