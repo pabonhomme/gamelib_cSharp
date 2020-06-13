@@ -84,7 +84,7 @@ namespace Managment
                 ListeJeux.Remove(jeuASupprimer);
                 ListeJeuxAux.Remove(jeuASupprimer);
             }
-           // SauvegardeDonnées();
+            SauvegardeDonnées();
 
         }
 
