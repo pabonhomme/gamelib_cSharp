@@ -26,7 +26,7 @@ namespace Managment
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        private UtilisateurConnecté utilisateurCourant = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>());
+        private UtilisateurConnecté utilisateurCourant; /*= new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>());*/
 
         public UtilisateurConnecté UtilisateurCourant
         {
@@ -92,6 +92,21 @@ namespace Managment
         {
 
             return ListeUtilisateur.SingleOrDefault(user => user.Pseudo.Equals(pseudoUtilisateur));
+        }
+
+        /// <summary>
+        /// Méthode permettant l'affichage de l'utilisateur courant
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public string ToAffichUtilisateurCourant(UtilisateurConnecté user)
+        {
+            if (user != null)
+            {
+                return $"Connecté en tant que { user.Pseudo}";
+
+            }
+            return string.Empty;
         }
     }
 }
