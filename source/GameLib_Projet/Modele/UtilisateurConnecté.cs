@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -34,7 +36,7 @@ namespace Modele
         /// <summary>
         /// Pseudo de l'utilisateur connecté
         /// </summary>
-        public string Pseudo { get;  set; }
+        public string Pseudo { get; set; }
 
         /// <summary>
         /// Mot de passe de l'utilisateur connecté
