@@ -4,6 +4,7 @@ using PageAccueil;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -82,11 +83,11 @@ namespace GameLib_Projet
         /// <summary>
         /// Event pour le navigateur permettant de renvoyer sur l'UC MainWindowUser
         /// </summary>
-        public event RoutedEventHandler AnnulerAjoutJeuClick 
+        public event RoutedEventHandler AnnulerAjoutJeuClick
         {
             add
             {
-                AnnulerBouton.Click += value; 
+                AnnulerBouton.Click += value;
             }
 
             remove
@@ -150,7 +151,7 @@ namespace GameLib_Projet
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AjoutImageStudioDev_click(object sender, RoutedEventArgs e) 
+        private void AjoutImageStudioDev_click(object sender, RoutedEventArgs e)
         {
             //Configuration OpenFile dialogue box
             Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog(); //OpenFileDialog : Affiche une boite de dialogue qui invite l'utilisateur à ouvrir un fichier.
@@ -198,6 +199,12 @@ namespace GameLib_Projet
                     return;
                 }
 
+                if (String.IsNullOrWhiteSpace(GenreCombobox.Text) || String.IsNullOrWhiteSpace(NoteCombobox.Text) || String.IsNullOrWhiteSpace(PegiCombobox.Text) || String.IsNullOrWhiteSpace(ModeleEcoCombobox.Text)) //Teste si une ou plusieurs combobox est vide
+                {
+                    MessageBox.Show("Des éléments sont manquants concernant le modèle économique, le PEGI, le genre ou la note du jeu", "Erreur informations du jeu non valides (combobox)", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
 
                 if (v == false) // Si un des champs rentré par l'utilisateur dans les textbox de l'ajoutJeu n'est pas valide
                 {
@@ -212,7 +219,7 @@ namespace GameLib_Projet
                     Navigator.NavigateTo("MainWindowUser"); //Renvoie à l'UC MainWindowUser
                 }
 
-            } 
+            }
             else //Sinon le nom du jeu existe déja dans la ListeJeux
             {
                 MessageBox.Show("Ce jeu existe déja", "Attention Jeu déja existant", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -227,7 +234,7 @@ namespace GameLib_Projet
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ComboBox_SelectionChanged1(object sender, SelectionChangedEventArgs e) 
+        private void ComboBox_SelectionChanged1(object sender, SelectionChangedEventArgs e)
         {
 
             var item = (ComboBoxItem)GenreCombobox.SelectedValue; //Prend l'élément sélectionné de la combobox
@@ -242,7 +249,7 @@ namespace GameLib_Projet
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ComboBox_SelectionChanged2(object sender, SelectionChangedEventArgs e) 
+        private void ComboBox_SelectionChanged2(object sender, SelectionChangedEventArgs e)
         {
 
             var item = (ComboBoxItem)PegiCombobox.SelectedValue; //Prend l'élément sélectionné de la combobox
@@ -278,7 +285,8 @@ namespace GameLib_Projet
 
             var item = (ComboBoxItem)ModeleEcoCombobox.SelectedValue; //Prend l'élément sélectionné de la combobox
             var content = (string)item.Content; //Convertit le contenu du selectedValue en string
-            NouveauJeu.ModeleEco = content;
+            ModeleEco m = (ModeleEco)Enum.Parse(typeof(ModeleEco), content);
+            NouveauJeu.ModeleEco = m;
 
         }
 

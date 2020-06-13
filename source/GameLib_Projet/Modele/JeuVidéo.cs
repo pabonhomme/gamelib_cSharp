@@ -61,7 +61,27 @@ namespace Modele
         /// <summary>
         /// Modèle économique du jeu
         /// </summary>
-        public string ModeleEco { get; set; }
+        public ModeleEco ModeleEco { get; set; }
+
+        private string affichModeleEco;
+        /// <summary>
+        /// Méthode qui renvoie la propriété calculée affichModeleEco
+        /// </summary>
+        public string AffichModeleEco
+        {
+            get
+            {
+                if (ModeleEco == ModeleEco.Définitif)
+                    affichModeleEco = "Achat définitif";
+                if (ModeleEco == ModeleEco.Mensuel)
+                    affichModeleEco = "Achat mensuel";
+                if (ModeleEco == ModeleEco.Gratuit)
+                    affichModeleEco = "Gratuit";
+
+                return affichModeleEco;
+            }
+
+        }
 
         /// <summary>
         /// Nom du studio de dévelopement
@@ -188,7 +208,7 @@ namespace Modele
         /// <param name="genre">Genre du jeu</param>
         /// <param name="pegi">Age minimum pour avoir le jeu du jeu</param>
         /// <param name="plateFormes">Plate-formes où le jeu est disponible</param>
-        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string lienAchat, string modeleEco, string studioDev, string configMini, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
+        public JeuVidéo(string nom, int note, float prix, string description, string lienTrailer, string lienImage, string lienAchat, ModeleEco modeleEco, string studioDev, string configMini, Genre genre, Pegi pegi, List<PlateForme> plateFormes)
         {
             Nom = nom;
             Note = note;

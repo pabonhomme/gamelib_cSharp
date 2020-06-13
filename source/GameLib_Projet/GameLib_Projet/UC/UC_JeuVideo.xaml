@@ -41,7 +41,7 @@
                                           Margin="20" Foreground="Gold"/>
                 </materialDesign:Card>
                 <materialDesign:Card Margin="10">
-                    <TextBlock Text="{Binding ModeleEco}"
+                    <TextBlock Text="{Binding AffichModeleEco}"
                                Margin="5"
                                Style="{StaticResource textBlockCaracteristique}"/>
                 </materialDesign:Card>
@@ -118,9 +118,9 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
 
-            
+
             <Image Source="{Binding JeuVidéoSelectionné.StudioDev, Converter={StaticResource StringToImageConverter}}"/>
-          
+
             <Image Source="{Binding JeuVidéoSelectionné.LienPegi, Converter={StaticResource StringToImageConverter}}" Width="auto" Height="100" Grid.Row="1" HorizontalAlignment="Left" Margin="20,0,0,0"/>
 
 

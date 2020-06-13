@@ -13,5 +13,7 @@ namespace Modele
         Combat,
         FPS,
         RPG,
+        Stratégie,
+        Sport,
     }
 }
