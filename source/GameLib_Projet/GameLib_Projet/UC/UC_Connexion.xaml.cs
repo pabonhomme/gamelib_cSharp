@@ -44,6 +44,20 @@ namespace GameLib_Projet
             }
         }
 
+        private string messageEstConnecté;
+
+        public string MessageEstConnecté
+        {
+            get { return messageEstConnecté; }
+            set
+            {
+                messageEstConnecté = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
         /// <summary>
         /// Evenement qui permet de signaler à la vue par un évenement qu'une propriété a changé
         /// </summary>
@@ -106,6 +120,7 @@ namespace GameLib_Projet
                 if (result == MessageBoxResult.OK) //Si l'on clique sur le MessageBoxButton OK
                 {
                     Navigator.NavigateTo("MainWindowUser"); //Navigue to l'UC MainWindowUser
+                    MessageEstConnecté = Manager.ToAffichUtilisateurCourant(NouveauUtilisateurCourant);
                     Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()]; // Instancie le tableau de tous les jeux vidéos (ListeJeuxArray) pour la copie 
                     
                     for (int i = 0; i < Manager.ListeJeux.Count(); i++)
