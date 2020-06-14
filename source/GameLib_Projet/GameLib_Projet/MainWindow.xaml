@@ -41,7 +41,6 @@
         <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
         <local:ValueToVisibilityConverter x:Key="ValueToVisibilityConverter"/>
         <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
-        <local:FavoriBoutonToVisibilityConverter x:Key="FavoriBoutonToVisibilityConverter"/>
         <local:StringToImageConverter x:Key="StringToImageConverter"/>
     </Window.Resources>
 
@@ -129,7 +128,7 @@
                     <ComboBoxItem Content="Xbox360"/>
                 </ComboBox>
 
-                <CheckBox x:Name="CheckBoxFavoris" FontSize="20" Click="CheckBoxFavoris_Click" Visibility="{Binding Manager.UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}"
+                <CheckBox x:Name="CheckBoxFavoris" FontSize="20" Click="CheckBoxFavoris_Click" Visibility="{Binding Manager.UtilisateurCourant, Converter={StaticResource ValueToVisibilityConverter}}"
                                  
                           Content="Mes favoris" Foreground="#FFA4A1A1"/>           
         

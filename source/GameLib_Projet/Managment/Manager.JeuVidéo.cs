@@ -68,7 +68,7 @@ namespace Managment
                 ListeJeux.Add(jeuAAjouter);
                 ListeJeuxAux.Add(jeuAAjouter);
             }
-           // SauvegardeDonnées();
+            SauvegardeDonnées();
 
         }
 

@@ -59,7 +59,7 @@ namespace GameLib_Projet
         }
 
         /// <summary>
-        /// Bouton permettant de supprimer le jeu correspondant
+        /// Bouton permettant de supprimer le jeu correspondant (visible uniquement si l'utilisateur est administrateur)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -75,7 +75,7 @@ namespace GameLib_Projet
         }
 
         /// <summary>
-        /// Bouton permettant l'ajout en favori du jeu correspondant
+        /// Bouton permettant l'ajout en favori du jeu correspondant (visible seulement si l'utilisateur est connecté)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -85,13 +85,13 @@ namespace GameLib_Projet
             {
                 Manager.UtilisateurCourant.SupprimerFav(Manager.JeuVidéoSelectionné);
                 Manager.VerifFavoris();
-                //Manager.SauvegardeDonnées();
+                Manager.SauvegardeDonnées();
             }
             else
             {
                 Manager.UtilisateurCourant.AjouterFav(Manager.JeuVidéoSelectionné);
                 Manager.VerifFavoris();
-                //Manager.SauvegardeDonnées();
+                Manager.SauvegardeDonnées();
             }
 
         }

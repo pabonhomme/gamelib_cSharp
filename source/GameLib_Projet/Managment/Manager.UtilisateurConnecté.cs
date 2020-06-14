@@ -26,7 +26,7 @@ namespace Managment
         /// <summary>
         /// Utilisateur courant de l'application
         /// </summary>
-        private UtilisateurConnecté utilisateurCourant; /*= new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>());*/
+        private UtilisateurConnecté utilisateurCourant; /*= new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com",true, new List<JeuVidéo>());*/
 
         public UtilisateurConnecté UtilisateurCourant
         {
@@ -63,7 +63,7 @@ namespace Managment
         public void CréerUtilisateur(UtilisateurConnecté utilisateur)
         {
             ListeUtilisateur.Add(utilisateur);
-            //SauvegardeDonnées();
+            SauvegardeDonnées();
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Managment
             {
                 ListeUtilisateur.Remove(utilisateur);
             }
-            //SauvegardeDonnées();
+            SauvegardeDonnées();
         }
 
         /// <summary>

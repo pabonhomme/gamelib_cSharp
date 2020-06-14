@@ -51,7 +51,7 @@ namespace Test_Manager
             //mngr.ListeUtilisateur.Sort();
             Console.WriteLine("Pour vous connecter, veuillez renseigner votre mot de passe");
             // Console.WriteLine(mngr.Connexion(mngr.RechercherUtilisateur("paul_b63"), Console.ReadLine()));
-            mngr.Connexion(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()));
+            mngr.Connexion(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com",true, new List<JeuVidéo>()));
 
             //Console.WriteLine("\n\nAjout des jeux à l'application\n\n");
             //mngr.AjouterJeu(jeuvidéo1, mngr.UtilisateurCourant);

@@ -7,6 +7,9 @@ using System.Windows.Data;
 
 namespace GameLib_Projet
 {
+    /// <summary>
+    /// Converter permettant de rendre visible ou non la border contenant l'UC_JeuVidéo
+    /// </summary>
     public class ValueToVisibilityConverter: IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

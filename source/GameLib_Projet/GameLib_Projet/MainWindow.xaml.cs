@@ -34,20 +34,25 @@ namespace GameLib_Projet
             DataContext = this;
         }
 
+        /// <summary>
+        /// SelectionChanged de la combobox de Genre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxGenre_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxGenre = (ComboBox)sender;
-            if (ComboBoxGenre.SelectedItem == null)
+            if (ComboBoxGenre.SelectedItem == null) 
             {
-                ReinitialiserListeAux();
+                ReinitialiserListeAux(); 
                 return;
             }
             var GenreSelectionné = (ComboBoxItem)ComboBoxGenre.SelectedItem; //Prend l'élément sélectionné de la combobox
-            var Content = (string)GenreSelectionné.Content;
+            var Content = (string)GenreSelectionné.Content; //Convertit le genreSelectionné en string
 
             Genre g = (Genre)Enum.Parse(typeof(Genre), Content); //Convertit le string en Enum Genre contenu dans la variable g
-            Manager.ListeJeuxAux = Tris.TriGenre(g, Manager.ListeJeuxAux);
-            if (Manager.ListeJeuxAux.Count() == 0)
+            Manager.ListeJeuxAux = Tris.TriGenre(g, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant le genre selectionné par l'utilisateur
+            if (Manager.ListeJeuxAux.Count() == 0) //Si pas de jeux trouvé pour le genre sélectionné alors remise à 0 de la ListeJeuxAux
             {
                 ReinitialiserListeAux();
                 ReinitialiserCombobox();
@@ -56,37 +61,42 @@ namespace GameLib_Projet
             }
         }
 
+        /// <summary>
+        /// SelectionChanged de la combobox Limite d'âge
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxLimiteAge_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxLimiteAge = (ComboBox)sender;
-            if (ComboBoxLimiteAge.SelectedItem == null)
+            if (ComboBoxLimiteAge.SelectedItem == null) 
             {
                 ReinitialiserListeAux();
                 return;
             }
             var LimiteSelectionnée = (ComboBoxItem)ComboBoxLimiteAge.SelectedItem; //Prend l'élément sélectionné de la combobox
 
-            if (LimiteSelectionnée == Pegi3)
+            if (LimiteSelectionnée == Pegi3) 
             {
-                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Trois, Manager.ListeJeuxAux);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Trois, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant Pegi3 selectionné par l'utilisateur
             }
             if (LimiteSelectionnée == Pegi7)
             {
-                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Sept, Manager.ListeJeuxAux);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Sept, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant Pegi7 selectionné par l'utilisateur
             }
             if (LimiteSelectionnée == Pegi12)
             {
-                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Douze, Manager.ListeJeuxAux);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Douze, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant Pegi12 selectionné par l'utilisateur
             }
             if (LimiteSelectionnée == Pegi16)
             {
-                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Seize, Manager.ListeJeuxAux);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Seize, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant Pegi16 selectionné par l'utilisateur
             }
             if (LimiteSelectionnée == Pegi18)
             {
-                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.DixHuits, Manager.ListeJeuxAux);
+                Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.DixHuits, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant Pegi18 selectionné par l'utilisateur
             }
-            if (Manager.ListeJeuxAux.Count() == 0)
+            if (Manager.ListeJeuxAux.Count() == 0) //Si pas de jeux trouvé pour le Pegi sélectionné alors remise à 0 de la ListeJeuxAux
             {
                 ReinitialiserListeAux();
                 ReinitialiserCombobox();
@@ -95,6 +105,11 @@ namespace GameLib_Projet
             }
         }
 
+        /// <summary>
+        /// SelectionChanged de la combobox Note
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxNote_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxNote = (ComboBox)sender;
@@ -105,18 +120,23 @@ namespace GameLib_Projet
             }
 
             var NoteSelectionné = (ComboBoxItem)ComboBoxNote.SelectedItem; //Prend l'élément sélectionné de la combobox
-            var Content = (string)NoteSelectionné.Content;
+            var Content = (string)NoteSelectionné.Content; //Convertit l'élément sélectionné en string
             int note = int.Parse(Content); //Convertit le string  contenu dans la variable Content en int
-            Manager.ListeJeuxAux = Tris.TriNote(note, Manager.ListeJeuxAux);
-            if (Manager.ListeJeuxAux.Count() == 0)
+            Manager.ListeJeuxAux = Tris.TriNote(note, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant la note selectionnée par l'utilisateur
+            if (Manager.ListeJeuxAux.Count() == 0) //Si pas de jeux trouvé pour la note sélectionnée alors remise à 0 de la ListeJeuxAux
             {
-                ReinitialiserListeAux();
-                ReinitialiserCombobox();
+                ReinitialiserListeAux();  
+                ReinitialiserCombobox(); 
                 MessageBox.Show("Aucun jeu ne correspond à votre recherche. Veuillez réessayez avec un autre critère.", "Erreur recherche", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
         }
 
+        /// <summary>
+        /// SelectionChanged de la combobox PlateForme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxPlateForme_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxPlateForme = (ComboBox)sender;
@@ -128,10 +148,10 @@ namespace GameLib_Projet
             }
 
             var PlateFormeSelectionnée = (ComboBoxItem)ComboBoxPlateForme.SelectedItem; //Prend l'élément sélectionné de la combobox
-            var Content = (string)PlateFormeSelectionnée.Content;
+            var Content = (string)PlateFormeSelectionnée.Content; //Convertit l'élement selectionné en string
             PlateForme plateForme = (PlateForme)Enum.Parse(typeof(PlateForme), Content); //Convertit le string Content en Enum Plateforme contenu dans la variable plateForme
-            Manager.ListeJeuxAux = Tris.TriPlateForme(plateForme, Manager.ListeJeuxAux);
-            if (Manager.ListeJeuxAux.Count() == 0)
+            Manager.ListeJeuxAux = Tris.TriPlateForme(plateForme, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant la PlateForme selectionnée par l'utilisateur
+            if (Manager.ListeJeuxAux.Count() == 0) //Si pas de jeux trouvé pour la PlateForme sélectionnée alors remise à 0 de la ListeJeuxAux
             {
                 ReinitialiserListeAux();
                 ReinitialiserCombobox();
@@ -151,7 +171,8 @@ namespace GameLib_Projet
             if (CheckBoxFavoris.IsChecked == true) // vérifie si la textbox est cochée
             {
 
-                Manager.ListeJeuxAux = Tris.TriFavoris(true, Manager.ListeJeuxAux); // Si oui alors tri de la liste auxiliaire avec affichage uniquement favoris
+                Manager.ListeJeuxAux = Tris.TriFavoris(true, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux mis en favori par l'utilisateur connecté
+
                 if (Manager.ListeJeuxAux.Count() == 0) // Si aucun jeu dans la liste de favoris alors message pr utilisateur disant qu'il faut qu'il en ajoute pr utiliser cette chekbox et remise à 0 de la liste auxiliaire
                 {
                     ReinitialiserListeAux();
@@ -162,17 +183,16 @@ namespace GameLib_Projet
             }
             else if (CheckBoxFavoris.IsChecked == false) // Affichage des jeux non-favoris
             {
-                Manager.ListeJeuxAux = Tris.TriFavoris(false, Manager.ListeJeuxAux);
+                Manager.ListeJeuxAux = Tris.TriFavoris(false, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux non favori de l'utilisateur connecté
             }
 
-            if (Manager.ListeJeuxAux.Count() == 0) // Si aucun jeu alors remise à 0 de la liste
-            {
-                ReinitialiserListeAux();
-                ReinitialiserCombobox();
-            }
         }
 
-
+        /// <summary>
+        /// Bouton accueil permettant de naviguer à l'UC MainWindowUser, et réinitialise les combobox et la ListeJeuxAux
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonAccueil_Click(object sender, RoutedEventArgs e)
         {
             Navigator.NavigateTo("MainWindowUser");
@@ -181,19 +201,26 @@ namespace GameLib_Projet
             Manager.JeuVidéoSelectionné = null;
         }
 
+        /// <summary>
+        /// Méthode permettant de réinitialiser la ListeJeuxAux
+        /// </summary>
             private void ReinitialiserListeAux()
         {
-            Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()];
+            Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()]; // Instancie le tableau de tous les jeux vidéos (ListeJeuxArray) pour la copie 
 
             for (int i = 0; i < Manager.ListeJeux.Count(); i++)
             {
-                Manager.ListeJeuxArray[i] = Manager.ListeJeux[i].Clone() as JeuVidéo; //car implémentation ICloneable                                                                      
+                Manager.ListeJeuxArray[i] = Manager.ListeJeux[i].Clone() as JeuVidéo; //car implémentation ICloneable, sélectionne tous les jeux de ListeJeux, les clonent et les mets dans le tableau ListeJeuxArray                                                                        
             }
 
-            Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.ListeJeuxArray);
-            Manager.VerifFavoris();
+            Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.ListeJeuxArray); //Instancie la ListeJeuxAux qui sert pour les tris à partir du tableau ListeJeuxArray
+            Manager.VerifFavoris(); //Mets à jour les jeux favoris de l'utilisateurs dans la listeJeuxAux qui sert pour les tris
+
         }
 
+        /// <summary>
+        /// Méthode permettant de réinitialiser les combobox
+        /// </summary>
         private void ReinitialiserCombobox()
         {
             TextboxRechercheJeu.Text = "";
@@ -204,23 +231,38 @@ namespace GameLib_Projet
             CheckBoxFavoris.IsChecked = false;
         }
 
+        /// <summary>
+        /// Bouton de connexion permettant de naviguer vers l'UC_Connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonConnexion_Click(object sender, RoutedEventArgs e)
         {
             Navigator.NavigateTo("UC_Connexion");
             Manager.JeuVidéoSelectionné = null;
         }
 
+        /// <summary>
+        /// Bouton d'ajout jeu permettant de naviguer vers l'UC_Ajoutjeu (visible uniquement si l'utilisateur est administrateur)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BoutonAjouterJeu_Click(object sender, RoutedEventArgs e)
         {
             Navigator.NavigateTo("UC_AjoutJeu");
             Manager.JeuVidéoSelectionné = null;
         }
 
+        /// <summary>
+        /// Evenement de la textBox de recherche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TouchePresséeTextBoxRecherche_Event(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Return)
+            if (e.Key == Key.Return) //Si la touche pressée est la touche entrée
             {
-                if (Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text).Count() != 0)
+                if (Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text).Count() != 0) //Si des jeux sont trouvés concernant le texte rentré par l'utilisateur
                 {
                     Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.RechercherJeuTextBox(TextboxRechercheJeu.Text));
                 }
