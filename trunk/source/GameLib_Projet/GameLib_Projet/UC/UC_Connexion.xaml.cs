@@ -44,6 +44,9 @@ namespace GameLib_Projet
             }
         }
 
+        /// <summary>
+        /// message est connecté qui sert à la méthode ToAffichUtilisateurCourant
+        /// </summary>
         private string messageEstConnecté;
 
         public string MessageEstConnecté
@@ -120,12 +123,12 @@ namespace GameLib_Projet
                 if (result == MessageBoxResult.OK) //Si l'on clique sur le MessageBoxButton OK
                 {
                     Navigator.NavigateTo("MainWindowUser"); //Navigue to l'UC MainWindowUser
-                    MessageEstConnecté = Manager.ToAffichUtilisateurCourant(NouveauUtilisateurCourant);
+                    MessageEstConnecté = Manager.ToAffichUtilisateurCourant(NouveauUtilisateurCourant); //Méthode permettant d'afficher qui est l'utilisateur connecté à l'application
                     Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()]; // Instancie le tableau de tous les jeux vidéos (ListeJeuxArray) pour la copie 
                     
                     for (int i = 0; i < Manager.ListeJeux.Count(); i++)
                     {
-                        Manager.ListeJeuxArray[i] = Manager.ListeJeux[i].Clone() as JeuVidéo; //si vous avez implémenté ICloneable, sélectionne tous les jeux de ListeJeux, les clonent et les mets dans le tableaa ListeJeuxArray                                                                      
+                        Manager.ListeJeuxArray[i] = Manager.ListeJeux[i].Clone() as JeuVidéo; //car implémentation ICloneable, sélectionne tous les jeux de ListeJeux, les clonent et les mets dans le tableau ListeJeuxArray                                                                    
                     }
                     
                     Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.ListeJeuxArray); //Instancie la ListeJeuxAux qui sert pour les tris à partir du tableau ListeJeuxArray

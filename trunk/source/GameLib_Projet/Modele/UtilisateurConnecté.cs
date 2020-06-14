@@ -49,6 +49,11 @@ namespace Modele
         public string Mail { get;  set; }
 
         /// <summary>
+        /// Propriété qui vérifie si l'utilisateur est administrateur
+        /// </summary>
+        public bool IsAdmin { get; private set; } = false;
+
+        /// <summary>
         /// Nombre de favoris de l'utilisateur connecté
         /// </summary>
         public int NombreFavoris => ListeFavoris.Count;
@@ -67,7 +72,7 @@ namespace Modele
         /// <param name="pseudo">Pseudo de l'utilisateur</param>
         /// <param name="motDePasse">Mot de passe de l"utilisateur</param>
         /// <param name="mail">Mail de l'utilisateur</param>
-        public UtilisateurConnecté(string nom, string prénom, DateTime dateNaissance, string pseudo, string motDePasse, string mail, List<JeuVidéo> listeFavori)
+        public UtilisateurConnecté(string nom, string prénom, DateTime dateNaissance, string pseudo, string motDePasse, string mail, bool isAdmin, List<JeuVidéo> listeFavori)
         {
             Nom = nom;
             Prénom = prénom;
@@ -76,6 +81,7 @@ namespace Modele
             MotDePasse = motDePasse;
             Mail = mail;
             ListeFavoris = listeFavori;
+            IsAdmin = isAdmin;
         }
 
         /// <summary>

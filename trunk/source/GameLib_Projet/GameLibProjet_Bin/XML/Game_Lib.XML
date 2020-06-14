@@ -273,6 +273,7 @@
       <DateNaissance>2001-11-18T00:00:00</DateNaissance>
       <MotDePasse z:Id="131">MotDePassePaul</MotDePasse>
       <Mail z:Id="132">polo.clash@gmail.com</Mail>
+      <IsAdmin>true</IsAdmin>
       <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="133" z:Size="0" />
     </UtilisateurConnectéDTO>
     <UtilisateurConnectéDTO z:Id="134">
@@ -282,6 +283,7 @@
       <DateNaissance>2001-06-21T00:00:00</DateNaissance>
       <MotDePasse z:Id="138">MotDePasseNoe</MotDePasse>
       <Mail z:Id="139">noe@orange.fr</Mail>
+      <IsAdmin>true</IsAdmin>
       <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="140" z:Size="0" />
     </UtilisateurConnectéDTO>
     <UtilisateurConnectéDTO z:Id="141">

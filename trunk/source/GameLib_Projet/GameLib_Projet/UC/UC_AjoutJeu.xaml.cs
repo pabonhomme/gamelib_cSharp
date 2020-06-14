@@ -3,6 +3,7 @@ using Modele;
 using PageAccueil;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -183,7 +184,7 @@ namespace GameLib_Projet
         }
 
         /// <summary>
-        /// Permet de créer le nouveau jeu et contrôle divers saises de l'utilisateur
+        /// Bouton permettant de créer le nouveau jeu et contrôle divers de la saise de l'utilisateur
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -215,6 +216,8 @@ namespace GameLib_Projet
                 if (v == true) //Si tous les champs rentrés par l'utilisateurs sont valide et que le jeu existe bien dans ListeJeuxVidéos
                 {
                     Manager.AjouterJeu(NouveauJeu, Manager.UtilisateurCourant); //Ajoute le NouveauJeu dans ListeJeux
+                    ReinitialiserListeAux();
+                    
 
                     Navigator.NavigateTo("MainWindowUser"); //Renvoie à l'UC MainWindowUser
                 }
@@ -378,6 +381,23 @@ namespace GameLib_Projet
                 return;
             }
             else NouveauJeu.ListePlateFormes.Add(PlateForme.Xbox360);
+        }
+
+        /// <summary>
+        /// Méthode permettant la réintialisation de la ListeAux
+        /// </summary>
+        private void ReinitialiserListeAux()
+        {
+            Manager.ListeJeux.Sort();
+            Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()];
+
+            for (int i = 0; i < Manager.ListeJeux.Count(); i++)
+            {
+                Manager.ListeJeuxArray[i] = Manager.ListeJeux[i].Clone() as JeuVidéo; //car implémentation ICloneable                                                                      
+            }
+
+            Manager.ListeJeuxAux = new ObservableCollection<JeuVidéo>(Manager.ListeJeuxArray);
+            Manager.VerifFavoris();
         }
     }
 

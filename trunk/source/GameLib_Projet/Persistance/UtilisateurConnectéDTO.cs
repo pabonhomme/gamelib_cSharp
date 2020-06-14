@@ -49,9 +49,15 @@ namespace Persistance
         public string Mail { get; set; }
 
         /// <summary>
-        /// Liste des noms des jeux favoris de l'utilisateur connecté
+        /// Mail de l'utilisateur connecté
         /// </summary>
         [DataMember(EmitDefaultValue = false, Order = 6)]
+        public bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// Liste des noms des jeux favoris de l'utilisateur connecté
+        /// </summary>
+        [DataMember(EmitDefaultValue = false, Order = 7)]
         public List<string> ListeFavoris { get; set; }
 
 
@@ -81,9 +87,17 @@ namespace Persistance
                     }
                 }
             }
+            if(dto.IsAdmin == true)
+            {
+                UtilisateurConnecté user = new Administrateur(dto.Nom, dto.Prénom, dto.DateNaissance, dto.Pseudo, dto.MotDePasse, dto.Mail, dto.IsAdmin, listeJeuxfav);
+                return user;
+            }
+            else
+            {
+                UtilisateurConnecté user = new UtilisateurConnecté(dto.Nom, dto.Prénom, dto.DateNaissance, dto.Pseudo, dto.MotDePasse, dto.Mail, dto.IsAdmin, listeJeuxfav);
+                return user;
+            }
             
-            UtilisateurConnecté user = new UtilisateurConnecté(dto.Nom, dto.Prénom, dto.DateNaissance, dto.Pseudo, dto.MotDePasse, dto.Mail, listeJeuxfav );
-            return user;
         }
 
         /// <summary>
@@ -109,6 +123,7 @@ namespace Persistance
                 Pseudo = UserPoco.Pseudo,
                 MotDePasse = UserPoco.MotDePasse,
                 Mail = UserPoco.Mail,
+                IsAdmin = UserPoco.IsAdmin,
                 ListeFavoris = UserPoco.ListeFavoris.Select(j => j.Nom).ToList()
             };
 

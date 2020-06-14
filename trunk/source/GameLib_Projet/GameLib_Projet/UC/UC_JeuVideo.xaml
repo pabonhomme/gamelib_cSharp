@@ -21,9 +21,9 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <local:AdminBoutonsToVisibilityConverter x:Key="AdminBoutonsToVisibilityConverter"/>
-        <local:FavoriBoutonToVisibilityConverter x:Key="FavoriBoutonToVisibilityConverter"/>
+        <local:ValueToVisibilityConverter x:Key="ValueToVisibilityConverter"/>
         <local:StringToImageConverter x:Key="StringToImageConverter"/>
-        <local:TextNonFavToVisiblityConverter x:Key="TextNonFavToVisiblityConverter"/>
+        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
 
         <DataTemplate x:Key="DetailJeuVideo">
 
@@ -78,7 +78,7 @@
 
             <Image Source="{Binding JeuVidéoSelectionné.LienImage, Converter={StaticResource StringToImageConverter}}" Height="600" Margin="5"/>
             <WrapPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10">
-                <TextBlock Text="Connectez vous pour pouvoir ajouter ce jeu à vos favoris"  Visibility="{Binding UtilisateurCourant, Converter={StaticResource TextNonFavToVisiblityConverter} }" Foreground="Gold"/>
+                <TextBlock Text="Connectez vous pour pouvoir ajouter ce jeu à vos favoris"  Visibility="{Binding UtilisateurCourant, Converter={StaticResource NullToVisibilityConverter} }" Foreground="Gold"/>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33" HorizontalAlignment="Right"                     
                         ToolTip="Supprimer le jeu" Height="40" Width="40" Margin="10" Cursor="Hand" Click="BoutonSupprimer_click" Visibility="{Binding UtilisateurCourant, Converter={StaticResource AdminBoutonsToVisibilityConverter} }">
                     <materialDesign:PackIcon Kind="Delete" Foreground="#3A5199" Height="40" Width="40"/>
@@ -87,7 +87,7 @@
                     Style="{StaticResource MaterialDesignActionAccentToggleButton}"
                     ToolTip="Ajouter ce jeu à vos favoris !"
                     IsChecked="{Binding JeuVidéoSelectionné.EstFavori}" Width="40" Height="40" Cursor="Hand"
-                    Visibility="{Binding UtilisateurCourant, Converter={StaticResource FavoriBoutonToVisibilityConverter}}"
+                    Visibility="{Binding UtilisateurCourant, Converter={StaticResource ValueToVisibilityConverter}}"
                     Click="BoutonFavori_Click">
                     <materialDesign:PackIcon
                         Kind="Star"

@@ -8,6 +8,9 @@ using System.Windows.Data;
 
 namespace GameLib_Projet
 {
+    /// <summary>
+    /// Converter permettant de changer la visibilité du bouton ajouter jeu dans le MainWindow ou supprimer jeu dans l'UC_JeuVidéo en fonction de si l'utilisateur est administrateur ou non
+    /// </summary>
     public class AdminBoutonsToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
