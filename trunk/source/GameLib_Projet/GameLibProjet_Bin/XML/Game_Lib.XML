@@ -1,171 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataToPersist xmlns:i="http://www.w3.org/2001/XMLSchema-instance" z:Id="1" xmlns:z="http://schemas.microsoft.com/2003/10/Serialization/" xmlns="http://schemas.datacontract.org/2004/07/Persistance">
-  <ListeJeux z:Id="2" z:Size="14">
-    <JeuVidéoDTO z:Id="3">
-      <Nom z:Id="4">Assassin's Creed Origin</Nom>
+  <ListeAdministrateurs z:Id="2" z:Size="2">
+    <AdministrateurDTO z:Id="3">
+      <Pseudo z:Id="4">paul_b63</Pseudo>
+      <Nom z:Id="5">Bonhomme</Nom>
+      <Prénom z:Id="6">Paul</Prénom>
+      <DateNaissance>2001-11-18T00:00:00</DateNaissance>
+      <MotDePasse z:Id="7">MotDePassePaul</MotDePasse>
+      <Mail z:Id="8">polo.clash@gmail.com</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="9" z:Size="0" />
+    </AdministrateurDTO>
+    <AdministrateurDTO z:Id="10">
+      <Pseudo z:Id="11">shotlouf</Pseudo>
+      <Nom z:Id="12">Chevassus</Nom>
+      <Prénom z:Id="13">Noe</Prénom>
+      <DateNaissance>2001-06-21T00:00:00</DateNaissance>
+      <MotDePasse z:Id="14">MotDePasseNoe</MotDePasse>
+      <Mail z:Id="15">noe@orange.fr</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="16" z:Size="0" />
+    </AdministrateurDTO>
+  </ListeAdministrateurs>
+  <ListeJeux z:Id="17" z:Size="14">
+    <JeuVidéoDTO z:Id="18">
+      <Nom z:Id="19">Assassin's Creed Origin</Nom>
       <Note>4</Note>
       <Prix>12.99</Prix>
-      <Description z:Id="5">Construisez une civilisation à partir d'un petit village ou d'une colonie jusqu'à l'apogée politique - essentiellement un jeu de société numérique dans lequel vous devez faire de votre empire un leader sur la scène mondiale grâce au commerce, aux affaires, aux batailles et bien plus. Le paysage affecte vos succès, la forêt, le désert et la toundra ayant tous leurs propres avantages et inconvénients pour le joueur, vous devrez donc adapter votre jeu pour tirer le meilleur parti de la région dans laquelle vous jouez.</Description>
-      <LienTrailer z:Id="6">https://www.youtube.com/watch?v=cK4iAjzAoas</LienTrailer>
-      <LienImage z:Id="7">AssassinCreedOrigin.jpg</LienImage>
-      <LienAchat z:Id="8">https://www.instant-gaming.com/fr/1843-acheter-cle-uplay-assassins-creed-origins/</LienAchat>
+      <Description z:Id="20">Construisez une civilisation à partir d'un petit village ou d'une colonie jusqu'à l'apogée politique - essentiellement un jeu de société numérique dans lequel vous devez faire de votre empire un leader sur la scène mondiale grâce au commerce, aux affaires, aux batailles et bien plus. Le paysage affecte vos succès, la forêt, le désert et la toundra ayant tous leurs propres avantages et inconvénients pour le joueur, vous devrez donc adapter votre jeu pour tirer le meilleur parti de la région dans laquelle vous jouez.</Description>
+      <LienTrailer z:Id="21">https://www.youtube.com/watch?v=cK4iAjzAoas</LienTrailer>
+      <LienImage z:Id="22">AssassinCreedOrigin.jpg</LienImage>
+      <LienAchat z:Id="23">https://www.instant-gaming.com/fr/1843-acheter-cle-uplay-assassins-creed-origins/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="9">Ubisoft.png</StudioDev>
+      <StudioDev z:Id="24">Ubisoft.png</StudioDev>
       <Genre>Aventure</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="10">OS : Windows 7 SP1, Windows 8.1, Windows 10 (versions 64-bit uniquement) ; PROCESSEUR : Intel Core i5-2400s 2.5 GHz ou AMD FX-6350 3.9 GHz ou équivalent ; CARTE GRAPHIQUE : NVIDIA GeForce GTX660 ou AMD R9 270 (2048 MB VRAM avec Shader Model 5.0 ou mieux) MÉMOIRE : 6GB Résolution : 720p / Réglages vidéo : Bas</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="11" z:Size="3">
+      <ConfigMini z:Id="25">OS : Windows 7 SP1, Windows 8.1, Windows 10 (versions 64-bit uniquement) ; PROCESSEUR : Intel Core i5-2400s 2.5 GHz ou AMD FX-6350 3.9 GHz ou équivalent ; CARTE GRAPHIQUE : NVIDIA GeForce GTX660 ou AMD R9 270 (2048 MB VRAM avec Shader Model 5.0 ou mieux) MÉMOIRE : 6GB Résolution : 720p / Réglages vidéo : Bas</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="26" z:Size="3">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="12">
-      <Nom z:Id="13">Battlefield 5</Nom>
+    <JeuVidéoDTO z:Id="27">
+      <Nom z:Id="28">Battlefield 5</Nom>
       <Note>2</Note>
       <Prix>16.24</Prix>
-      <Description z:Id="14">Participez au plus grand conflit de l'Histoire avec Battlefield V. La licence revient aux sources et dépeint la Seconde Guerre mondiale comme jamais auparavant. Livrez des batailles multijoueur frénétiques et brutales aux côtés de votre escouade dans des modes imposants comme Grandes opérations et coopératifs comme Tir Groupé. Prenez part aux batailles méconnues de la Guerre avec les récits de guerre du mode solo. Combattez dans des environnements inédits et spectaculaires aux quatre coins du monde et découvrez le Battlefield le plus riche et le plus immersif à ce jour.</Description>
-      <LienTrailer z:Id="15">https://www.youtube.com/watch?v=fb1MR85XFOc</LienTrailer>
-      <LienImage z:Id="16">Battlefield5.jpg</LienImage>
-      <LienAchat z:Id="17">https://www.instant-gaming.com/fr/612-acheter-cle-origin-battlefield-5/</LienAchat>
+      <Description z:Id="29">Participez au plus grand conflit de l'Histoire avec Battlefield V. La licence revient aux sources et dépeint la Seconde Guerre mondiale comme jamais auparavant. Livrez des batailles multijoueur frénétiques et brutales aux côtés de votre escouade dans des modes imposants comme Grandes opérations et coopératifs comme Tir Groupé. Prenez part aux batailles méconnues de la Guerre avec les récits de guerre du mode solo. Combattez dans des environnements inédits et spectaculaires aux quatre coins du monde et découvrez le Battlefield le plus riche et le plus immersif à ce jour.</Description>
+      <LienTrailer z:Id="30">https://www.youtube.com/watch?v=fb1MR85XFOc</LienTrailer>
+      <LienImage z:Id="31">Battlefield5.jpg</LienImage>
+      <LienAchat z:Id="32">https://www.instant-gaming.com/fr/612-acheter-cle-origin-battlefield-5/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="18">Dice.png</StudioDev>
+      <StudioDev z:Id="33">Dice.png</StudioDev>
       <Genre>FPS</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="19">Configuration minimale : Processeur : (Intel) Core i5 6600K ou AMD FX-6350, Mémoire : 8 Go de RAM, Carte graphiques : Nvidia GeForce GTX 660 2GB ou AMD Radeon HD 7850 2GB, DirectX 11, Stockage : 50 Go, Système d'exploitation: Windows 7, Windows 8.1 et Windows 10 64 bits. Internet : 512 kbps mini.</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="20" z:Size="3">
+      <ConfigMini z:Id="34">Configuration minimale : Processeur : (Intel) Core i5 6600K ou AMD FX-6350, Mémoire : 8 Go de RAM, Carte graphiques : Nvidia GeForce GTX 660 2GB ou AMD Radeon HD 7850 2GB, DirectX 11, Stockage : 50 Go, Système d'exploitation: Windows 7, Windows 8.1 et Windows 10 64 bits. Internet : 512 kbps mini.</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="35" z:Size="3">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="21">
-      <Nom z:Id="22">Call of Duty Modern Warfare</Nom>
+    <JeuVidéoDTO z:Id="36">
+      <Nom z:Id="37">Call of Duty Modern Warfare</Nom>
       <Note>3</Note>
       <Prix>53.11</Prix>
-      <Description z:Id="23">Counter-Strike : Global Offensive est un FPS multijoueurs en ligne sur PC. Les anti-terroristes et les terroristes s'affrontent dans différents modes de jeu avec une trentaine d'armes différentes, sans compter les grenades.Un mode entraînement permet aux joueurs de s'habituer aux commandes.</Description>
-      <LienTrailer z:Id="24">https://www.youtube.com/watch?v=bH1lHCirCGI</LienTrailer>
-      <LienImage z:Id="25">ModernWarfare.jpeg</LienImage>
-      <LienAchat z:Id="26">https://www.instant-gaming.com/fr/4394-acheter-cle-call-of-duty-modern-warfare/</LienAchat>
+      <Description z:Id="38">Counter-Strike : Global Offensive est un FPS multijoueurs en ligne sur PC. Les anti-terroristes et les terroristes s'affrontent dans différents modes de jeu avec une trentaine d'armes différentes, sans compter les grenades.Un mode entraînement permet aux joueurs de s'habituer aux commandes.</Description>
+      <LienTrailer z:Id="39">https://www.youtube.com/watch?v=bH1lHCirCGI</LienTrailer>
+      <LienImage z:Id="40">ModernWarfare.jpeg</LienImage>
+      <LienAchat z:Id="41">https://www.instant-gaming.com/fr/4394-acheter-cle-call-of-duty-modern-warfare/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="27">InfinityWard.png</StudioDev>
+      <StudioDev z:Id="42">InfinityWard.png</StudioDev>
       <Genre>FPS</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="28">Système d'exploitation : Windows® 7 64-bit (SP1) or Windows® 10 64-bit Processeur : Intel® Core™ i3-4340 ou AMD FX-6300 Mémoire : 8GB RAM Carte graphique : NVIDIA® GeForce® GTX 670 / NVIDIA® GeForce® GTX 1650 ou AMD Radeon™ HD 7950 – DirectX 12.0 compatible system</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="29" z:Size="3">
+      <ConfigMini z:Id="43">Système d'exploitation : Windows® 7 64-bit (SP1) or Windows® 10 64-bit Processeur : Intel® Core™ i3-4340 ou AMD FX-6300 Mémoire : 8GB RAM Carte graphique : NVIDIA® GeForce® GTX 670 / NVIDIA® GeForce® GTX 1650 ou AMD Radeon™ HD 7950 – DirectX 12.0 compatible system</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="44" z:Size="3">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="30">
-      <Nom z:Id="31">Call of Duty Modern Warfare 3</Nom>
+    <JeuVidéoDTO z:Id="45">
+      <Nom z:Id="46">Call of Duty Modern Warfare 3</Nom>
       <Note>3</Note>
       <Prix>13.99</Prix>
-      <Description z:Id="32">Call of Duty : Modern Warfare 3 (Europe) pour PC est le troisième de la série Modern Warfare, le huitième de la franchise Call of Duty. C'est un jeu de tir à la première personne, avec, similaire aux autres jeux de la série, avec un décor de guerre, ou une série de décors et de lieux prenant place dans le monde entier. Vous et votre équipe êtes chargés de trouver l’ennemi et d'arrêter ses plans infâmes : vous devez d'abord l’éliminer et vous frayer un chemin à travers des hordes d'ennemis pour ce faire.</Description>
-      <LienTrailer z:Id="33">https://www.youtube.com/watch?v=coiTJbr9m04</LienTrailer>
-      <LienImage z:Id="34">CallOfDutyMW3.jpg</LienImage>
-      <LienAchat z:Id="35">https://www.instant-gaming.com/fr/61-acheter-cle-steam-call-of-duty-modern-warfare-3/</LienAchat>
+      <Description z:Id="47">Call of Duty : Modern Warfare 3 (Europe) pour PC est le troisième de la série Modern Warfare, le huitième de la franchise Call of Duty. C'est un jeu de tir à la première personne, avec, similaire aux autres jeux de la série, avec un décor de guerre, ou une série de décors et de lieux prenant place dans le monde entier. Vous et votre équipe êtes chargés de trouver l’ennemi et d'arrêter ses plans infâmes : vous devez d'abord l’éliminer et vous frayer un chemin à travers des hordes d'ennemis pour ce faire.</Description>
+      <LienTrailer z:Id="48">https://www.youtube.com/watch?v=coiTJbr9m04</LienTrailer>
+      <LienImage z:Id="49">CallOfDutyMW3.jpg</LienImage>
+      <LienAchat z:Id="50">https://www.instant-gaming.com/fr/61-acheter-cle-steam-call-of-duty-modern-warfare-3/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Ref="27" i:nil="true" />
+      <StudioDev z:Ref="42" i:nil="true" />
       <Genre>FPS</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="36">Configuration minimale : Système d'exploitation : Windows XP / Windows Vista / Windows 7 Processeur : Intel Core 2 Duo E6600 ou équivalent Memoire : 2 Go de RAM Carte graphique : Shader 3.0 ou mieux, NVIDIA GeForce 8600GT ou ATI Radeon X1950 Disque dur : 16 Go de libre</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="37" z:Size="3">
+      <ConfigMini z:Id="51">Configuration minimale : Système d'exploitation : Windows XP / Windows Vista / Windows 7 Processeur : Intel Core 2 Duo E6600 ou équivalent Memoire : 2 Go de RAM Carte graphique : Shader 3.0 ou mieux, NVIDIA GeForce 8600GT ou ATI Radeon X1950 Disque dur : 16 Go de libre</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="52" z:Size="3">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps3</d4p1:PlateForme>
         <d4p1:PlateForme>Xbox360</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="38">
-      <Nom z:Id="39">Civilization VI</Nom>
+    <JeuVidéoDTO z:Id="53">
+      <Nom z:Id="54">Civilization VI</Nom>
       <Note>1</Note>
       <Prix>8.49</Prix>
-      <Description z:Ref="5" i:nil="true" />
-      <LienTrailer z:Id="40">https://www.youtube.com/watch?v=5KdE0p2joJw</LienTrailer>
-      <LienImage z:Id="41">CivilizationVI.jpg</LienImage>
-      <LienAchat z:Id="42">https://www.instant-gaming.com/fr/1437-acheter-cle-steam-civilization-vi/</LienAchat>
+      <Description z:Ref="20" i:nil="true" />
+      <LienTrailer z:Id="55">https://www.youtube.com/watch?v=5KdE0p2joJw</LienTrailer>
+      <LienImage z:Id="56">CivilizationVI.jpg</LienImage>
+      <LienAchat z:Id="57">https://www.instant-gaming.com/fr/1437-acheter-cle-steam-civilization-vi/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="43">Firaxis.png</StudioDev>
+      <StudioDev z:Id="58">Firaxis.png</StudioDev>
       <Genre>Stratégie</Genre>
       <Pegi>Douze</Pegi>
-      <ConfigMini z:Id="44">Système d'exploitation : Windows 7 64 bits / 8.1 64 bits / 10 64 bits ; Processeur : Intel Core i3 2,5 GHz ou AMD Phenom II 2,6 GHz ou supérieur ; Mémoire :  4 Go de RAM ; Disque dur : 13 Go ou plus ; Carte graphique : Carte graphique DirectX 11 de 1 Go (AMD 5570 ou Nvidia 450)</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="45" z:Size="4">
+      <ConfigMini z:Id="59">Système d'exploitation : Windows 7 64 bits / 8.1 64 bits / 10 64 bits ; Processeur : Intel Core i3 2,5 GHz ou AMD Phenom II 2,6 GHz ou supérieur ; Mémoire :  4 Go de RAM ; Disque dur : 13 Go ou plus ; Carte graphique : Carte graphique DirectX 11 de 1 Go (AMD 5570 ou Nvidia 450)</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="60" z:Size="4">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
         <d4p1:PlateForme>Switch</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="46">
-      <Nom z:Id="47">Counter Strike Global Offensive</Nom>
+    <JeuVidéoDTO z:Id="61">
+      <Nom z:Id="62">Counter Strike Global Offensive</Nom>
       <Note>5</Note>
       <Prix>14.99</Prix>
-      <Description z:Ref="23" i:nil="true" />
-      <LienTrailer z:Id="48">https://www.youtube.com/watch?v=edYCtaNueQY</LienTrailer>
-      <LienImage z:Id="49">csgo.jpeg</LienImage>
-      <LienAchat z:Id="50">https://www.instant-gaming.com/fr/62-acheter-cle-steam-counter-strike-global-offensive-prime-status-upgrade/</LienAchat>
+      <Description z:Ref="38" i:nil="true" />
+      <LienTrailer z:Id="63">https://www.youtube.com/watch?v=edYCtaNueQY</LienTrailer>
+      <LienImage z:Id="64">csgo.jpeg</LienImage>
+      <LienAchat z:Id="65">https://www.instant-gaming.com/fr/62-acheter-cle-steam-counter-strike-global-offensive-prime-status-upgrade/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="51">valve.png</StudioDev>
+      <StudioDev z:Id="66">valve.png</StudioDev>
       <Genre>FPS</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="52">Système d'exploitation : Windows® 7/Vista/XP Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ X3 8750 ou meilleur Mémoire vive : 2 GB de mémoire Graphiques : Carte graphique de 256 MB ou plus compatible DirectX 9 et Pixel Shader 3.0 DirectX : Version 9.0c Espace disque : 15 GB d'espace disque disponible</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="53" z:Size="1">
+      <ConfigMini z:Id="67">Système d'exploitation : Windows® 7/Vista/XP Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ X3 8750 ou meilleur Mémoire vive : 2 GB de mémoire Graphiques : Carte graphique de 256 MB ou plus compatible DirectX 9 et Pixel Shader 3.0 DirectX : Version 9.0c Espace disque : 15 GB d'espace disque disponible</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="68" z:Size="1">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="54">
-      <Nom z:Id="55">Fifa 20</Nom>
+    <JeuVidéoDTO z:Id="69">
+      <Nom z:Id="70">Fifa 20</Nom>
       <Note>5</Note>
       <Prix>17.99</Prix>
-      <Description z:Id="56">FIFA 20 pour PC est le dernier né des nombreux jeux de la FIFA qui permettent aux joueurs d'affronter une équipe de football (qu'il s'agisse d'une toute nouvelle équipe non testée ou testée, ou d'une équipe immédiatement reconnaissable par tous ceux qui regardent la télévision le samedi après-midi) et de la faire passer en première division de la Ligue ou dans tout autre tournoi où elle veut tenter de se faire une place.</Description>
-      <LienTrailer z:Id="57">https://www.youtube.com/watch?v=vgQNOIhRsV4</LienTrailer>
-      <LienImage z:Id="58">Fifa20.jpg</LienImage>
-      <LienAchat z:Id="59">https://www.instant-gaming.com/fr/4502-acheter-cle-origin-fifa-20/</LienAchat>
+      <Description z:Id="71">FIFA 20 pour PC est le dernier né des nombreux jeux de la FIFA qui permettent aux joueurs d'affronter une équipe de football (qu'il s'agisse d'une toute nouvelle équipe non testée ou testée, ou d'une équipe immédiatement reconnaissable par tous ceux qui regardent la télévision le samedi après-midi) et de la faire passer en première division de la Ligue ou dans tout autre tournoi où elle veut tenter de se faire une place.</Description>
+      <LienTrailer z:Id="72">https://www.youtube.com/watch?v=vgQNOIhRsV4</LienTrailer>
+      <LienImage z:Id="73">Fifa20.jpg</LienImage>
+      <LienAchat z:Id="74">https://www.instant-gaming.com/fr/4502-acheter-cle-origin-fifa-20/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="60">EaSports.png</StudioDev>
+      <StudioDev z:Id="75">EaSports.png</StudioDev>
       <Genre>Sport</Genre>
       <Pegi>Trois</Pegi>
-      <ConfigMini z:Id="61">Système d’exploitation : Windows 7/8.1/10 – 64-Bit ; Processeur : AMD Phenom II X4 965, Intel Core i3-2100, ou équivalent ; RAM : 8 Go ; Carte graphique : AMD Radeon HD 7850 2GB, NVIDIA GTX 660 2GB ou équivalent ; Disque dur : Minimum 50 Go</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="62" z:Size="3">
+      <ConfigMini z:Id="76">Système d’exploitation : Windows 7/8.1/10 – 64-Bit ; Processeur : AMD Phenom II X4 965, Intel Core i3-2100, ou équivalent ; RAM : 8 Go ; Carte graphique : AMD Radeon HD 7850 2GB, NVIDIA GTX 660 2GB ou équivalent ; Disque dur : Minimum 50 Go</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="77" z:Size="3">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="63">
-      <Nom z:Id="64">Fortnite</Nom>
+    <JeuVidéoDTO z:Id="78">
+      <Nom z:Id="79">Fortnite</Nom>
       <Note>2</Note>
-      <Description z:Id="65">Fortnite Battle Royale sur PC est le mode JcJ à 100 joueurs de Fortnite, jouable totalement gratuitement. Une carte géante. Un bus de combat. Tout le système de construction de Fortnite, combiné à des batailles ultra intenses en JcJ. Le dernier survivant est le vainqueur.</Description>
-      <LienTrailer z:Id="66">https://www.youtube.com/watch?v=hHTE5xg9E-g</LienTrailer>
-      <LienImage z:Id="67">Fortnite.jpg</LienImage>
-      <LienAchat z:Id="68">https://www.epicgames.com/fortnite/fr/home</LienAchat>
+      <Description z:Id="80">Fortnite Battle Royale sur PC est le mode JcJ à 100 joueurs de Fortnite, jouable totalement gratuitement. Une carte géante. Un bus de combat. Tout le système de construction de Fortnite, combiné à des batailles ultra intenses en JcJ. Le dernier survivant est le vainqueur.</Description>
+      <LienTrailer z:Id="81">https://www.youtube.com/watch?v=hHTE5xg9E-g</LienTrailer>
+      <LienImage z:Id="82">Fortnite.jpg</LienImage>
+      <LienAchat z:Id="83">https://www.epicgames.com/fortnite/fr/home</LienAchat>
       <ModeleEco>Gratuit</ModeleEco>
-      <StudioDev z:Id="69">EpicGame.png</StudioDev>
+      <StudioDev z:Id="84">EpicGame.png</StudioDev>
       <Genre>Combat</Genre>
       <Pegi>Douze</Pegi>
-      <ConfigMini z:Id="70">Carte Graphique Intel HD 4000 sur PC ou Intel Iris Pro 5200 sur Mac ; Processeur IntelCore i3 2,4 GHz ; Mémoire vive 4 Go de RAM ; Système d'exploitation Windows 7/8/10 64 bits ou macOS High Sierra (10.13.6+</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="71" z:Size="4">
+      <ConfigMini z:Id="85">Carte Graphique Intel HD 4000 sur PC ou Intel Iris Pro 5200 sur Mac ; Processeur IntelCore i3 2,4 GHz ; Mémoire vive 4 Go de RAM ; Système d'exploitation Windows 7/8/10 64 bits ou macOS High Sierra (10.13.6+</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="86" z:Size="4">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
         <d4p1:PlateForme>Switch</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="72">
-      <Nom z:Id="73">GTAV</Nom>
+    <JeuVidéoDTO z:Id="87">
+      <Nom z:Id="88">GTAV</Nom>
       <Note>5</Note>
       <Prix>15.99</Prix>
-      <Description z:Id="74">GTA V est un jeu en monde ouvert. Comprenez par là que le joueur peut aller où il veut quand il veut pour accomplir des missions ou simplement pour explorer les lieux et pratiquer plusieurs activités. Une liberté d’action que l’on retrouve au cœur même de l’aventure ; il est ainsi possible de remplir chaque mission de nombreuses manières. Au joueur de choisir son approche en choisissant la plus adaptée. L’objectif : organiser une série de braquages dont certains seront aussi épiques que dangereux. À chacun de définir son style et sa façon de procéder.</Description>
-      <LienTrailer z:Id="75">https://youtu.be/QkkoHAzjnUs</LienTrailer>
-      <LienImage z:Id="76">GtaV.jpg</LienImage>
-      <LienAchat z:Id="77">https://www.instant-gaming.com/fr/186-acheter-cle-rockstar-grand-theft-auto-v/</LienAchat>
+      <Description z:Id="89">GTA V est un jeu en monde ouvert. Comprenez par là que le joueur peut aller où il veut quand il veut pour accomplir des missions ou simplement pour explorer les lieux et pratiquer plusieurs activités. Une liberté d’action que l’on retrouve au cœur même de l’aventure ; il est ainsi possible de remplir chaque mission de nombreuses manières. Au joueur de choisir son approche en choisissant la plus adaptée. L’objectif : organiser une série de braquages dont certains seront aussi épiques que dangereux. À chacun de définir son style et sa façon de procéder.</Description>
+      <LienTrailer z:Id="90">https://youtu.be/QkkoHAzjnUs</LienTrailer>
+      <LienImage z:Id="91">GtaV.jpg</LienImage>
+      <LienAchat z:Id="92">https://www.instant-gaming.com/fr/186-acheter-cle-rockstar-grand-theft-auto-v/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="78">RockstarGames.png</StudioDev>
+      <StudioDev z:Id="93">RockstarGames.png</StudioDev>
       <Genre>Action</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="79">Configuration minimale : Système d'exploitation : Windows 8.1 64 bits, Windows 8 64 bits, Windows 7 64 bits Service Pack 1 Processeur : Intel Core 2 Quad CPU Q6600 @ 2,40 GHz (4 CPUs) / AMD Phenom 9850 Quad-Core (4 CPUs) @ 2,5 GHz Mémoire : 4 Go Carte graphique : NVIDIA 9800 GT 1 Go / AMD HD 4870 1 Go (DX 10, 10.1, 11) Carte son : 100 % compatible avec DirectX 10 Espace disque dur : 65 Go</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="80" z:Size="5">
+      <ConfigMini z:Id="94">Configuration minimale : Système d'exploitation : Windows 8.1 64 bits, Windows 8 64 bits, Windows 7 64 bits Service Pack 1 Processeur : Intel Core 2 Quad CPU Q6600 @ 2,40 GHz (4 CPUs) / AMD Phenom 9850 Quad-Core (4 CPUs) @ 2,5 GHz Mémoire : 4 Go Carte graphique : NVIDIA 9800 GT 1 Go / AMD HD 4870 1 Go (DX 10, 10.1, 11) Carte son : 100 % compatible avec DirectX 10 Espace disque dur : 65 Go</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="95" z:Size="5">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>Xbox360</d4p1:PlateForme>
@@ -173,136 +193,116 @@
         <d4p1:PlateForme>Ps3</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="81">
-      <Nom z:Id="82">Minecraft</Nom>
+    <JeuVidéoDTO z:Id="96">
+      <Nom z:Id="97">Minecraft</Nom>
       <Note>4</Note>
       <Prix>29.99</Prix>
-      <Description z:Id="83">Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). </Description>
-      <LienTrailer z:Id="84">https://youtu.be/MmB9b5njVbA</LienTrailer>
-      <LienImage z:Id="85">Minecraft.jpg</LienImage>
-      <LienAchat z:Id="86">https://www.instant-gaming.com/fr/442-acheter-cle-minecraft/</LienAchat>
+      <Description z:Id="98">Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). </Description>
+      <LienTrailer z:Id="99">https://youtu.be/MmB9b5njVbA</LienTrailer>
+      <LienImage z:Id="100">Minecraft.jpg</LienImage>
+      <LienAchat z:Id="101">https://www.instant-gaming.com/fr/442-acheter-cle-minecraft/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="87">mojang.png</StudioDev>
+      <StudioDev z:Id="102">mojang.png</StudioDev>
       <Genre>Aventure</Genre>
       <Pegi>Sept</Pegi>
-      <ConfigMini z:Id="88">Configuration minimale : Intel Core i3-3210 / AMD A8-7600; AMD Radeon R5 / Nvidia Geforce 4xx; 4Go de RAM; 1Go d'Espace Disque; Windows 7/8/10</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="89" z:Size="4">
+      <ConfigMini z:Id="103">Configuration minimale : Intel Core i3-3210 / AMD A8-7600; AMD Radeon R5 / Nvidia Geforce 4xx; 4Go de RAM; 1Go d'Espace Disque; Windows 7/8/10</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="104" z:Size="4">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>Xbox360</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="90">
-      <Nom z:Id="91">Mortal Kombat 11</Nom>
+    <JeuVidéoDTO z:Id="105">
+      <Nom z:Id="106">Mortal Kombat 11</Nom>
       <Note>3</Note>
       <Prix>14.84</Prix>
-      <Description z:Id="92">Mortal Kombat 11 pour PC est un jeu de combat en 2.5D qui marque - comme son nom l'indique - vingt-sept années impressionnantes de Mortal Kombat. Cela offre non seulement aux joueurs un contenu riche (surtout aux nouveaux joueurs), mais cela signifie aussi que les développeurs ont accumulé beaucoup d’expérience et sont donc aujourd’hui capable de faire des jeux de combat fascinants et immersifs. Ce jeu en est la preuve vivante!</Description>
-      <LienTrailer z:Id="93">https://www.youtube.com/watch?v=bxFoRCvEjUA</LienTrailer>
-      <LienImage z:Id="94">MortalKombat11.jpg</LienImage>
-      <LienAchat z:Id="95">https://www.instant-gaming.com/fr/3339-acheter-cle-steam-mortal-kombat-11/</LienAchat>
+      <Description z:Id="107">Mortal Kombat 11 pour PC est un jeu de combat en 2.5D qui marque - comme son nom l'indique - vingt-sept années impressionnantes de Mortal Kombat. Cela offre non seulement aux joueurs un contenu riche (surtout aux nouveaux joueurs), mais cela signifie aussi que les développeurs ont accumulé beaucoup d’expérience et sont donc aujourd’hui capable de faire des jeux de combat fascinants et immersifs. Ce jeu en est la preuve vivante!</Description>
+      <LienTrailer z:Id="108">https://www.youtube.com/watch?v=bxFoRCvEjUA</LienTrailer>
+      <LienImage z:Id="109">MortalKombat11.jpg</LienImage>
+      <LienAchat z:Id="110">https://www.instant-gaming.com/fr/3339-acheter-cle-steam-mortal-kombat-11/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="96">NetherRealm.png</StudioDev>
+      <StudioDev z:Id="111">NetherRealm.png</StudioDev>
       <Genre>Combat</Genre>
       <Pegi>DixHuits</Pegi>
-      <ConfigMini z:Id="97">OS: 64-bit Windows 7 / Windows 10 Architecture: 64 bits Processeurs :Intel Core i5-750, 2.66 GHz / AMD Phenom II X4 965, 3.4 GHz ou AMD Ryzen™ 3 1200, 3.1 GHz Mémoire: 8 Go RAM Carte graphique (AMD): AMD® Radeon™ HD 7950 ou AMD® Radeon™ R9 270 Carte graphique(NVIDIA): NVIDIA® GeForce™ GTX 670 ou NVIDIA® GeForce™ GTX 1050 DirectX: API 11</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="98" z:Size="4">
+      <ConfigMini z:Id="112">OS: 64-bit Windows 7 / Windows 10 Architecture: 64 bits Processeurs :Intel Core i5-750, 2.66 GHz / AMD Phenom II X4 965, 3.4 GHz ou AMD Ryzen™ 3 1200, 3.1 GHz Mémoire: 8 Go RAM Carte graphique (AMD): AMD® Radeon™ HD 7950 ou AMD® Radeon™ R9 270 Carte graphique(NVIDIA): NVIDIA® GeForce™ GTX 670 ou NVIDIA® GeForce™ GTX 1050 DirectX: API 11</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="113" z:Size="4">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
         <d4p1:PlateForme>XboxOne</d4p1:PlateForme>
         <d4p1:PlateForme>Switch</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="99">
-      <Nom z:Id="100">Spider-man </Nom>
+    <JeuVidéoDTO z:Id="114">
+      <Nom z:Id="115">Spider-man </Nom>
       <Note>3</Note>
       <Prix>14.99</Prix>
-      <Description z:Id="101">Spider-Man est un jeu d'action sur PlayStation 4. Le Tisseur est de retour pour le plaisir des joueurs qui pourront alterner phases d'exploration en voltigeant de building en building, phases d’infiltration et affrontements contre les super-vilains comme Le Caïd, Vulture, Electro, Mister Negative, etc.</Description>
-      <LienTrailer z:Id="102">https://www.youtube.com/watch?v=q4GdJVvdxss</LienTrailer>
-      <LienImage z:Id="103">spiderman.jpeg</LienImage>
-      <LienAchat z:Id="104">https://www.instant-gaming.com/fr/3656-acheter-cle-playstation-marvels-spider-man-the-city-that-never-sleeps-ps4/</LienAchat>
+      <Description z:Id="116">Spider-Man est un jeu d'action sur PlayStation 4. Le Tisseur est de retour pour le plaisir des joueurs qui pourront alterner phases d'exploration en voltigeant de building en building, phases d’infiltration et affrontements contre les super-vilains comme Le Caïd, Vulture, Electro, Mister Negative, etc.</Description>
+      <LienTrailer z:Id="117">https://www.youtube.com/watch?v=q4GdJVvdxss</LienTrailer>
+      <LienImage z:Id="118">spiderman.jpeg</LienImage>
+      <LienAchat z:Id="119">https://www.instant-gaming.com/fr/3656-acheter-cle-playstation-marvels-spider-man-the-city-that-never-sleeps-ps4/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="105">InsomniacGames.png</StudioDev>
+      <StudioDev z:Id="120">InsomniacGames.png</StudioDev>
       <Genre>Aventure</Genre>
       <Pegi>Seize</Pegi>
-      <ConfigMini z:Id="106">Il faut avoir au minimum une PS4 pour lancer le jeu.</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="107" z:Size="1">
+      <ConfigMini z:Id="121">Il faut avoir au minimum une PS4 pour lancer le jeu.</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="122" z:Size="1">
         <d4p1:PlateForme>Ps4</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="108">
-      <Nom z:Id="109">Trackmania Stadium</Nom>
+    <JeuVidéoDTO z:Id="123">
+      <Nom z:Id="124">Trackmania Stadium</Nom>
       <Note>5</Note>
       <Prix>6.18</Prix>
-      <Description z:Id="110">Contrairement aux autres jeux de courses, dans TrackMania sur PC, seuls les meilleurs temps comptent, dans des circuits farfelus que vous aussi, vous pouvez créer. Vous ne pouvez pas envoyer vos concurrents dans le décor, seul notre niveau de conduite et notre expérience fait la différence. Loopings, virages serrés, rampes d'accélération... De nombreux éléments vous permettent de construire une infinité de circuits que vous pouvez ensuite échanger avec vos amis.</Description>
-      <LienTrailer z:Id="111">https://www.youtube.com/watch?v=P5Qnws7Njas</LienTrailer>
-      <LienImage z:Id="112">Trackmania.jpg</LienImage>
-      <LienAchat z:Id="113">https://www.instant-gaming.com/en/1544-buy-key-steam-trackmania%c2%b2-stadium/</LienAchat>
+      <Description z:Id="125">Contrairement aux autres jeux de courses, dans TrackMania sur PC, seuls les meilleurs temps comptent, dans des circuits farfelus que vous aussi, vous pouvez créer. Vous ne pouvez pas envoyer vos concurrents dans le décor, seul notre niveau de conduite et notre expérience fait la différence. Loopings, virages serrés, rampes d'accélération... De nombreux éléments vous permettent de construire une infinité de circuits que vous pouvez ensuite échanger avec vos amis.</Description>
+      <LienTrailer z:Id="126">https://www.youtube.com/watch?v=P5Qnws7Njas</LienTrailer>
+      <LienImage z:Id="127">Trackmania.jpg</LienImage>
+      <LienAchat z:Id="128">https://www.instant-gaming.com/en/1544-buy-key-steam-trackmania%c2%b2-stadium/</LienAchat>
       <ModeleEco>Définitif</ModeleEco>
-      <StudioDev z:Id="114">Nadeo.png</StudioDev>
+      <StudioDev z:Id="129">Nadeo.png</StudioDev>
       <Genre>Action</Genre>
       <Pegi>Trois</Pegi>
-      <ConfigMini z:Id="115">Système d'exploitation : Windows Vista SP2 / 7 / 8 / 10 ; Processeur : Dual core Intel ou AMD 2 GHz au minimum ; Mémoire vive : 2 Go de RAM ; Carte graphique : Carte 512 MB ou plus et compatible DirectX 10, ou Direct 11.</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="116" z:Size="1">
+      <ConfigMini z:Id="130">Système d'exploitation : Windows Vista SP2 / 7 / 8 / 10 ; Processeur : Dual core Intel ou AMD 2 GHz au minimum ; Mémoire vive : 2 Go de RAM ; Carte graphique : Carte 512 MB ou plus et compatible DirectX 10, ou Direct 11.</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="131" z:Size="1">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
-    <JeuVidéoDTO z:Id="117">
-      <Nom z:Id="118">World of Warcraft</Nom>
+    <JeuVidéoDTO z:Id="132">
+      <Nom z:Id="133">World of Warcraft</Nom>
       <Note>4</Note>
       <Prix>11.99</Prix>
-      <Description z:Id="119">World of Warcraft sur PC est un jeu de rôle massivement multijoueurs. Au sein du royaume d'Azeroth, rejoignez les forces de la Horde ou de l'Alliance. Créez votre personnage parmi huit races et neuf classes disponibles puis rejoignez ou fondez votre propre guilde. Fabriquez armes et armures et combattez seul ou en groupe face à des armées de démons et autres bestioles plus ou moins attrayante.</Description>
-      <LienTrailer z:Id="120">https://www.youtube.com/watch?v=vlVSJ0AvZe0</LienTrailer>
-      <LienImage z:Id="121">Wow.jpg</LienImage>
-      <LienAchat z:Id="122">https://www.instant-gaming.com/fr/803-acheter-cle-battlenet-world-of-warcraft-carte-30-jours/</LienAchat>
+      <Description z:Id="134">World of Warcraft sur PC est un jeu de rôle massivement multijoueurs. Au sein du royaume d'Azeroth, rejoignez les forces de la Horde ou de l'Alliance. Créez votre personnage parmi huit races et neuf classes disponibles puis rejoignez ou fondez votre propre guilde. Fabriquez armes et armures et combattez seul ou en groupe face à des armées de démons et autres bestioles plus ou moins attrayante.</Description>
+      <LienTrailer z:Id="135">https://www.youtube.com/watch?v=vlVSJ0AvZe0</LienTrailer>
+      <LienImage z:Id="136">Wow.jpg</LienImage>
+      <LienAchat z:Id="137">https://www.instant-gaming.com/fr/803-acheter-cle-battlenet-world-of-warcraft-carte-30-jours/</LienAchat>
       <ModeleEco>Mensuel</ModeleEco>
-      <StudioDev z:Id="123">Blizzard.png</StudioDev>
+      <StudioDev z:Id="138">Blizzard.png</StudioDev>
       <Genre>RPG</Genre>
       <Pegi>Douze</Pegi>
-      <ConfigMini z:Id="124">Système d'exploitation : Windows® 7 64 bits (avec les derniers service packs) Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ 8750 Carte graphique : NVIDIA® GeForce® 8800 GT 512 Mo ou AMD Radeon™ HD 4850 512 Mo ou Intel® HD Graphics 4000 Mémoire : 2 Go de RAM (4 Go pour les cartes graphiques intégrées, comme les Intel HD Graphics series) Stockage : 5 Go d’espace disponible</ConfigMini>
-      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="125" z:Size="1">
+      <ConfigMini z:Id="139">Système d'exploitation : Windows® 7 64 bits (avec les derniers service packs) Processeur : Intel® Core™ 2 Duo E6600 ou AMD Phenom™ 8750 Carte graphique : NVIDIA® GeForce® 8800 GT 512 Mo ou AMD Radeon™ HD 4850 512 Mo ou Intel® HD Graphics 4000 Mémoire : 2 Go de RAM (4 Go pour les cartes graphiques intégrées, comme les Intel HD Graphics series) Stockage : 5 Go d’espace disponible</ConfigMini>
+      <ListePlateFormes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Modele" z:Id="140" z:Size="1">
         <d4p1:PlateForme>Pc</d4p1:PlateForme>
       </ListePlateFormes>
     </JeuVidéoDTO>
   </ListeJeux>
-  <ListeUtilisateurs z:Id="126" z:Size="4">
-    <UtilisateurConnectéDTO z:Id="127">
-      <Pseudo z:Id="128">paul_b63</Pseudo>
-      <Nom z:Id="129">Bonhomme</Nom>
-      <Prénom z:Id="130">Paul</Prénom>
-      <DateNaissance>2001-11-18T00:00:00</DateNaissance>
-      <MotDePasse z:Id="131">MotDePassePaul</MotDePasse>
-      <Mail z:Id="132">polo.clash@gmail.com</Mail>
-      <IsAdmin>true</IsAdmin>
-      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="133" z:Size="0" />
-    </UtilisateurConnectéDTO>
-    <UtilisateurConnectéDTO z:Id="134">
-      <Pseudo z:Id="135">shotlouf</Pseudo>
-      <Nom z:Id="136">Chevassus</Nom>
-      <Prénom z:Id="137">Noe</Prénom>
-      <DateNaissance>2001-06-21T00:00:00</DateNaissance>
-      <MotDePasse z:Id="138">MotDePasseNoe</MotDePasse>
-      <Mail z:Id="139">noe@orange.fr</Mail>
-      <IsAdmin>true</IsAdmin>
-      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="140" z:Size="0" />
-    </UtilisateurConnectéDTO>
-    <UtilisateurConnectéDTO z:Id="141">
-      <Pseudo z:Id="142">adel88</Pseudo>
-      <Nom z:Id="143">Zemili</Nom>
-      <Prénom z:Id="144">Adel</Prénom>
+  <ListeUtilisateurs z:Id="141" z:Size="2">
+    <UtilisateurConnectéDTO z:Id="142">
+      <Pseudo z:Id="143">adel88</Pseudo>
+      <Nom z:Id="144">Zemili</Nom>
+      <Prénom z:Id="145">Adel</Prénom>
       <DateNaissance>2001-12-16T00:00:00</DateNaissance>
-      <MotDePasse z:Id="145">MotDePasseAdel</MotDePasse>
-      <Mail z:Id="146">adel@orange.fr</Mail>
-      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="147" z:Size="0" />
+      <MotDePasse z:Id="146">MotDePasseAdel</MotDePasse>
+      <Mail z:Id="147">adel@orange.fr</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="148" z:Size="0" />
     </UtilisateurConnectéDTO>
-    <UtilisateurConnectéDTO z:Id="148">
-      <Pseudo z:Id="149">zoezoe</Pseudo>
-      <Nom z:Id="150">Rigaud</Nom>
-      <Prénom z:Id="151">Zoé</Prénom>
+    <UtilisateurConnectéDTO z:Id="149">
+      <Pseudo z:Id="150">zoezoe</Pseudo>
+      <Nom z:Id="151">Rigaud</Nom>
+      <Prénom z:Id="152">Zoé</Prénom>
       <DateNaissance>2001-01-04T00:00:00</DateNaissance>
-      <MotDePasse z:Id="152">MotDePasseZoe</MotDePasse>
-      <Mail z:Id="153">zoe@orange.fr</Mail>
-      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="154" z:Size="0" />
+      <MotDePasse z:Id="153">MotDePasseZoe</MotDePasse>
+      <Mail z:Id="154">zoe@orange.fr</Mail>
+      <ListeFavoris xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" z:Id="155" z:Size="0" />
     </UtilisateurConnectéDTO>
   </ListeUtilisateurs>
 </DataToPersist>

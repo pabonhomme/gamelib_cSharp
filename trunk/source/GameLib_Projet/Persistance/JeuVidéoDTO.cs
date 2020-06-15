@@ -100,7 +100,7 @@ namespace Persistance
     }
 
     /// <summary>
-    /// classe d'ectensions qui permet de passer d'un objet DTO à POCO et inversement
+    /// classe d'extension qui permet de passer d'un objet DTO à POCO et inversement
     /// </summary>
     static class JeuVidéoExtensions
     {

@@ -5,8 +5,16 @@ using System.Text;
 
 namespace Modele
 {
+    /// <summary>
+    /// Permettant de valider l'entrée d'utilisateur dans un textbox. Ici, les textbox de l'ajout d'un utilisateur.
+    /// </summary>
     public partial class UtilisateurConnecté : IDataErrorInfo
     {
+        /// <summary>
+        /// Propriété d'extension qui contient tous les cases de validation
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
         public string this[string columnName]
         {
             get

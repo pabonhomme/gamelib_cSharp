@@ -44,9 +44,9 @@
         <local:StringToImageConverter x:Key="StringToImageConverter"/>
     </Window.Resources>
 
-    
 
-        <Grid>
+
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -65,7 +65,7 @@
             </Button>
             <WrapPanel VerticalAlignment="Center" Grid.Column="1" Margin="50,0,0,0">
                 <ComboBox x:Name="ComboBoxGenre" Margin="10" materialDesign:HintAssist.Hint="Genre" Style="{StaticResource Combobox}" SelectionChanged="ComboBoxGenre_SelectionChangedEvent">
-                    
+
                     <ComboBoxItem Content="Aventure"/>
                     <ComboBoxItem Content="Action"/>
                     <ComboBoxItem Content="Combat"/>
@@ -130,8 +130,8 @@
 
                 <CheckBox x:Name="CheckBoxFavoris" FontSize="20" Click="CheckBoxFavoris_Click" Visibility="{Binding Manager.UtilisateurCourant, Converter={StaticResource ValueToVisibilityConverter}}"
                                  
-                          Content="Mes favoris" Foreground="#FFA4A1A1"/>           
-        
+                          Content="Mes favoris" Foreground="#FFA4A1A1"/>
+
             </WrapPanel>
             <WrapPanel VerticalAlignment="Center" Grid.Column="2">
                 <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"  Width="33" Height="33" />
@@ -165,7 +165,7 @@
 
         <Grid Grid.Row="2" Background="#2F2E33" Height="50">
             <Grid.ColumnDefinitions>
-                
+
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
@@ -173,20 +173,20 @@
                        VerticalAlignment="Center" HorizontalAlignment="center" 
                        Margin="2" 
                        FontSize="16" Foreground="White" FontFamily="Acmefont"/>
-            
+
             <WrapPanel Grid.Column="3" VerticalAlignment="Center">
-                
+
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" 
                         Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0" Click="BoutonYoutube_Click">
                     <materialDesign:PackIcon Kind="Youtube" Foreground="Red" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0" Click="BoutonTwitch_Click">
                     <materialDesign:PackIcon Kind="Twitch" Foreground="#FF51107E" Height="40" Width="40"/>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0" Click="BoutonInstagram_Click">
                     <materialDesign:PackIcon Kind="Instagram" Height="40" Width="40">
                         <materialDesign:PackIcon.Foreground>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -197,17 +197,17 @@
                     </materialDesign:PackIcon>
                 </Button>
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                      
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                        <materialDesign:PackIcon Kind="Facebook" Foreground="#FF3B5998" Height="40" Width="40"/>
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0" Click="BoutonFacebook_Click">
+                    <materialDesign:PackIcon Kind="Facebook" Foreground="#FF3B5998" Height="40" Width="40"/>
                 </Button>
 
                 <Button Style="{StaticResource MaterialDesignFloatingActionDarkButton}" Background="#2F2E33"                       
-                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0">
-                        <materialDesign:PackIcon Kind="Twitter" Height="40" Width="40" Foreground="#FF00ACEE" />
+                        ToolTip="Rejoignez-nous!" Height="40" Width="40" Margin="10,0" Click="BoutonTwitter_Click">
+                    <materialDesign:PackIcon Kind="Twitter" Height="40" Width="40" Foreground="#FF00ACEE" />
                 </Button>
             </WrapPanel>
         </Grid>
-            
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="190"/>
@@ -237,8 +237,8 @@
                 </ScrollViewer>
             </Border>
         </Grid>
-        
-        
+
+
 
 
     </Grid>

@@ -132,10 +132,10 @@ namespace Persistance
         {
             List<UtilisateurConnecté> listeUtilisateurs = new List<UtilisateurConnecté>()
             {
-                new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", true, new List<JeuVidéo>()),
-                new Administrateur("Chevassus", "Noe", new DateTime(2001, 06, 21), "shotlouf", "MotDePasseNoe", "noe@orange.fr",true, new List<JeuVidéo>()),
-                new UtilisateurConnecté("Zemili", "Adel", new DateTime(2001, 12, 16), "adel88", "MotDePasseAdel", "adel@orange.fr",false, new List<JeuVidéo>()),
-                new UtilisateurConnecté("Rigaud", "Zoé", new DateTime(2001, 01, 04), "zoezoe", "MotDePasseZoe", "zoe@orange.fr",false, new List<JeuVidéo>())
+                new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()),
+                new Administrateur("Chevassus", "Noe", new DateTime(2001, 06, 21), "shotlouf", "MotDePasseNoe", "noe@orange.fr", new List<JeuVidéo>()),
+                new UtilisateurConnecté("Zemili", "Adel", new DateTime(2001, 12, 16), "adel88", "MotDePasseAdel", "adel@orange.fr", new List<JeuVidéo>()),
+                new UtilisateurConnecté("Rigaud", "Zoé", new DateTime(2001, 01, 04), "zoezoe", "MotDePasseZoe", "zoe@orange.fr", new List<JeuVidéo>())
 
             };
             return listeUtilisateurs;

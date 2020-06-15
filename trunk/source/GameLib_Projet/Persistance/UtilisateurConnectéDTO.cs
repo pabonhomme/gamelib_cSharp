@@ -49,22 +49,16 @@ namespace Persistance
         public string Mail { get; set; }
 
         /// <summary>
-        /// Mail de l'utilisateur connecté
-        /// </summary>
-        [DataMember(EmitDefaultValue = false, Order = 6)]
-        public bool IsAdmin { get; set; }
-
-        /// <summary>
         /// Liste des noms des jeux favoris de l'utilisateur connecté
         /// </summary>
-        [DataMember(EmitDefaultValue = false, Order = 7)]
+        [DataMember(EmitDefaultValue = false, Order = 6)]
         public List<string> ListeFavoris { get; set; }
 
 
     }
 
     /// <summary>
-    /// classe d'ectensions qui permet de passer d'un objet DTO à POCO et inversement
+    /// classe d'extensions qui permet de passer d'un objet DTO à POCO et inversement
     /// </summary>
     static class UtilisateurConnectéExtensions
     {
@@ -86,17 +80,10 @@ namespace Persistance
                         listeJeuxfav.Add(jeu); // si le nom d'un jeu de la liste de jeux et un nom de la liste de noms des jeux favoris sont égaux alors ajout du jeu à la liste de favoris de l'utilisateur POCO créé
                     }
                 }
-            }
-            if(dto.IsAdmin == true)
-            {
-                UtilisateurConnecté user = new Administrateur(dto.Nom, dto.Prénom, dto.DateNaissance, dto.Pseudo, dto.MotDePasse, dto.Mail, dto.IsAdmin, listeJeuxfav);
-                return user;
-            }
-            else
-            {
-                UtilisateurConnecté user = new UtilisateurConnecté(dto.Nom, dto.Prénom, dto.DateNaissance, dto.Pseudo, dto.MotDePasse, dto.Mail, dto.IsAdmin, listeJeuxfav);
-                return user;
-            }
+            }            
+            
+                UtilisateurConnecté user = new UtilisateurConnecté(dto.Nom, dto.Prénom, dto.DateNaissance, dto.Pseudo, dto.MotDePasse, dto.Mail, listeJeuxfav);
+                return user;          
             
         }
 
@@ -123,7 +110,6 @@ namespace Persistance
                 Pseudo = UserPoco.Pseudo,
                 MotDePasse = UserPoco.MotDePasse,
                 Mail = UserPoco.Mail,
-                IsAdmin = UserPoco.IsAdmin,
                 ListeFavoris = UserPoco.ListeFavoris.Select(j => j.Nom).ToList()
             };
 

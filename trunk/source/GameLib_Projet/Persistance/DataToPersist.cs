@@ -7,7 +7,7 @@ using System.Text;
 namespace Persistance
 {
     /// <summary>
-    /// Classe qui permet contient des collections d'objets DTO ( Data Transfert Object)
+    /// Classe qui contient des collections d'objets DTO ( Data Transfert Object)
     /// </summary>
     [DataContract]
     class DataToPersist
@@ -23,7 +23,12 @@ namespace Persistance
         /// </summary>
         [DataMember]
         public List<UtilisateurConnectéDTO> ListeUtilisateurs { get; set; } = new List<UtilisateurConnectéDTO>();
-        
+
+        /// <summary>
+        /// Liste d'administrateurs DTO
+        /// </summary>
+        [DataMember]
+        public List<AdministrateurDTO> ListeAdministrateurs { get; set; } = new List<AdministrateurDTO>();
 
     }
 }

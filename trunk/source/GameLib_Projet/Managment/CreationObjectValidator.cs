@@ -5,12 +5,19 @@ using System.Text;
 
 namespace Managment
 {
+    /// <summary>
+    /// Class permettant la validation de l'ajout d'un utilisateur et d'un jeu vidéo
+    /// </summary>
     public static class CreationObjectValidator
     {
-
+        /// <summary>
+        /// Méthode permettant le contrôle de saisie de l'ajout d'un jue et d'un utilisateur qui renvoie vrai ou faux.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool ValidationAjout(object value)
         {
-            if (value is UtilisateurConnecté)
+            if (value is UtilisateurConnecté) //Si la valeur qu'il reçoit est un utilisateurConnecté
             {
                 UtilisateurConnecté user = value as UtilisateurConnecté;
 
@@ -36,7 +43,7 @@ namespace Managment
 
             }
 
-            if (value is JeuVidéo)
+            if (value is JeuVidéo) //Si la valeur qu'il reçoit est un JeuVidéo
             {
                 JeuVidéo jeu = value as JeuVidéo;
 

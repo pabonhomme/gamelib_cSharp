@@ -10,7 +10,7 @@ namespace Test_UtilisateurConnnecté
         {
             Console.WriteLine("Test pour l'utilisateur connecté");
 
-            UtilisateurConnecté utilisateur1 = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", true, new List<JeuVidéo>()) ;
+            UtilisateurConnecté utilisateur1 = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()) ;
 
             JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.99f, "Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). ",
                  "https://youtu.be/MmB9b5njVbA",
