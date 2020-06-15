@@ -42,27 +42,48 @@ namespace Test_Manager
             Genre.FPS, Pegi.DixHuits, new List<PlateForme>() { PlateForme.Pc, PlateForme.Ps4, PlateForme.XboxOne });
 
 
-            //Console.WriteLine("Création des utilisateurs\n\n");
-            //mngr.CréerUtilisateur(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com"));
-            //mngr.CréerUtilisateur(new UtilisateurConnecté("Chevassus", "Noe", new DateTime(2001, 06, 21), "shotlouf", "MotDePasseNoe", "noe@orange.fr"));
-            //mngr.CréerUtilisateur(new UtilisateurConnecté("Zemili", "Adel", new DateTime(2001, 12, 16), "adel88", "MotDePasseAdel", "adel@orange.fr"));
-            //mngr.CréerUtilisateur(new UtilisateurConnecté("Rigaud", "Zoé", new DateTime(2001, 01, 04), "zoezoe", "MotDePasseZoe", "zoe@orange.fr"));
+            Console.WriteLine("Création des utilisateurs\n\n");
+            //mngr.CréerUtilisateur(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()));
+            //mngr.CréerUtilisateur(new UtilisateurConnecté("Chevassus", "Noe", new DateTime(2001, 06, 21), "shotlouf", "MotDePasseNoe", "noe@orange.fr", new List<JeuVidéo>()));
+            //mngr.CréerUtilisateur(new UtilisateurConnecté("Zemili", "Adel", new DateTime(2001, 12, 16), "adel88", "MotDePasseAdel", "adel@orange.fr", new List<JeuVidéo>()));
+            //mngr.CréerUtilisateur(new UtilisateurConnecté("Rigaud", "Zoé", new DateTime(2001, 01, 04), "zoezoe", "MotDePasseZoe", "zoe@orange.fr", new List<JeuVidéo>()));
 
-            //mngr.ListeUtilisateur.Sort();
+            mngr.ListeUtilisateur.Sort();
             Console.WriteLine("Pour vous connecter, veuillez renseigner votre mot de passe");
-            // Console.WriteLine(mngr.Connexion(mngr.RechercherUtilisateur("paul_b63"), Console.ReadLine()));
+            Console.WriteLine(mngr.Connexion(mngr.RechercherUtilisateur("paul_b63")));
             mngr.Connexion(new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()));
 
-            //Console.WriteLine("\n\nAjout des jeux à l'application\n\n");
+            Console.WriteLine("\n\nAjout des jeux à l'application\n\n");
             //mngr.AjouterJeu(jeuvidéo1, mngr.UtilisateurCourant);
             //mngr.AjouterJeu(jeuvidéo2, mngr.UtilisateurCourant);
             //mngr.AjouterJeu(jeuvidéo3, mngr.UtilisateurCourant);
             //mngr.AjouterJeu(jeuvidéo3, mngr.UtilisateurCourant);
 
+            Console.WriteLine("\nSuppression des jeux à l'application\n\n");
+            mngr.SupprimerJeu(jeuvidéo1, mngr.UtilisateurCourant);
+
             Console.WriteLine("Test des méthodes de tris\n\n");
             Tris.TriPlateForme(PlateForme.Ps4, mngr.ListeJeuxAux);
-            //Console.WriteLine("Ajout d'un favori par l'utilisateur courant\n\n");
-            //mngr.UtilisateurCourant.AjouterFav(jeuvidéo2);
+
+            Console.WriteLine("Ajout d'un favori par l'utilisateur courant\n\n");
+            mngr.UtilisateurCourant.AjouterFav(jeuvidéo2);
+            mngr.UtilisateurCourant.AjouterFav(jeuvidéo3);
+            mngr.UtilisateurCourant.AjouterFav(jeuvidéo1);
+            mngr.UtilisateurCourant.AjouterFav(jeuvidéo4);
+
+            Console.WriteLine("Suppression d'un favori par l'utilisateur courant\n\n");
+            mngr.UtilisateurCourant.SupprimerFav(jeuvidéo2);
+            mngr.UtilisateurCourant.SupprimerFav(jeuvidéo3);
+
+            Console.WriteLine("Test de recherche d'un jeu avec début de nom\n\n");
+            Console.WriteLine(mngr.RechercherJeuTextBox("min"));
+
+
+            Console.WriteLine("Test de recherche d'un utilisateur avec nom complet\n\n");
+            Console.WriteLine(mngr.RechercherUtilisateur("shotlouf"));
+
+            Console.WriteLine("Test de la vérification des favoris\n\n");
+            mngr.VerifFavoris();
 
             Console.WriteLine("Description de l'application\n\n");
             Console.WriteLine(mngr);

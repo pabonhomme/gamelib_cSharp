@@ -33,6 +33,9 @@ namespace Test_JeuVidéo
                 Console.WriteLine("Message s'ils sont égaux avec test equals");
             }
 
+            Console.WriteLine("Vérification du calcul de lien Pegi");
+            Console.WriteLine(jeuvidéo2.LienPegi);
+
             Console.WriteLine(jeuvidéo1);
         }
     }

@@ -8,10 +8,10 @@ namespace Test_UtilisateurConnnecté
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Test pour l'utilisateur connecté");
+            Console.WriteLine("Test pour l'utilisateur connecté\n");
 
             UtilisateurConnecté utilisateur1 = new Administrateur("Bonhomme", "Paul", new DateTime(2001, 11, 18), "paul_b63", "MotDePassePaul", "polo.clash@gmail.com", new List<JeuVidéo>()) ;
-
+            UtilisateurConnecté utilisateur2 = new Administrateur("Chevassus", "Noe", new DateTime(2001, 06, 21), "shotlouf", "MotDePasseNoe", "noe@orange.fr", new List<JeuVidéo>());
             JeuVidéo jeuvidéo1 = new JeuVidéo("Minecraft", 4, 29.99f, "Minecraft est un jeu vidéo de type « bac à sable » (construction complètement libre). Il s'agit d'un univers composé de voxels et généré aléatoirement, qui intègre un système d'artisanat axé sur l'exploitation puis la transformation de ressources naturelles (minéralogiques, fossiles, animales et végétales). ",
                  "https://youtu.be/MmB9b5njVbA",
                  AppDomain.CurrentDomain.BaseDirectory + "../../../img/Minecraft.jpg", "https://www.instant-gaming.com/fr/442-acheter-cle-minecraft/",
@@ -27,13 +27,27 @@ namespace Test_UtilisateurConnnecté
                  Genre.Action, Pegi.DixHuits, new List<PlateForme>() { PlateForme.Pc, PlateForme.Ps4, PlateForme.Xbox360, PlateForme.XboxOne, PlateForme.Ps3 });
 
 
-            //utilisateur1.ajouterfav(jeuvidéo1);
-            //utilisateur1.ajouterfav(jeuvidéo2);
 
-
+            Console.WriteLine("Ajout en favoris de deux jeux\n");
+            utilisateur1.AjouterFav(jeuvidéo1);
+            utilisateur1.AjouterFav(jeuvidéo2);
 
             Console.WriteLine(utilisateur1);
 
+            Console.WriteLine("\nSuppression des favoris du deuxiemes jeu\n");
+            utilisateur1.SupprimerFav(jeuvidéo2);
+
+            Console.WriteLine(utilisateur1);
+
+            Console.WriteLine("\nTest des protocoles d'égalités\n");
+            if (utilisateur1 == utilisateur2)
+            {
+                Console.WriteLine("Message s'ils sont égaux avec test ==");
+            }
+            if (utilisateur1.Equals(utilisateur1))
+            {
+                Console.WriteLine("Message s'ils sont égaux avec test equals");
+            }
         }
     }
 }
