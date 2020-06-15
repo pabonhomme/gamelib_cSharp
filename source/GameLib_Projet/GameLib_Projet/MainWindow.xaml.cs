@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace GameLib_Projet
 {
@@ -42,9 +43,9 @@ namespace GameLib_Projet
         private void ComboBoxGenre_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxGenre = (ComboBox)sender;
-            if (ComboBoxGenre.SelectedItem == null) 
+            if (ComboBoxGenre.SelectedItem == null)
             {
-                ReinitialiserListeAux(); 
+                ReinitialiserListeAux();
                 return;
             }
             var GenreSelectionné = (ComboBoxItem)ComboBoxGenre.SelectedItem; //Prend l'élément sélectionné de la combobox
@@ -69,14 +70,14 @@ namespace GameLib_Projet
         private void ComboBoxLimiteAge_SelectionChangedEvent(object sender, SelectionChangedEventArgs e)
         {
             ComboBox ComboBoxLimiteAge = (ComboBox)sender;
-            if (ComboBoxLimiteAge.SelectedItem == null) 
+            if (ComboBoxLimiteAge.SelectedItem == null)
             {
                 ReinitialiserListeAux();
                 return;
             }
             var LimiteSelectionnée = (ComboBoxItem)ComboBoxLimiteAge.SelectedItem; //Prend l'élément sélectionné de la combobox
 
-            if (LimiteSelectionnée == Pegi3) 
+            if (LimiteSelectionnée == Pegi3)
             {
                 Manager.ListeJeuxAux = Tris.TriLimiteAge(Pegi.Trois, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant Pegi3 selectionné par l'utilisateur
             }
@@ -125,8 +126,8 @@ namespace GameLib_Projet
             Manager.ListeJeuxAux = Tris.TriNote(note, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux possedant la note selectionnée par l'utilisateur
             if (Manager.ListeJeuxAux.Count() == 0) //Si pas de jeux trouvé pour la note sélectionnée alors remise à 0 de la ListeJeuxAux
             {
-                ReinitialiserListeAux();  
-                ReinitialiserCombobox(); 
+                ReinitialiserListeAux();
+                ReinitialiserCombobox();
                 MessageBox.Show("Aucun jeu ne correspond à votre recherche. Veuillez réessayez avec un autre critère.", "Erreur recherche", MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
@@ -186,6 +187,12 @@ namespace GameLib_Projet
                 Manager.ListeJeuxAux = Tris.TriFavoris(false, Manager.ListeJeuxAux); //Mets dans la ListeJeuxAux, les jeux non favori de l'utilisateur connecté
             }
 
+            if (Manager.ListeJeuxAux.Count() == 0)
+            {
+                ReinitialiserListeAux();
+                ReinitialiserCombobox();
+            }
+
         }
 
         /// <summary>
@@ -204,7 +211,7 @@ namespace GameLib_Projet
         /// <summary>
         /// Méthode permettant de réinitialiser la ListeJeuxAux
         /// </summary>
-            private void ReinitialiserListeAux()
+        private void ReinitialiserListeAux()
         {
             Manager.ListeJeuxArray = new JeuVidéo[Manager.ListeJeux.Count()]; // Instancie le tableau de tous les jeux vidéos (ListeJeuxArray) pour la copie 
 
@@ -274,5 +281,69 @@ namespace GameLib_Projet
             }
 
         }
+
+        /// <summary>
+        /// Méthode click du BoutonYoutube permettant de lancer Youtube sur son navigateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoutonYoutube_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on met le lien de youtube et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = "https://www.youtube.com/", UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+
+        /// <summary>
+        /// Méthode click du BoutonTwitch permettant de lancer Twitch sur son navigateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoutonTwitch_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on met le lien de twitch et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = "https://www.twitch.tv/", UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+
+        /// <summary>
+        /// Méthode click du BoutonTwitter permettant de lancer Twitter sur son navigateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoutonTwitter_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on met le lien de twitter et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = "https://twitter.com/", UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+
+        /// <summary>
+        /// Méthode click du BoutonInstagram permettant de lancer Instagram sur son navigateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BoutonInstagram_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on met le lien d'instagram et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = "http://instagram.com/", UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+
+        /// <summary>
+        /// Méthode click du BoutonFacebook permettant de lancer facebook sur son navigateur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void BoutonFacebook_Click(object sender, RoutedEventArgs e)
+        {
+            // Ici on met le lien de facebook et on lance le navigateur par défaut pour ouvrir le lien
+            var info = new System.Diagnostics.ProcessStartInfo { FileName = "https://www.facebook.com/", UseShellExecute = true };
+            System.Diagnostics.Process.Start(info);
+        }
+
+
+
     }
 }

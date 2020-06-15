@@ -17,17 +17,17 @@ namespace Persistance
         /// <summary>
         /// Chemin relatif qui situe le dossier dans lequel on veut sauvegarder les données
         /// </summary>
-        public string FilePath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "..//XML");
+        private string FilePath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "..//XML");
 
         /// <summary>
         /// Nom du fichier dans lequel on veut sauvegarder les données
         /// </summary>
-        public string FileName { get; set; } = "Game_Lib.XML";
+        private string FileName { get; set; } = "Game_Lib.XML";
 
         /// <summary>
         /// Combinaison du chemin et du nom du fichier à l'aide la méthode combine
         /// </summary>
-        string DataFile => Path.Combine(FilePath, FileName);
+        private string DataFile => Path.Combine(FilePath, FileName);
 
         /// <summary>
         /// Liste de jeux qui va récuperer les données chargées
@@ -67,7 +67,10 @@ namespace Persistance
             }
 
             ListeJeux = dataToPersist.ListeJeux.ToPOCOs().ToList(); // transformation de la ListeJeux DTO en ListeJeux POCO (objet métier)
-            ListeUtilisateurConnecté = dataToPersist.ListeUtilisateurs.ToPOCOS(ListeJeux).ToList(); // transformation de la ListeUtilisateur DTO en ListeJeux POCO (objet métier)
+
+            ListeUtilisateurConnecté = dataToPersist.ListeUtilisateurs.ToPOCOS(ListeJeux).ToList(); // transformation de la ListeUtilisateur DTO en ListeUtilisateur POCO (objet métier)
+            
+            ListeUtilisateurConnecté.AddRange(dataToPersist.ListeAdministrateurs.ToPOCOS(ListeJeux).ToList()); // transformation de la ListeAdministrateur DTO en ListeAdministrateurs POCO (objet métier)
 
             return (ListeJeux.Select(m => m.Clone()).Cast<JeuVidéo>().AsEnumerable(), ListeUtilisateurConnecté); // Renvoie des deux liste dont Listjeux a ses jeux clonés pour eviter problème référence dans le modèle
         }
@@ -86,7 +89,21 @@ namespace Persistance
 
             DataToPersist dataToPersist = new DataToPersist(); // initialisation des collections DTO
             dataToPersist.ListeJeux.AddRange(jeuVidéos.ToDTOs()); // Ajouts des jeux POCO en jeux DTO pour être persistés
-            dataToPersist.ListeUtilisateurs.AddRange(utilisateursConnectés.ToDTOs()); // Ajouts des utlisateurs POCO en jeux DTO pour être persistés
+
+            foreach(UtilisateurConnecté user in utilisateursConnectés) // Enumère tous les utilisateurs POCO de la liste d'utilisateur
+            {
+                if (user is Administrateur)
+                {
+                    Administrateur admin = user as Administrateur;
+                    dataToPersist.ListeAdministrateurs.Add(admin.ToDTO()); // Ajouts des administrateurs POCO en administrateurs DTO pour être persistés
+                    continue; // Si user est un admin alors on recommence pour ne pas ajouter le user deux fois dans le XML
+                }
+                if (user is UtilisateurConnecté)
+                {
+                    dataToPersist.ListeUtilisateurs.Add(user.ToDTO()); // Ajouts des utlisateurs POCO en utilisateurs DTO pour être persistés                    
+                }
+                
+            }            
 
             var paramètres = new XmlWriterSettings() { Indent = true }; // instancie une classe qui permet de choisir des paramètres pour l'écriture dans le fichier de sauvegarde
 

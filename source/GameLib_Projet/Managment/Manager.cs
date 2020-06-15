@@ -11,6 +11,7 @@ using Persistance;
 
 namespace Managment
 {
+
     public partial class Manager : INotifyPropertyChanged
     {
         /// <summary>
@@ -36,7 +37,7 @@ namespace Managment
         /// Contructeur de manager
         /// </summary>
         /// <param name="dataManager">Données pour l'application</param>
-        public Manager(IDataManager dataManager )
+        public Manager(IDataManager dataManager)
         {
             DataManager = dataManager;
             ChargeDonnées();
@@ -49,58 +50,66 @@ namespace Managment
         {
 
         }
-
+        /// <summary>
+        /// Méthode permettant de charger les données de l'application
+        /// </summary>
         public void ChargeDonnées()
         {
             var données = DataManager.ChargeDonnées();
-            foreach(var jeu in données.jeuVidéos)
+            foreach (var jeu in données.jeuVidéos)
             {
-                ListeJeux.Add(jeu);
+                ListeJeux.Add(jeu); //Ajoute les jeux chargés à la liste de jeux
             }
-            ListeJeux.Sort();
-            ListeJeuxArray = new JeuVidéo[ListeJeux.Count()];
+            ListeJeux.Sort(); //Trie la liste jeu par ordre alphabétique
+            ListeJeuxArray = new JeuVidéo[ListeJeux.Count()]; //Instancie le tableau de tous les jeux vidéos(ListeJeuxArray) pour la copie
             for (int i = 0; i < ListeJeux.Count(); i++)
             {
-                ListeJeuxArray[i] = ListeJeux[i].Clone() as JeuVidéo; //si vous avez implémenté ICloneable                                                                      
+                ListeJeuxArray[i] = ListeJeux[i].Clone() as JeuVidéo; // sélectionne tous les jeux de ListeJeux, les clonent et les mets dans le tableau ListeJeuxArray                                                                  
             }
 
-            ListeJeuxAux = new ObservableCollection<JeuVidéo>(ListeJeuxArray);
+            ListeJeuxAux = new ObservableCollection<JeuVidéo>(ListeJeuxArray); //Instancie la ListeJeuxAux qui sert pour les tris à partir du tableau ListeJeuxArray
+
 
             foreach (var user in données.utilisateursConnectés)
             {
-                ListeUtilisateur.Add(user);
+                ListeUtilisateur.Add(user); //Ajoute les utilisateurs chargés à la liste d'utilisateur
             }
         }
 
-
+        /// <summary>
+        /// Méthode permettant la sauvegarde des données
+        /// </summary>
         public void SauvegardeDonnées()
         {
             DataManager.SauvegardeDonnées(ListeJeux, ListeUtilisateur);
         }
 
+        /// <summary>
+        /// Méthode permettant de mettre à jour les jeux favoris de l'utilisateurs dans la listeJeuxAux qui sert pour les tris
+        /// </summary>
         public void VerifFavoris()
         {
-            foreach (UtilisateurConnecté user in ListeUtilisateur)
+            foreach (UtilisateurConnecté user in ListeUtilisateur) //Pour tous les utilisatuers de la ListeUtilisateur
             {
 
-                if (user.Equals(UtilisateurCourant))
+                if (user.Equals(UtilisateurCourant)) //Si un des utilsiateur de la ListeUtilisateur est égal à l'utilisateur courant de l'appli
                 {
-                    user.ListeFavoris = UtilisateurCourant.ListeFavoris;
+                    user.ListeFavoris = UtilisateurCourant.ListeFavoris; //On récupère la liste de favoris de l'utilisateur courant
                     foreach (JeuVidéo jeuAux in ListeJeuxAux)
-                    {                        
-                        foreach (JeuVidéo jeuUser in UtilisateurCourant.ListeFavoris)
+                    {
+                        foreach (JeuVidéo jeuUser in UtilisateurCourant.ListeFavoris) //Pour tous les jeux vidéos de la liste favori de l'utilisateur courant
                         {
 
-                            if (jeuUser.Equals(jeuAux))
+                            if (jeuUser.Equals(jeuAux)) //Si le jeu favori de l'utilisateur courant est égal au jeu vidéo de la ListeJeuAux
                             {
-                                jeuAux.EstFavori = true;
+                                jeuAux.EstFavori = true; //On met les jeux de ListeJeuxAux en favori en fonction des favoris de l'utilisateur connecté
                             }
                         }
                     }
 
                 }
             }
-            
+
         }
 
         /// <summary>
@@ -135,6 +144,6 @@ namespace Managment
             }
 
             return appli;
-        }        
+        }
     }
 }

@@ -29,6 +29,9 @@ namespace GameLib_Projet
 
         public static Navigator Navigator => Navigator.GetInstance();
 
+        /// <summary>
+        /// Nouvel utilisateur
+        /// </summary>
         private UtilisateurConnecté nouveauUtilisateur;
 
         public UtilisateurConnecté NouveauUtilisateur
@@ -167,7 +170,7 @@ namespace GameLib_Projet
                 Navigator.NavigateTo("UC_Connexion");
             }
 
-            
+
 
 
 

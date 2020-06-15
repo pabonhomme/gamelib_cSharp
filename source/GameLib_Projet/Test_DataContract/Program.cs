@@ -19,7 +19,7 @@ namespace Test_DataContract
             Console.WriteLine(manager.ListeUtilisateur[0]);
             manager.SauvegardeDonnées();
 
-            //Manager manager2 = new Manager(new BddDataManager());
+            Manager manager2 = new Manager(new BddDataManager());
             
         }
     }
